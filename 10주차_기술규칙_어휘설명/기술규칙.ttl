@@ -1,0 +1,524 @@
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dia:Scene a rdfs:Class ;
+    rdfs:label "생활 장면"@ko ;
+    rdfs:comment "먹고, 부르고, 일하고, 배우는 생활문화의 한 장면. 사건(Event)이나 개념(Concept) 어느 쪽에도 맞지 않는 서사 단위."@ko .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/bibo-AcademicArticle> a sh:NodeShape ;
+    rdfs:label "출처(논문)"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "수록 학술지·단행본"@ko ;
+            sh:path dcterms:isPartOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "제목"@ko ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "원문 공개 여부"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "접근 조건"@ko ;
+            sh:path dcterms:accessRights ],
+        [ sh:datatype xsd:string ;
+            sh:description "URI 문자열"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "링크"@ko ;
+            sh:path bibo:uri ],
+        [ sh:datatype xsd:string ;
+            sh:description "미확인인 경우가 있음"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "발행 연도"@ko ;
+            sh:path dcterms:date ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:name "저자"@ko ;
+            sh:path dcterms:creator ] ;
+    sh:targetClass bibo:AcademicArticle .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/bibo-Document> a sh:NodeShape ;
+    rdfs:label "출처(기타 문서)"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "원문 공개 여부"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "접근 조건"@ko ;
+            sh:path dcterms:accessRights ],
+        [ sh:datatype xsd:string ;
+            sh:description "URI 문자열"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "링크"@ko ;
+            sh:path bibo:uri ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "수록 학술지·단행본"@ko ;
+            sh:path dcterms:isPartOf ],
+        [ sh:datatype xsd:string ;
+            sh:description "미확인인 경우가 있음"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "발행 연도"@ko ;
+            sh:path dcterms:date ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:name "저자"@ko ;
+            sh:path dcterms:creator ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "제목"@ko ;
+            sh:path dcterms:title ] ;
+    sh:targetClass bibo:Document .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/bibo-Thesis> a sh:NodeShape ;
+    rdfs:label "출처(학위논문)"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:name "저자"@ko ;
+            sh:path dcterms:creator ],
+        [ sh:datatype xsd:string ;
+            sh:description "URI 문자열"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "링크"@ko ;
+            sh:path bibo:uri ],
+        [ sh:datatype xsd:string ;
+            sh:description "원문 공개 여부"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "접근 조건"@ko ;
+            sh:path dcterms:accessRights ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "제목"@ko ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "미확인인 경우가 있음"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "발행 연도"@ko ;
+            sh:path dcterms:date ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "수록 학술지·단행본"@ko ;
+            sh:path dcterms:isPartOf ] ;
+    sh:targetClass bibo:Thesis .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/dcterms-Location> a sh:NodeShape ;
+    rdfs:label "장소"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "AP의 '(Mapping 모듈) 좌표'. geo:lon 이 아님"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "경도"@ko ;
+            sh:path geo:long ],
+        [ sh:description "그라운딩 대상"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "외부 전거(GeoNames/Wikidata)"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path skos:exactMatch ],
+        [ sh:datatype xsd:string ;
+            sh:description "AP의 '(Mapping 모듈) 좌표'. 십진 문자열"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "위도"@ko ;
+            sh:path geo:lat ],
+        [ sh:class dcterms:Location ;
+            sh:description "대상 클래스: dcterms:Location; 계층 확장 검색용"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "상위 장소"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:isPartOf ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "이름"@ko ;
+            sh:path dcterms:title ] ;
+    sh:targetClass dcterms:Location .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/dctype-MovingImage> a sh:NodeShape ;
+    rdfs:label "자료(영상)"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "값: 신문 지면 / 사진 / 문서 / 영상"@ko ;
+            sh:in ( "신문 지면" "사진" "문서" "영상" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "유형"@ko ;
+            sh:path dcterms:type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "제목"@ko ;
+            sh:path dcterms:title ],
+        [ sh:class foaf:Group ;
+            sh:description "대상 클래스: foaf:Group"@ko ;
+            sh:minCount 1 ;
+            sh:name "문화권"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ],
+        [ sh:datatype xsd:string ;
+            sh:description "IIIF·재배포 가능 여부 판단의 기준"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "이용 조건"@ko ;
+            sh:path dcterms:rights ],
+        [ sh:datatype xsd:string ;
+            sh:description "\"출처ID:쪽\" 문자열. 문헌 속에 인용된 자료일 때"@ko ;
+            sh:minCount 0 ;
+            sh:name "근거 출처와 쪽수"@ko ;
+            sh:path dia:citation ],
+        [ sh:datatype xsd:string ;
+            sh:description "1차 자료는 연도 미상이 많아 선택. 없으면 화면에 '연도 미상'"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "생산 연도"@ko ;
+            sh:path dcterms:date ],
+        [ sh:description "URI"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "원 소장처 링크"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:source ],
+        [ sh:class dia:Scene ;
+            sh:description "대상 클래스: dia:Scene; 자료 하나가 여러 장면의 증거가 될 수 있음"@ko ;
+            sh:minCount 0 ;
+            sh:name "관련 생활 장면"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:relation ] ;
+    sh:targetClass dctype:MovingImage .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/dctype-StillImage> a sh:NodeShape ;
+    rdfs:label "자료(사진·지면)"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "IIIF·재배포 가능 여부 판단의 기준"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "이용 조건"@ko ;
+            sh:path dcterms:rights ],
+        [ sh:class foaf:Group ;
+            sh:description "대상 클래스: foaf:Group"@ko ;
+            sh:minCount 1 ;
+            sh:name "문화권"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ],
+        [ sh:description "URI"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "원 소장처 링크"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
+            sh:description "값: 신문 지면 / 사진 / 문서 / 영상"@ko ;
+            sh:in ( "신문 지면" "사진" "문서" "영상" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "유형"@ko ;
+            sh:path dcterms:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "\"출처ID:쪽\" 문자열. 문헌 속에 인용된 자료일 때"@ko ;
+            sh:minCount 0 ;
+            sh:name "근거 출처와 쪽수"@ko ;
+            sh:path dia:citation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "제목"@ko ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "1차 자료는 연도 미상이 많아 선택. 없으면 화면에 '연도 미상'"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "생산 연도"@ko ;
+            sh:path dcterms:date ],
+        [ sh:class dia:Scene ;
+            sh:description "대상 클래스: dia:Scene; 자료 하나가 여러 장면의 증거가 될 수 있음"@ko ;
+            sh:minCount 0 ;
+            sh:name "관련 생활 장면"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:relation ] ;
+    sh:targetClass dctype:StillImage .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/dctype-Text> a sh:NodeShape ;
+    rdfs:label "자료(문서)"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "IIIF·재배포 가능 여부 판단의 기준"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "이용 조건"@ko ;
+            sh:path dcterms:rights ],
+        [ sh:description "URI"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "원 소장처 링크"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
+            sh:description "\"출처ID:쪽\" 문자열. 문헌 속에 인용된 자료일 때"@ko ;
+            sh:minCount 0 ;
+            sh:name "근거 출처와 쪽수"@ko ;
+            sh:path dia:citation ],
+        [ sh:datatype xsd:string ;
+            sh:description "1차 자료는 연도 미상이 많아 선택. 없으면 화면에 '연도 미상'"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "생산 연도"@ko ;
+            sh:path dcterms:date ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "제목"@ko ;
+            sh:path dcterms:title ],
+        [ sh:class dia:Scene ;
+            sh:description "대상 클래스: dia:Scene; 자료 하나가 여러 장면의 증거가 될 수 있음"@ko ;
+            sh:minCount 0 ;
+            sh:name "관련 생활 장면"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:relation ],
+        [ sh:class foaf:Group ;
+            sh:description "대상 클래스: foaf:Group"@ko ;
+            sh:minCount 1 ;
+            sh:name "문화권"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ],
+        [ sh:datatype xsd:string ;
+            sh:description "값: 신문 지면 / 사진 / 문서 / 영상"@ko ;
+            sh:in ( "신문 지면" "사진" "문서" "영상" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "유형"@ko ;
+            sh:path dcterms:type ] ;
+    sh:targetClass dctype:Text .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/dia-Scene> a sh:NodeShape ;
+    rdfs:label "생활 장면"@ko ;
+    sh:property [ sh:description "대상 클래스: dcterms:Location 또는 foaf:Group"@ko ;
+            sh:minCount 1 ;
+            sh:name "장소·문화권"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:or ( [ sh:class dcterms:Location ] [ sh:class foaf:Group ] ) ;
+            sh:path dcterms:spatial ],
+        [ sh:datatype xsd:string ;
+            sh:description "값: 먹는 것 / 부르는 것 / 일하는 것 / 배우는 것"@ko ;
+            sh:in ( "먹는 것" "부르는 것" "일하는 것" "배우는 것" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "생활문화의 측면"@ko ;
+            sh:path dia:aspect ],
+        [ sh:class skos:Concept ;
+            sh:description "대상 클래스: skos:Concept; '부르는 것' 장면은 가리키는 대상이 없을 수 있음"@ko ;
+            sh:minCount 0 ;
+            sh:name "다루는 생활 대상"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:subject ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "시기"@ko ;
+            sh:path dcterms:temporal ],
+        [ sh:description "대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document; 근거 없는 장면을 막음"@ko ;
+            sh:minCount 1 ;
+            sh:name "근거 출처"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:or ( [ sh:class bibo:AcademicArticle ] [ sh:class bibo:Thesis ] [ sh:class bibo:Document ] ) ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
+            sh:description "\"출처ID:쪽\" 문자열"@ko ;
+            sh:minCount 1 ;
+            sh:name "근거 쪽수"@ko ;
+            sh:path dia:citation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "장면 제목"@ko ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "원문을 옮기지 않고 바꿔 씀"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "설명"@ko ;
+            sh:path dcterms:description ] ;
+    sh:targetClass dia:Scene .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/foaf-Group> a sh:NodeShape ;
+    rdfs:label "문화권"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "이름"@ko ;
+            sh:path dcterms:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "이름 외 고유 정보가 있어 클래스로 둠"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "이동 개요"@ko ;
+            sh:path dcterms:description ],
+        [ sh:class dcterms:Location ;
+            sh:description "대상 클래스: dcterms:Location"@ko ;
+            sh:minCount 1 ;
+            sh:name "주요 장소"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ],
+        [ sh:description "대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document"@ko ;
+            sh:minCount 1 ;
+            sh:name "근거 출처"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:or ( [ sh:class bibo:AcademicArticle ] [ sh:class bibo:Thesis ] [ sh:class bibo:Document ] ) ;
+            sh:path dcterms:source ] ;
+    sh:targetClass foaf:Group .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/skos-Concept> a sh:NodeShape ;
+    rdfs:label "생활 대상"@ko ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "설명"@ko ;
+            sh:path skos:definition ],
+        [ sh:description "대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document"@ko ;
+            sh:minCount 1 ;
+            sh:name "근거 출처"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:or ( [ sh:class bibo:AcademicArticle ] [ sh:class bibo:Thesis ] [ sh:class bibo:Document ] ) ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
+            sh:description "AP 문서는 @ko. 그라운더·스타터킷은 평문을 요구(가이드 §2.4)"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "대표 이름(한국어)"@ko ;
+            sh:path skos:prefLabel ],
+        [ sh:datatype xsd:string ;
+            sh:description "값: 먹는 것 / 부르는 것 / 일하는 것 / 배우는 것"@ko ;
+            sh:in ( "먹는 것" "부르는 것" "일하는 것" "배우는 것" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "생활문화의 측면"@ko ;
+            sh:path dia:aspect ],
+        [ sh:description "그라운딩 대상"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "외부 전거(Wikidata)"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path skos:exactMatch ] ;
+    sh:targetClass skos:Concept .
+
+<https://yunu-jeon.github.io/DH-Korean-Diaspora/ap/shape/skosxl-Label> a sh:NodeShape ;
+    rdfs:label "어휘"@ko ;
+    sh:property [ sh:class skos:Concept ;
+            sh:description "대상 클래스: skos:Concept; 활동을 가리키는 말(고본질 등)은 비워 두고 dia:gloss 로 뜻을 적음"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "가리키는 생활 대상"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dia:denotes ],
+        [ sh:description "대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document"@ko ;
+            sh:minCount 1 ;
+            sh:name "근거 출처"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:or ( [ sh:class bibo:AcademicArticle ] [ sh:class bibo:Thesis ] [ sh:class bibo:Document ] ) ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:string ;
+            sh:description "ISO 639-3 코드(rus, jpn, eng, kor)"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "기원 언어"@ko ;
+            sh:path dia:sourceLanguage ],
+        [ sh:datatype xsd:string ;
+            sh:description "보고된 사실과 해석을 분리"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 0 ;
+            sh:name "어원 설명(연구자 해석)"@ko ;
+            sh:path dia:etymologyNote ],
+        [ sh:class foaf:Group ;
+            sh:description "대상 클래스: foaf:Group"@ko ;
+            sh:minCount 1 ;
+            sh:name "쓰인 문화권"@ko ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ],
+        [ sh:datatype xsd:string ;
+            sh:description "AP 문서는 언어 태그. 그라운더·스타터킷은 평문을 요구(가이드 §2.4)"@ko ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "표기"@ko ;
+            sh:path skosxl:literalForm ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kim Chee / 김치처럼 검색에 필요"@ko ;
+            sh:minCount 0 ;
+            sh:name "이표기"@ko ;
+            sh:path dia:variantForm ],
+        [ sh:datatype xsd:string ;
+            sh:description "\"출처ID:쪽\" 문자열"@ko ;
+            sh:minCount 1 ;
+            sh:name "근거 쪽수"@ko ;
+            sh:path dia:citation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:name "뜻"@ko ;
+            sh:path dia:gloss ] ;
+    sh:targetClass skosxl:Label .
+
+dia:basis a rdf:Property ;
+    rdfs:label "값 종류"@ko ;
+    rdfs:comment "값 하나의 성격 — '보고'(문헌이 보고한 사실), '해석'(연구자·큐레이터의 해석), '문헌 외'(문헌에 없어 편집자가 보탠 값, 예: 근사 좌표) 중 하나. 자원 전체가 아니라 값마다 붙이며, Omeka S 에서는 값 주석(value annotation)에 쓴다."@ko ;
+    rdfs:range xsd:string .
+
+dia:denotes a rdf:Property ;
+    rdfs:label "가리키는 생활 대상"@ko ;
+    rdfs:comment "이 말이 가리키는 생활 대상. 말과 대상을 분리하는 핵심 연결이다. '고본질'처럼 사물이 아닌 활동을 가리키는 말이나 호칭은 비워 두고 dia:gloss 로 뜻을 적는다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range skos:Concept .
+
+dia:etymologyNote a rdf:Property ;
+    rdfs:label "어원 설명(연구자 해석)"@ko ;
+    rdfs:comment "어원에 대한 연구자의 해석. 문헌이 보고한 사실(dia:gloss)과 해석을 분리하려고 따로 둔다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:gloss a rdf:Property ;
+    rdfs:label "뜻"@ko ;
+    rdfs:comment "이 말의 뜻. SKOS-XL 에서 이름표는 원래 뜻을 갖지 않지만, 문화권마다 미묘하게 다른 뜻을 담으려고 어휘에 둔다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:sourceLanguage a rdf:Property ;
+    rdfs:label "기원 언어"@ko ;
+    rdfs:comment "이 말이 온 언어의 ISO 639-3 코드(rus, jpn, eng, kor). dcterms:language 는 '자원이 쓰인 언어'라 뜻이 달라 따로 둔다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:variantForm a rdf:Property ;
+    rdfs:label "이표기"@ko ;
+    rdfs:comment "같은 말의 다른 표기(예: Kim Chee / 김치, Кукси / 국시). 검색에 필요하다. 표기마다 쓰인 시기·매체는 담지 못한다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:aspect a rdf:Property ;
+    rdfs:label "생활문화의 측면"@ko ;
+    rdfs:comment "생활문화의 네 측면 중 하나 — 값은 '먹는 것', '부르는 것', '일하는 것', '배우는 것'. 한 장면이 여러 측면에 걸쳐도 대표 측면 하나만 고르며, 그 선택은 큐레이터의 해석이다."@ko ;
+    rdfs:range xsd:string .
+
+dia:citation a rdf:Property ;
+    rdfs:label "근거 쪽수"@ko ;
+    rdfs:comment "근거 출처와 쪽수를 \"출처ID:쪽\" 문자열로 적는다(예: kwon2020:108). 쪽은 PDF 쪽이 아니라 인쇄된 쪽수, 웹 문헌은 절 이름. dcterms:source 는 문헌만 가리키므로 쪽수를 따로 둔다."@ko ;
+    rdfs:range xsd:string .
+

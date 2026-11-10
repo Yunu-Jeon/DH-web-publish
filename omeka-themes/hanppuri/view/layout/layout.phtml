@@ -1,0 +1,78 @@
+<?php
+// 「한 뿌리, 다른 땅」 정적 사이트(DH-Korean-Diaspora)의 헤더·본문 틀·푸터를 Omeka 사이트에 옮긴 레이아웃
+$escape = $this->plugin('escapeHtml');
+$translate = $this->plugin('translate');
+$siteTitle = $site->title();
+$this->htmlElement('html')->setAttribute('lang', $this->lang());
+$this->headMeta()->setCharset('utf-8');
+$this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
+$this->headTitle($siteTitle)->setSeparator(' · ');
+$this->headTitle()->append($this->setting('installation_title', 'Omeka S'));
+// 글꼴: 본문 Noto Sans KR, 제목 Noto Serif KR(명조) — 정적 사이트와 같음
+$this->headLink()->prependStylesheet($this->assetUrl('css/style.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
+$this->headLink()->prependStylesheet('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap');
+$this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
+$this->jsTranslate();
+$this->trigger('view.layout');
+$userBar = $this->userBar();
+$archiveUrl = 'https://yunu-jeon.github.io/DH-Korean-Diaspora/';
+?>
+<?php echo $this->doctype(); ?>
+<?php echo $this->htmlElement('html'); ?>
+    <head>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headTitle(); ?>
+        <link rel="icon" href="<?php echo $escape($this->assetUrl('img/favicon.svg')); ?>" type="image/svg+xml">
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->headStyle(); ?>
+        <?php echo $this->headScript(); ?>
+    </head>
+
+    <?php echo $this->htmlElement('body'); ?>
+        <!-- 본문 바로가기(키보드 사용자용) -->
+        <a class="skip-link" href="#content">본문 바로가기</a>
+        <?php echo $userBar; ?>
+
+        <!-- 헤더: 로고와 제목(홈으로), 메뉴, 긴 검색창 -->
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="brand" href="<?php echo $escape($site->url()); ?>" aria-label="<?php echo $escape($siteTitle); ?> — 홈">
+                    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                        <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M16 26 V17"/><path d="M16 17 C16 13 11 12 7.5 8.5"/><path d="M16 17 V6.5"/><path d="M16 17 C16 13 21 12 24.5 8.5"/></g>
+                        <circle cx="16" cy="26" r="2.8" fill="var(--accent)"/><circle cx="7.5" cy="8.5" r="2" fill="currentColor"/><circle cx="16" cy="6.5" r="2" fill="currentColor"/><circle cx="24.5" cy="8.5" r="2" fill="currentColor"/>
+                    </svg>
+                    <span><?php echo $escape($siteTitle); ?></span>
+                </a>
+                <nav class="main-nav" aria-label="사이트 메뉴">
+                    <?php echo $site->publicNav()->menu()->renderMenu(null, ['maxDepth' => 0]); ?>
+                </nav>
+                <!-- 검색창: 아이템 전문 검색(이표기 포함) -->
+                <form class="search-form" role="search" action="<?php echo $escape($this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], true)); ?>" method="get">
+                    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></g></svg>
+                    <label class="sr-only" for="site-q">아카이브 검색(어휘·음식·장면, 이표기 포함)</label>
+                    <input id="site-q" name="fulltext_search" type="search" placeholder="말·음식·장면 검색 (예: Kim Chee, 김치)" autocomplete="off" value="<?php echo $escape($this->params()->fromQuery('fulltext_search', '')); ?>">
+                    <button type="submit">검색</button>
+                </form>
+            </div>
+        </header>
+
+        <main id="content">
+            <?php echo $this->content; ?>
+        </main>
+
+        <!-- 푸터 -->
+        <footer class="site-footer">
+            <div class="inner">
+                <?php if ($footerContent = $this->themeSetting('footer')): ?>
+                <?php echo $footerContent; ?>
+                <?php else: ?>
+                <p><?php echo $escape($siteTitle); ?> — 한인 디아스포라 생활문화·어휘 아카이브.
+                    <a href="<?php echo $escape($archiveUrl); ?>">아카이브 사이트</a> ·
+                    <a href="<?php echo $escape($archiveUrl . 'ns'); ?>">Diaspora Ontology</a></p>
+                <?php endif; ?>
+            </div>
+        </footer>
+    </body>
+</html>

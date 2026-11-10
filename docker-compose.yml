@@ -24,6 +24,8 @@ services:
   omekas_db:
     image: mysql:8.4
     restart: unless-stopped
+    # 한국어 두 글자 낱말(김치, 국시 등)도 전문 검색되게 한다(기본값 3)
+    command: --innodb-ft-min-token-size=1
     volumes:
       - omekas_db:/var/lib/mysql
     environment:

@@ -1,0 +1,17 @@
+<!-- 파비콘: 헤더 로고(한 뿌리에서 세 갈래가 뻗는 모양)를 둥근 사각 바탕 위에 올린 것 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- 바탕: 브라우저 탭의 밝은/어두운 배경 어디서나 보이도록 짙은 흙색 -->
+  <rect width="32" height="32" rx="7" fill="#3b2f27"/>
+  <!-- 줄기와 세 갈래 -->
+  <g fill="none" stroke="#f4ede4" stroke-width="2.2" stroke-linecap="round">
+    <path d="M16 26 V17"/>
+    <path d="M16 17 C16 13 11 12 7.5 8.5"/>
+    <path d="M16 17 V6.5"/>
+    <path d="M16 17 C16 13 21 12 24.5 8.5"/>
+  </g>
+  <!-- 뿌리 점과 갈래 끝 점 -->
+  <circle cx="16" cy="26" r="2.6" fill="#d9a066"/>
+  <circle cx="7.5" cy="8.5" r="2" fill="#f4ede4"/>
+  <circle cx="16" cy="6.5" r="2" fill="#f4ede4"/>
+  <circle cx="24.5" cy="8.5" r="2" fill="#f4ede4"/>
+</svg>

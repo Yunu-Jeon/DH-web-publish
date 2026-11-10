@@ -1,0 +1,74 @@
+﻿shapeID,shapeLabel,propertyID,propertyLabel,mandatory,repeatable,valueNodeType,valueDataType,note
+dctype:Text,자료(문서),dcterms:title,제목,TRUE,FALSE,literal,string,
+dctype:Text,자료(문서),dcterms:type,유형,TRUE,FALSE,literal,string,값: 신문 지면 / 사진 / 문서 / 영상
+dctype:Text,자료(문서),dcterms:date,생산 연도,FALSE,FALSE,literal,string,1차 자료는 연도 미상이 많아 선택. 없으면 화면에 '연도 미상'
+dctype:Text,자료(문서),dcterms:rights,이용 조건,TRUE,FALSE,literal,string,IIIF·재배포 가능 여부 판단의 기준
+dctype:Text,자료(문서),dcterms:source,원 소장처 링크,TRUE,FALSE,IRI,,URI
+dctype:Text,자료(문서),dcterms:spatial,문화권,TRUE,TRUE,IRI,,대상 클래스: foaf:Group
+dctype:Text,자료(문서),dcterms:relation,관련 생활 장면,FALSE,TRUE,IRI,,대상 클래스: dia:Scene; 자료 하나가 여러 장면의 증거가 될 수 있음
+dctype:Text,자료(문서),dia:citation,근거 출처와 쪽수,FALSE,TRUE,literal,string,"""출처ID:쪽"" 문자열. 문헌 속에 인용된 자료일 때"
+dctype:StillImage,자료(사진·지면),dcterms:title,제목,TRUE,FALSE,literal,string,
+dctype:StillImage,자료(사진·지면),dcterms:type,유형,TRUE,FALSE,literal,string,값: 신문 지면 / 사진 / 문서 / 영상
+dctype:StillImage,자료(사진·지면),dcterms:date,생산 연도,FALSE,FALSE,literal,string,1차 자료는 연도 미상이 많아 선택. 없으면 화면에 '연도 미상'
+dctype:StillImage,자료(사진·지면),dcterms:rights,이용 조건,TRUE,FALSE,literal,string,IIIF·재배포 가능 여부 판단의 기준
+dctype:StillImage,자료(사진·지면),dcterms:source,원 소장처 링크,TRUE,FALSE,IRI,,URI
+dctype:StillImage,자료(사진·지면),dcterms:spatial,문화권,TRUE,TRUE,IRI,,대상 클래스: foaf:Group
+dctype:StillImage,자료(사진·지면),dcterms:relation,관련 생활 장면,FALSE,TRUE,IRI,,대상 클래스: dia:Scene; 자료 하나가 여러 장면의 증거가 될 수 있음
+dctype:StillImage,자료(사진·지면),dia:citation,근거 출처와 쪽수,FALSE,TRUE,literal,string,"""출처ID:쪽"" 문자열. 문헌 속에 인용된 자료일 때"
+dctype:MovingImage,자료(영상),dcterms:title,제목,TRUE,FALSE,literal,string,
+dctype:MovingImage,자료(영상),dcterms:type,유형,TRUE,FALSE,literal,string,값: 신문 지면 / 사진 / 문서 / 영상
+dctype:MovingImage,자료(영상),dcterms:date,생산 연도,FALSE,FALSE,literal,string,1차 자료는 연도 미상이 많아 선택. 없으면 화면에 '연도 미상'
+dctype:MovingImage,자료(영상),dcterms:rights,이용 조건,TRUE,FALSE,literal,string,IIIF·재배포 가능 여부 판단의 기준
+dctype:MovingImage,자료(영상),dcterms:source,원 소장처 링크,TRUE,FALSE,IRI,,URI
+dctype:MovingImage,자료(영상),dcterms:spatial,문화권,TRUE,TRUE,IRI,,대상 클래스: foaf:Group
+dctype:MovingImage,자료(영상),dcterms:relation,관련 생활 장면,FALSE,TRUE,IRI,,대상 클래스: dia:Scene; 자료 하나가 여러 장면의 증거가 될 수 있음
+dctype:MovingImage,자료(영상),dia:citation,근거 출처와 쪽수,FALSE,TRUE,literal,string,"""출처ID:쪽"" 문자열. 문헌 속에 인용된 자료일 때"
+dia:Scene,생활 장면,dcterms:title,장면 제목,TRUE,FALSE,literal,string,
+dia:Scene,생활 장면,dcterms:description,설명,TRUE,FALSE,literal,string,원문을 옮기지 않고 바꿔 씀
+dia:Scene,생활 장면,dcterms:subject,다루는 생활 대상,FALSE,TRUE,IRI,,대상 클래스: skos:Concept; '부르는 것' 장면은 가리키는 대상이 없을 수 있음
+dia:Scene,생활 장면,dcterms:spatial,장소·문화권,TRUE,TRUE,IRI,,대상 클래스: dcterms:Location 또는 foaf:Group
+dia:Scene,생활 장면,dcterms:temporal,시기,FALSE,FALSE,literal,string,
+dia:Scene,생활 장면,dia:aspect,생활문화의 측면,TRUE,FALSE,literal,string,값: 먹는 것 / 부르는 것 / 일하는 것 / 배우는 것
+dia:Scene,생활 장면,dcterms:source,근거 출처,TRUE,TRUE,IRI,,대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document; 근거 없는 장면을 막음
+dia:Scene,생활 장면,dia:citation,근거 쪽수,TRUE,TRUE,literal,string,"""출처ID:쪽"" 문자열"
+skos:Concept,생활 대상,skos:prefLabel,대표 이름(한국어),TRUE,FALSE,literal,string,AP 문서는 @ko. 그라운더·스타터킷은 평문을 요구(가이드 §2.4)
+skos:Concept,생활 대상,skos:definition,설명,FALSE,FALSE,literal,string,
+skos:Concept,생활 대상,dia:aspect,생활문화의 측면,TRUE,FALSE,literal,string,값: 먹는 것 / 부르는 것 / 일하는 것 / 배우는 것
+skos:Concept,생활 대상,skos:exactMatch,외부 전거(Wikidata),FALSE,FALSE,IRI,,그라운딩 대상
+skos:Concept,생활 대상,dcterms:source,근거 출처,TRUE,TRUE,IRI,,대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document
+skosxl:Label,어휘,skosxl:literalForm,표기,TRUE,FALSE,literal,string,AP 문서는 언어 태그. 그라운더·스타터킷은 평문을 요구(가이드 §2.4)
+skosxl:Label,어휘,dia:variantForm,이표기,FALSE,TRUE,literal,string,Kim Chee / 김치처럼 검색에 필요
+skosxl:Label,어휘,dia:gloss,뜻,TRUE,FALSE,literal,string,
+skosxl:Label,어휘,dia:denotes,가리키는 생활 대상,FALSE,FALSE,IRI,,대상 클래스: skos:Concept; 활동을 가리키는 말(고본질 등)은 비워 두고 dia:gloss 로 뜻을 적음
+skosxl:Label,어휘,dcterms:spatial,쓰인 문화권,TRUE,TRUE,IRI,,대상 클래스: foaf:Group
+skosxl:Label,어휘,dia:sourceLanguage,기원 언어,FALSE,FALSE,literal,string,"ISO 639-3 코드(rus, jpn, eng, kor)"
+skosxl:Label,어휘,dia:etymologyNote,어원 설명(연구자 해석),FALSE,FALSE,literal,string,보고된 사실과 해석을 분리
+skosxl:Label,어휘,dcterms:source,근거 출처,TRUE,TRUE,IRI,,대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document
+skosxl:Label,어휘,dia:citation,근거 쪽수,TRUE,TRUE,literal,string,"""출처ID:쪽"" 문자열"
+dcterms:Location,장소,dcterms:title,이름,TRUE,FALSE,literal,string,
+dcterms:Location,장소,geo:lat,위도,TRUE,FALSE,literal,string,AP의 '(Mapping 모듈) 좌표'. 십진 문자열
+dcterms:Location,장소,geo:long,경도,TRUE,FALSE,literal,string,AP의 '(Mapping 모듈) 좌표'. geo:lon 이 아님
+dcterms:Location,장소,dcterms:isPartOf,상위 장소,FALSE,FALSE,IRI,,대상 클래스: dcterms:Location; 계층 확장 검색용
+dcterms:Location,장소,skos:exactMatch,외부 전거(GeoNames/Wikidata),FALSE,FALSE,IRI,,그라운딩 대상
+foaf:Group,문화권,dcterms:title,이름,TRUE,FALSE,literal,string,
+foaf:Group,문화권,dcterms:description,이동 개요,TRUE,FALSE,literal,string,이름 외 고유 정보가 있어 클래스로 둠
+foaf:Group,문화권,dcterms:spatial,주요 장소,TRUE,TRUE,IRI,,대상 클래스: dcterms:Location
+foaf:Group,문화권,dcterms:source,근거 출처,TRUE,TRUE,IRI,,대상 클래스: bibo:AcademicArticle 또는 bibo:Thesis 또는 bibo:Document
+bibo:AcademicArticle,출처(논문),dcterms:creator,저자,TRUE,TRUE,literal,string,
+bibo:AcademicArticle,출처(논문),dcterms:title,제목,TRUE,FALSE,literal,string,
+bibo:AcademicArticle,출처(논문),dcterms:date,발행 연도,FALSE,FALSE,literal,string,미확인인 경우가 있음
+bibo:AcademicArticle,출처(논문),dcterms:isPartOf,수록 학술지·단행본,FALSE,FALSE,literal,string,
+bibo:AcademicArticle,출처(논문),bibo:uri,링크,FALSE,FALSE,literal,string,URI 문자열
+bibo:AcademicArticle,출처(논문),dcterms:accessRights,접근 조건,TRUE,FALSE,literal,string,원문 공개 여부
+bibo:Thesis,출처(학위논문),dcterms:creator,저자,TRUE,TRUE,literal,string,
+bibo:Thesis,출처(학위논문),dcterms:title,제목,TRUE,FALSE,literal,string,
+bibo:Thesis,출처(학위논문),dcterms:date,발행 연도,FALSE,FALSE,literal,string,미확인인 경우가 있음
+bibo:Thesis,출처(학위논문),dcterms:isPartOf,수록 학술지·단행본,FALSE,FALSE,literal,string,
+bibo:Thesis,출처(학위논문),bibo:uri,링크,FALSE,FALSE,literal,string,URI 문자열
+bibo:Thesis,출처(학위논문),dcterms:accessRights,접근 조건,TRUE,FALSE,literal,string,원문 공개 여부
+bibo:Document,출처(기타 문서),dcterms:creator,저자,TRUE,TRUE,literal,string,
+bibo:Document,출처(기타 문서),dcterms:title,제목,TRUE,FALSE,literal,string,
+bibo:Document,출처(기타 문서),dcterms:date,발행 연도,FALSE,FALSE,literal,string,미확인인 경우가 있음
+bibo:Document,출처(기타 문서),dcterms:isPartOf,수록 학술지·단행본,FALSE,FALSE,literal,string,
+bibo:Document,출처(기타 문서),bibo:uri,링크,FALSE,FALSE,literal,string,URI 문자열
+bibo:Document,출처(기타 문서),dcterms:accessRights,접근 조건,TRUE,FALSE,literal,string,원문 공개 여부

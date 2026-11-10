@@ -1,0 +1,56 @@
+@prefix dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dia:Scene a rdfs:Class ;
+    rdfs:label "생활 장면"@ko ;
+    rdfs:comment "먹고, 부르고, 일하고, 배우는 생활문화의 한 장면. 사건(Event)이나 개념(Concept) 어느 쪽에도 맞지 않는 서사 단위."@ko .
+
+dia:aspect a rdf:Property ;
+    rdfs:label "생활문화의 측면"@ko ;
+    rdfs:comment "생활문화의 네 측면 중 하나 — 값은 '먹는 것', '부르는 것', '일하는 것', '배우는 것'. 한 장면이 여러 측면에 걸쳐도 대표 측면 하나만 고르며, 그 선택은 큐레이터의 해석이다."@ko ;
+    rdfs:range xsd:string .
+
+dia:basis a rdf:Property ;
+    rdfs:label "값 종류"@ko ;
+    rdfs:comment "값 하나의 성격 — '보고'(문헌이 보고한 사실), '해석'(연구자·큐레이터의 해석), '문헌 외'(문헌에 없어 편집자가 보탠 값, 예: 근사 좌표) 중 하나. 자원 전체가 아니라 값마다 붙이며, Omeka S 에서는 값 주석(value annotation)에 쓴다."@ko ;
+    rdfs:range xsd:string .
+
+dia:citation a rdf:Property ;
+    rdfs:label "근거 쪽수"@ko ;
+    rdfs:comment "근거 출처와 쪽수를 \"출처ID:쪽\" 문자열로 적는다(예: kwon2020:108). 쪽은 PDF 쪽이 아니라 인쇄된 쪽수, 웹 문헌은 절 이름. dcterms:source 는 문헌만 가리키므로 쪽수를 따로 둔다."@ko ;
+    rdfs:range xsd:string .
+
+dia:denotes a rdf:Property ;
+    rdfs:label "가리키는 생활 대상"@ko ;
+    rdfs:comment "이 말이 가리키는 생활 대상. 말과 대상을 분리하는 핵심 연결이다. '고본질'처럼 사물이 아닌 활동을 가리키는 말이나 호칭은 비워 두고 dia:gloss 로 뜻을 적는다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range skos:Concept .
+
+dia:etymologyNote a rdf:Property ;
+    rdfs:label "어원 설명(연구자 해석)"@ko ;
+    rdfs:comment "어원에 대한 연구자의 해석. 문헌이 보고한 사실(dia:gloss)과 해석을 분리하려고 따로 둔다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:gloss a rdf:Property ;
+    rdfs:label "뜻"@ko ;
+    rdfs:comment "이 말의 뜻. SKOS-XL 에서 이름표는 원래 뜻을 갖지 않지만, 문화권마다 미묘하게 다른 뜻을 담으려고 어휘에 둔다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:sourceLanguage a rdf:Property ;
+    rdfs:label "기원 언어"@ko ;
+    rdfs:comment "이 말이 온 언어의 ISO 639-3 코드(rus, jpn, eng, kor). dcterms:language 는 '자원이 쓰인 언어'라 뜻이 달라 따로 둔다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+
+dia:variantForm a rdf:Property ;
+    rdfs:label "이표기"@ko ;
+    rdfs:comment "같은 말의 다른 표기(예: Kim Chee / 김치, Кукси / 국시). 검색에 필요하다. 표기마다 쓰인 시기·매체는 담지 못한다."@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range xsd:string .
+

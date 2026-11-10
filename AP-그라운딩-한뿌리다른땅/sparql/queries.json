@@ -1,0 +1,67 @@
+{
+  "graph": "https://yunu-jeon.github.io/DH-Korean-Diaspora/graph/grounding",
+  "note": "Omeka Sparql 모듈의 ARC2 저장소는 MySQL 8 에서 (1) 필수 패턴이 5개 이상인 조인, (2) \"i\" 옵션 없는 REGEX 가 실패한다. 그래서 필수 패턴은 4개까지, 나머지는 OPTIONAL 로 두고 REGEX 에는 늘 \"i\" 를 준다.",
+  "prefixes": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>\n",
+  "queries": [
+    {
+      "id": "word-search",
+      "title": "말 검색 — 이표기까지 찾기",
+      "scenario": "‘김치’로 찾으면 표기·이표기·뜻에 김치가 들어간 말이 문화권과 함께 나온다(Kim Chee, キムチ 등). 따옴표 안의 낱말을 바꿔 검색한다.",
+      "query": "SELECT DISTINCT ?form ?group ?gloss\nFROM <GRAPH>\nWHERE {\n  ?label skosxl:literalForm ?form ;\n         dia:gloss ?gloss ;\n         dcterms:spatial ?g .\n  OPTIONAL { ?g dcterms:title ?group }\n  OPTIONAL { ?label dia:variantForm ?variant }\n  FILTER(REGEX(?form, \"김치\", \"i\") || REGEX(?variant, \"김치\", \"i\") || REGEX(?gloss, \"김치\", \"i\"))\n}\nORDER BY ?group ?form"
+    },
+    {
+      "id": "one-root",
+      "title": "한 뿌리, 다른 이름 — 같은 대상을 문화권마다 어떻게 부르나",
+      "scenario": "말(어휘)과 대상(생활 대상)을 나눈 AP 설계의 핵심 질의. 생활 대상 하나에 문화권별 말이 모인다.",
+      "query": "SELECT ?object ?group ?form\nFROM <GRAPH>\nWHERE {\n  ?label dia:denotes ?c ;\n         skosxl:literalForm ?form ;\n         dcterms:spatial ?g .\n  ?c skos:prefLabel ?object .\n  OPTIONAL { ?g dcterms:title ?group }\n}\nORDER BY ?object ?group ?form"
+    },
+    {
+      "id": "aspect-scenes",
+      "title": "측면별 생활 장면 — ‘먹는 것’",
+      "scenario": "전시의 네 부분(먹는 것·부르는 것·일하는 것·배우는 것) 가운데 하나를 골라 장면을 문화권과 함께 본다. 따옴표 안을 다른 측면으로 바꿀 수 있다.",
+      "query": "SELECT ?group ?scene ?period\nFROM <GRAPH>\nWHERE {\n  ?s dia:aspect \"먹는 것\" ;\n     dcterms:title ?scene ;\n     dcterms:spatial ?g .\n  ?g a foaf:Group .\n  OPTIONAL { ?g dcterms:title ?group }\n  OPTIONAL { ?s dcterms:temporal ?period }\n}\nORDER BY ?group ?scene"
+    },
+    {
+      "id": "group-aspect-count",
+      "title": "문화권 × 측면 — 장면 수",
+      "scenario": "세 문화권의 생활문화가 네 측면에 어떻게 퍼져 있는지 한눈에 본다(전시 구성의 균형 점검).",
+      "query": "SELECT ?group ?aspect (COUNT(?s) AS ?scenes)\nFROM <GRAPH>\nWHERE {\n  ?s dia:aspect ?aspect ;\n     dcterms:spatial ?g .\n  ?g a foaf:Group ;\n     dcterms:title ?group .\n}\nGROUP BY ?group ?aspect\nORDER BY ?group ?aspect"
+    },
+    {
+      "id": "scene-evidence",
+      "title": "장면의 근거 문헌",
+      "scenario": "근거 없는 장면을 막는다는 AP 원칙을 확인한다. 장면마다 근거 문헌과 저자를 본다.",
+      "query": "SELECT ?scene ?source ?author\nFROM <GRAPH>\nWHERE {\n  ?s a dia:Scene ;\n     dcterms:title ?scene ;\n     dcterms:source ?ref .\n  OPTIONAL { ?ref dcterms:title ?source }\n  OPTIONAL { ?ref dcterms:creator ?author }\n}\nORDER BY ?scene ?source"
+    },
+    {
+      "id": "pages-of-source",
+      "title": "한 문헌이 근거가 된 자원 — 쪽수로 찾기",
+      "scenario": "출처 ID(예: kwon2020)로 그 문헌의 어느 쪽이 어떤 장면·말·장소의 근거인지 본다. 따옴표 안의 출처 ID를 바꿀 수 있다.",
+      "query": "SELECT ?page ?id\nFROM <GRAPH>\nWHERE {\n  ?s dia:citation ?page ;\n     rico:identifier ?id .\n  FILTER(REGEX(?page, \"^kwon2020:\", \"i\"))\n}\nORDER BY ?page ?id"
+    },
+    {
+      "id": "borrowed-words",
+      "title": "다른 땅에서 들어온 말 — 기원 언어별 어휘",
+      "scenario": "러시아어(rus)·일본어(jpn)·영어(eng)에서 들어온 말을 뜻과 함께 본다.",
+      "query": "SELECT ?language ?form ?group ?gloss\nFROM <GRAPH>\nWHERE {\n  ?label skosxl:literalForm ?form ;\n         dia:sourceLanguage ?language ;\n         dia:gloss ?gloss ;\n         dcterms:spatial ?g .\n  OPTIONAL { ?g dcterms:title ?group }\n  FILTER(?language != \"kor\")\n}\nORDER BY ?language ?form"
+    },
+    {
+      "id": "interpretation",
+      "title": "사실과 해석 나누어 보기 — 연구자의 어원 해석",
+      "scenario": "문헌이 보고한 뜻(dia:gloss)과 연구자의 해석(dia:etymologyNote)을 나란히 본다.",
+      "query": "SELECT ?form ?gloss ?etymology\nFROM <GRAPH>\nWHERE {\n  ?label skosxl:literalForm ?form ;\n         dia:gloss ?gloss ;\n         dia:etymologyNote ?etymology .\n}\nORDER BY ?form"
+    },
+    {
+      "id": "places",
+      "title": "장소와 상위 장소 — 좌표 포함",
+      "scenario": "장소를 상위 장소별로 모아 본다. 좌표는 모두 문헌 외 근사값이라 검수 메모를 함께 보인다.",
+      "query": "SELECT ?parent ?place ?lat ?long ?note\nFROM <GRAPH>\nWHERE {\n  ?p a dcterms:Location ;\n     dcterms:title ?place .\n  OPTIONAL { ?p dcterms:isPartOf ?pp . ?pp dcterms:title ?parent }\n  OPTIONAL { ?p geo:lat ?lat }\n  OPTIONAL { ?p geo:long ?long }\n  OPTIONAL { ?p skos:editorialNote ?note }\n}\nORDER BY ?parent ?place"
+    },
+    {
+      "id": "to-check",
+      "title": "검수할 것 — ‘확인 필요’ 메모",
+      "scenario": "비어 있는 필수값이나 확인이 필요한 값을 숨기지 않고 모아 본다.",
+      "query": "SELECT ?id ?note\nFROM <GRAPH>\nWHERE {\n  ?s skos:editorialNote ?note ;\n     rico:identifier ?id .\n  FILTER(REGEX(?note, \"^확인 필요\", \"i\"))\n}\nORDER BY ?id"
+    }
+  ]
+}

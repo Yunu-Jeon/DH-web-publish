@@ -1,0 +1,90 @@
+﻿shapeID,shapeLabel,propertyID,propertyLabel,mandatory,repeatable,valueNodeType,valueDataType,valueConstraint,layer,note
+dia:Scene,생활 장면,rdf:type,표준 타입 병기,TRUE,TRUE,IRI,,hasValue rico:Activity,화면,12종 중 정확히 1개
+dia:Scene,생활 장면,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,원 사이트 ID(scene:…)
+dia:Scene,생활 장면,dcterms:title,장면 제목,TRUE,FALSE,literal,string,,AP,
+dia:Scene,생활 장면,rico:name,화면 이름,TRUE,FALSE,literal,string,,화면,dcterms:title 과 같은 값(가이드 §2.3)
+dia:Scene,생활 장면,dcterms:description,설명,TRUE,FALSE,literal,string,,AP,문장 배열을 순서대로 이은 하나
+dia:Scene,생활 장면,rico:generalDescription,화면 설명,FALSE,FALSE,literal,string,,화면,문학 속 재현이면 앞에 표시
+dia:Scene,생활 장면,dcterms:subject,다루는 생활 대상,FALSE,TRUE,IRI,,class skos:Concept,AP,
+dia:Scene,생활 장면,rico:isRelatedTo,관계망 간선,FALSE,TRUE,IRI,,,화면,생활 대상·문화권으로(hasOrHadSubject 는 domain 위반이라 쓰지 않음)
+dia:Scene,생활 장면,dcterms:spatial,장소·문화권,TRUE,TRUE,IRI,,,AP,
+dia:Scene,생활 장면,rico:isAssociatedWithPlace,관련 장소,FALSE,TRUE,IRI,,class rico:Place,화면,장면 → 장소 한 방향(§2.9)
+dia:Scene,생활 장면,dcterms:temporal,시기,FALSE,FALSE,literal,string,,AP,서술형이라 rico 날짜 술어에 넣지 않음(§2.5)
+dia:Scene,생활 장면,dia:aspect,생활문화의 측면,TRUE,FALSE,literal,string,"in (""먹는 것"" ""부르는 것"" ""일하는 것"" ""배우는 것"")",AP,
+dia:Scene,생활 장면,rico:hasActivityType,측면 개념,TRUE,FALSE,IRI,,class rico:ActivityType,화면,dia:aspect 값과 같은 측면
+dia:Scene,생활 장면,dcterms:source,근거 출처,TRUE,TRUE,IRI,,class rico:Record,근거,
+dia:Scene,생활 장면,dia:citation,근거 쪽수,TRUE,TRUE,literal,string,pattern ^[^:]+:.+$,근거,출처ID:쪽
+dia:Scene,생활 장면,rico:isOrWasSubjectOf,컬렉션 소속,TRUE,FALSE,IRI,,class rico:RecordSet,화면,
+skos:Concept,생활 대상,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,
+skos:Concept,생활 대상,skos:prefLabel,대표 이름,TRUE,FALSE,literal,string,,AP,AP는 @ko 이지만 가이드 §2.4에 따라 평문
+skos:Concept,생활 대상,skos:altLabel,비우선어,FALSE,TRUE,literal,string,,화면,측면 개념의 한자 표기
+skos:Concept,생활 대상,skos:definition,설명,FALSE,FALSE,literal,string,,AP,
+skos:Concept,생활 대상,dia:aspect,생활문화의 측면,FALSE,FALSE,literal,string,"in (""먹는 것"" ""부르는 것"" ""일하는 것"" ""배우는 것"")",AP,측면 개념 자신에는 없음
+skos:Concept,생활 대상,skos:broader,상위 측면,FALSE,FALSE,IRI,,class skos:Concept,화면,dia:aspect 를 계층으로(하위→상위)
+skos:Concept,생활 대상,skos:exactMatch,외부 전거,FALSE,FALSE,IRI,,,AP,
+skos:Concept,생활 대상,skos:inScheme,소속 개념체계,TRUE,FALSE,IRI,,class skos:ConceptScheme,화면,
+skos:Concept,생활 대상,dcterms:source,근거 출처,FALSE,TRUE,IRI,,class rico:Record,근거,AP 1..n — 측면 개념에는 없어 0으로 둠(아래 sparql 제약이 생활 대상만 검사)
+skos:Concept,생활 대상,dia:citation,근거 쪽수,FALSE,TRUE,literal,string,pattern ^[^:]+:.+$,근거,
+skosxl:Label,어휘,rdf:type,표준 타입 병기,TRUE,TRUE,IRI,,hasValue rico:Concept,화면,
+skosxl:Label,어휘,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,
+skosxl:Label,어휘,skosxl:literalForm,표기,TRUE,FALSE,literal,string,,AP,언어태그는 dcterms:language 로 옮김
+skosxl:Label,어휘,skos:prefLabel,화면 이름,TRUE,FALSE,literal,string,,화면,literalForm 과 같은 값
+skosxl:Label,어휘,dcterms:language,표기의 언어,FALSE,FALSE,literal,string,"pattern ^[a-z]{2,3}$",화면,떼어 낸 언어태그(내보내기 전용 보조)
+skosxl:Label,어휘,dia:variantForm,이표기,FALSE,TRUE,literal,string,,AP,
+skosxl:Label,어휘,skos:altLabel,검색용 이표기,FALSE,TRUE,literal,string,,화면,dia:variantForm 과 같은 값
+skosxl:Label,어휘,dia:gloss,뜻,TRUE,FALSE,literal,string,,AP,
+skosxl:Label,어휘,rico:generalDescription,화면 설명,FALSE,FALSE,literal,string,,화면,dia:gloss 와 같은 값
+skosxl:Label,어휘,dia:denotes,가리키는 생활 대상,FALSE,FALSE,IRI,,class skos:Concept,AP,
+skosxl:Label,어휘,rico:isRelatedTo,관계망 간선,FALSE,TRUE,IRI,,,화면,생활 대상·문화권으로
+skosxl:Label,어휘,dcterms:spatial,쓰인 문화권,TRUE,TRUE,IRI,,class foaf:Group,AP,
+skosxl:Label,어휘,dia:sourceLanguage,기원 언어,FALSE,FALSE,literal,string,pattern ^[a-z]{3}$,AP,ISO 639-3
+skosxl:Label,어휘,dia:etymologyNote,어원 설명,FALSE,FALSE,literal,string,,AP,연구자 해석
+skosxl:Label,어휘,skos:inScheme,소속 개념체계,TRUE,FALSE,IRI,,class skos:ConceptScheme,화면,
+skosxl:Label,어휘,dcterms:source,근거 출처,TRUE,TRUE,IRI,,class rico:Record,근거,
+skosxl:Label,어휘,dia:citation,근거 쪽수,TRUE,TRUE,literal,string,pattern ^[^:]+:.+$,근거,
+skosxl:Label,어휘,rico:isOrWasSubjectOf,컬렉션 소속,TRUE,FALSE,IRI,,class rico:RecordSet,화면,
+dcterms:Location,장소,rdf:type,표준 타입 병기,TRUE,TRUE,IRI,,hasValue rico:Place,화면,
+dcterms:Location,장소,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,
+dcterms:Location,장소,dcterms:title,이름,TRUE,FALSE,literal,string,,AP,
+dcterms:Location,장소,rico:name,화면 이름,TRUE,FALSE,literal,string,,화면,
+dcterms:Location,장소,geo:lat,위도,TRUE,FALSE,literal,string,"pattern ^-?[0-9]{1,2}\\.[0-9]+$",AP,십진 문자열(§2.6)
+dcterms:Location,장소,geo:long,경도,TRUE,FALSE,literal,string,"pattern ^-?[0-9]{1,3}\\.[0-9]+$",AP,geo:lon 이 아님
+dcterms:Location,장소,dcterms:isPartOf,상위 장소,FALSE,FALSE,IRI,,class dcterms:Location,AP,
+dcterms:Location,장소,rico:isOrWasContainedBy,상위 장소(간선),FALSE,FALSE,IRI,,class rico:Place,화면,RiC-O: 장소 → 장소
+dcterms:Location,장소,skos:exactMatch,외부 전거,FALSE,FALSE,IRI,,,AP,
+dcterms:Location,장소,dia:citation,근거 쪽수,FALSE,TRUE,literal,string,pattern ^[^:]+:.+$,근거,
+foaf:Group,문화권,rdf:type,표준 타입 병기,TRUE,TRUE,IRI,,hasValue rico:Concept,화면,
+foaf:Group,문화권,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,
+foaf:Group,문화권,dcterms:title,이름,TRUE,FALSE,literal,string,,AP,
+foaf:Group,문화권,skos:prefLabel,화면 이름,TRUE,FALSE,literal,string,,화면,
+foaf:Group,문화권,dcterms:description,이동 개요,TRUE,FALSE,literal,string,,AP,문장 배열을 이은 하나
+foaf:Group,문화권,rico:generalDescription,화면 설명,FALSE,FALSE,literal,string,,화면,
+foaf:Group,문화권,dcterms:spatial,주요 장소,TRUE,TRUE,IRI,,class dcterms:Location,AP,
+foaf:Group,문화권,rico:isAssociatedWithPlace,주요 장소(간선),FALSE,TRUE,IRI,,class rico:Place,화면,
+foaf:Group,문화권,skos:inScheme,소속 개념체계,TRUE,FALSE,IRI,,class skos:ConceptScheme,화면,
+foaf:Group,문화권,dcterms:source,근거 출처,TRUE,TRUE,IRI,,class rico:Record,근거,
+bibo:AcademicArticle,출처,rdf:type,표준 타입 병기,TRUE,TRUE,IRI,,hasValue rico:Record,화면,
+bibo:AcademicArticle,출처,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,
+bibo:AcademicArticle,출처,dcterms:creator,저자,TRUE,TRUE,literal,string,,AP,문자열(AP에 인물 클래스 없음)
+bibo:AcademicArticle,출처,dcterms:title,제목,TRUE,FALSE,literal,string,,AP,
+bibo:AcademicArticle,출처,rico:title,화면 이름,TRUE,FALSE,literal,string,,화면,기록류 이름은 rico:title
+bibo:AcademicArticle,출처,dcterms:date,발행 연도,FALSE,FALSE,literal,string,,AP,
+bibo:AcademicArticle,출처,dcterms:isPartOf,수록 학술지·단행본,FALSE,FALSE,literal,string,,AP,
+bibo:AcademicArticle,출처,bibo:uri,링크,FALSE,FALSE,literal,string,,AP,
+bibo:AcademicArticle,출처,dcterms:accessRights,접근 조건,TRUE,FALSE,literal,string,,AP,
+bibo:AcademicArticle,출처,rico:isOrWasIncludedIn,컬렉션 소속,TRUE,FALSE,IRI,,class rico:RecordSet,화면,기록류의 소속 술어(§2.8)
+dctype:Text,자료,rdf:type,표준 타입 병기,TRUE,TRUE,IRI,,hasValue rico:Record,화면,
+dctype:Text,자료,dcterms:title,제목,TRUE,FALSE,literal,string,,AP,
+dctype:Text,자료,rico:title,화면 이름,TRUE,FALSE,literal,string,,화면,
+dctype:Text,자료,dcterms:type,유형,TRUE,FALSE,literal,string,,AP,
+dctype:Text,자료,dcterms:date,생산 연도,FALSE,FALSE,literal,string,,AP,
+dctype:Text,자료,dcterms:rights,이용 조건,TRUE,FALSE,literal,string,,AP,
+dctype:Text,자료,dcterms:source,원 소장처 링크,TRUE,FALSE,IRI,,,AP,
+dctype:Text,자료,dcterms:spatial,문화권,TRUE,TRUE,IRI,,class foaf:Group,AP,
+dctype:Text,자료,dcterms:relation,관련 생활 장면,FALSE,TRUE,IRI,,class dia:Scene,AP,
+dctype:Text,자료,dia:citation,근거 쪽수,FALSE,TRUE,literal,string,pattern ^[^:]+:.+$,근거,
+dctype:Text,자료,rico:isOrWasIncludedIn,컬렉션 소속,TRUE,FALSE,IRI,,class rico:RecordSet,화면,
+skos:ConceptScheme,개념체계,skos:prefLabel,체계 이름,TRUE,FALSE,literal,string,,화면,
+skos:ConceptScheme,개념체계,rico:identifier,식별자,TRUE,FALSE,literal,string,,화면,
+skos:ConceptScheme,개념체계,skos:scopeNote,범위,FALSE,FALSE,literal,string,,화면,
+rico:RecordSet,컬렉션,rico:title,컬렉션 이름,TRUE,FALSE,literal,string,,화면,지역명은 col- 로 시작

@@ -1,0 +1,655 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix ric: <http://archives.nanet.go.kr/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#> .
+
+
+ric:ap-shape-scene a sh:NodeShape ;
+    sh:targetClass dia:Scene ;
+    rdfs:label "생활 장면"@ko ;
+    rdfs:comment "AP 생활 장면. 화면용 표준 타입은 rico:Activity 를 병기한다."@ko ;
+    sh:property [ sh:path rdf:type ;
+        sh:name "표준 타입 병기"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue rico:Activity ;
+        sh:description "[화면] 12종 중 정확히 1개"@ko ] ,
+      [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] 원 사이트 ID(scene:…)"@ko ] ,
+      [ sh:path dcterms:title ;
+        sh:name "장면 제목"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:name ;
+        sh:name "화면 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] dcterms:title 과 같은 값(가이드 §2.3)"@ko ] ,
+      [ sh:path dcterms:description ;
+        sh:name "설명"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] 문장 배열을 순서대로 이은 하나"@ko ] ,
+      [ sh:path rico:generalDescription ;
+        sh:name "화면 설명"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] 문학 속 재현이면 앞에 표시"@ko ] ,
+      [ sh:path dcterms:subject ;
+        sh:name "다루는 생활 대상"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:Concept ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:isRelatedTo ;
+        sh:name "관계망 간선"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:description "[화면] 생활 대상·문화권으로(hasOrHadSubject 는 domain 위반이라 쓰지 않음)"@ko ] ,
+      [ sh:path dcterms:spatial ;
+        sh:name "장소·문화권"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:isAssociatedWithPlace ;
+        sh:name "관련 장소"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Place ;
+        sh:description "[화면] 장면 → 장소 한 방향(§2.9)"@ko ] ,
+      [ sh:path dcterms:temporal ;
+        sh:name "시기"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] 서술형이라 rico 날짜 술어에 넣지 않음(§2.5)"@ko ] ,
+      [ sh:path dia:aspect ;
+        sh:name "생활문화의 측면"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:in ("먹는 것" "부르는 것" "일하는 것" "배우는 것") ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:hasActivityType ;
+        sh:name "측면 개념"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:ActivityType ;
+        sh:description "[화면] dia:aspect 값과 같은 측면"@ko ] ,
+      [ sh:path dcterms:source ;
+        sh:name "근거 출처"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Record ;
+        sh:description "[근거]"@ko ] ,
+      [ sh:path dia:citation ;
+        sh:name "근거 쪽수"@ko ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^:]+:.+$" ;
+        sh:description "[근거] 출처ID:쪽"@ko ] ,
+      [ sh:path rico:isOrWasSubjectOf ;
+        sh:name "컬렉션 소속"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:RecordSet ;
+        sh:description "[화면]"@ko ] .
+
+ric:ap-shape-object a sh:NodeShape ;
+    sh:targetClass skos:Concept ;
+    rdfs:label "생활 대상"@ko ;
+    rdfs:comment "AP 생활 대상(과 네 측면 개념). 표준 타입과 AP 클래스가 같다."@ko ;
+    sh:property [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path skos:prefLabel ;
+        sh:name "대표 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] AP는 @ko 이지만 가이드 §2.4에 따라 평문"@ko ] ,
+      [ sh:path skos:altLabel ;
+        sh:name "비우선어"@ko ;
+        sh:minCount 0 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] 측면 개념의 한자 표기"@ko ] ,
+      [ sh:path skos:definition ;
+        sh:name "설명"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dia:aspect ;
+        sh:name "생활문화의 측면"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:in ("먹는 것" "부르는 것" "일하는 것" "배우는 것") ;
+        sh:description "[AP] 측면 개념 자신에는 없음"@ko ] ,
+      [ sh:path skos:broader ;
+        sh:name "상위 측면"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:Concept ;
+        sh:description "[화면] dia:aspect 를 계층으로(하위→상위)"@ko ] ,
+      [ sh:path skos:exactMatch ;
+        sh:name "외부 전거"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path skos:inScheme ;
+        sh:name "소속 개념체계"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:ConceptScheme ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:source ;
+        sh:name "근거 출처"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Record ;
+        sh:description "[근거] AP 1..n — 측면 개념에는 없어 0으로 둠(아래 sparql 제약이 생활 대상만 검사)"@ko ] ,
+      [ sh:path dia:citation ;
+        sh:name "근거 쪽수"@ko ;
+        sh:minCount 0 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^:]+:.+$" ;
+        sh:description "[근거]"@ko ] .
+
+ric:ap-shape-word a sh:NodeShape ;
+    sh:targetClass skosxl:Label ;
+    rdfs:label "어휘"@ko ;
+    rdfs:comment "AP 어휘. skosxl:Label 은 skos:Concept 와 서로소라 표준 타입은 rico:Concept 를 병기한다."@ko ;
+    sh:property [ sh:path rdf:type ;
+        sh:name "표준 타입 병기"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue rico:Concept ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path skosxl:literalForm ;
+        sh:name "표기"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] 언어태그는 dcterms:language 로 옮김"@ko ] ,
+      [ sh:path skos:prefLabel ;
+        sh:name "화면 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] literalForm 과 같은 값"@ko ] ,
+      [ sh:path dcterms:language ;
+        sh:name "표기의 언어"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[a-z]{2,3}$" ;
+        sh:description "[화면] 떼어 낸 언어태그(내보내기 전용 보조)"@ko ] ,
+      [ sh:path dia:variantForm ;
+        sh:name "이표기"@ko ;
+        sh:minCount 0 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path skos:altLabel ;
+        sh:name "검색용 이표기"@ko ;
+        sh:minCount 0 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] dia:variantForm 과 같은 값"@ko ] ,
+      [ sh:path dia:gloss ;
+        sh:name "뜻"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:generalDescription ;
+        sh:name "화면 설명"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] dia:gloss 와 같은 값"@ko ] ,
+      [ sh:path dia:denotes ;
+        sh:name "가리키는 생활 대상"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:Concept ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:isRelatedTo ;
+        sh:name "관계망 간선"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:description "[화면] 생활 대상·문화권으로"@ko ] ,
+      [ sh:path dcterms:spatial ;
+        sh:name "쓰인 문화권"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class foaf:Group ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dia:sourceLanguage ;
+        sh:name "기원 언어"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[a-z]{3}$" ;
+        sh:description "[AP] ISO 639-3"@ko ] ,
+      [ sh:path dia:etymologyNote ;
+        sh:name "어원 설명"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] 연구자 해석"@ko ] ,
+      [ sh:path skos:inScheme ;
+        sh:name "소속 개념체계"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:ConceptScheme ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:source ;
+        sh:name "근거 출처"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Record ;
+        sh:description "[근거]"@ko ] ,
+      [ sh:path dia:citation ;
+        sh:name "근거 쪽수"@ko ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^:]+:.+$" ;
+        sh:description "[근거]"@ko ] ,
+      [ sh:path rico:isOrWasSubjectOf ;
+        sh:name "컬렉션 소속"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:RecordSet ;
+        sh:description "[화면]"@ko ] .
+
+ric:ap-shape-place a sh:NodeShape ;
+    sh:targetClass dcterms:Location ;
+    rdfs:label "장소"@ko ;
+    rdfs:comment "AP 장소. 표준 타입 rico:Place 를 병기한다."@ko ;
+    sh:property [ sh:path rdf:type ;
+        sh:name "표준 타입 병기"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue rico:Place ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:title ;
+        sh:name "이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:name ;
+        sh:name "화면 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path geo:lat ;
+        sh:name "위도"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^-?[0-9]{1,2}\\.[0-9]+$" ;
+        sh:description "[AP] 십진 문자열(§2.6)"@ko ] ,
+      [ sh:path geo:long ;
+        sh:name "경도"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^-?[0-9]{1,3}\\.[0-9]+$" ;
+        sh:description "[AP] geo:lon 이 아님"@ko ] ,
+      [ sh:path dcterms:isPartOf ;
+        sh:name "상위 장소"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class dcterms:Location ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:isOrWasContainedBy ;
+        sh:name "상위 장소(간선)"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Place ;
+        sh:description "[화면] RiC-O: 장소 → 장소"@ko ] ,
+      [ sh:path skos:exactMatch ;
+        sh:name "외부 전거"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dia:citation ;
+        sh:name "근거 쪽수"@ko ;
+        sh:minCount 0 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^:]+:.+$" ;
+        sh:description "[근거]"@ko ] .
+
+ric:ap-shape-group a sh:NodeShape ;
+    sh:targetClass foaf:Group ;
+    rdfs:label "문화권"@ko ;
+    rdfs:comment "AP 문화권. 표준 타입 rico:Concept 와 rico:DemographicGroup 을 병기한다."@ko ;
+    sh:property [ sh:path rdf:type ;
+        sh:name "표준 타입 병기"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue rico:Concept ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:title ;
+        sh:name "이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path skos:prefLabel ;
+        sh:name "화면 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:description ;
+        sh:name "이동 개요"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] 문장 배열을 이은 하나"@ko ] ,
+      [ sh:path rico:generalDescription ;
+        sh:name "화면 설명"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:spatial ;
+        sh:name "주요 장소"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class dcterms:Location ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:isAssociatedWithPlace ;
+        sh:name "주요 장소(간선)"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Place ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path skos:inScheme ;
+        sh:name "소속 개념체계"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class skos:ConceptScheme ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:source ;
+        sh:name "근거 출처"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:Record ;
+        sh:description "[근거]"@ko ] .
+
+ric:ap-shape-source a sh:NodeShape ;
+    sh:targetClass bibo:AcademicArticle ;
+    sh:targetClass bibo:Thesis ;
+    sh:targetClass bibo:Document ;
+    rdfs:label "출처"@ko ;
+    rdfs:comment "AP 출처. 표준 타입 rico:Record 를 병기한다."@ko ;
+    sh:property [ sh:path rdf:type ;
+        sh:name "표준 타입 병기"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue rico:Record ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:creator ;
+        sh:name "저자"@ko ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP] 문자열(AP에 인물 클래스 없음)"@ko ] ,
+      [ sh:path dcterms:title ;
+        sh:name "제목"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:title ;
+        sh:name "화면 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] 기록류 이름은 rico:title"@ko ] ,
+      [ sh:path dcterms:date ;
+        sh:name "발행 연도"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:isPartOf ;
+        sh:name "수록 학술지·단행본"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path bibo:uri ;
+        sh:name "링크"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:accessRights ;
+        sh:name "접근 조건"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:isOrWasIncludedIn ;
+        sh:name "컬렉션 소속"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:RecordSet ;
+        sh:description "[화면] 기록류의 소속 술어(§2.8)"@ko ] .
+
+ric:ap-shape-material a sh:NodeShape ;
+    sh:targetClass dctype:Text ;
+    sh:targetClass dctype:StillImage ;
+    sh:targetClass dctype:MovingImage ;
+    rdfs:label "자료"@ko ;
+    rdfs:comment "AP 자료(1차 사료). 표준 타입 rico:Record 를 병기한다."@ko ;
+    sh:property [ sh:path rdf:type ;
+        sh:name "표준 타입 병기"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue rico:Record ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:title ;
+        sh:name "제목"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path rico:title ;
+        sh:name "화면 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path dcterms:type ;
+        sh:name "유형"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:date ;
+        sh:name "생산 연도"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:rights ;
+        sh:name "이용 조건"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:source ;
+        sh:name "원 소장처 링크"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:spatial ;
+        sh:name "문화권"@ko ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class foaf:Group ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dcterms:relation ;
+        sh:name "관련 생활 장면"@ko ;
+        sh:minCount 0 ;
+        sh:nodeKind sh:IRI ;
+        sh:class dia:Scene ;
+        sh:description "[AP]"@ko ] ,
+      [ sh:path dia:citation ;
+        sh:name "근거 쪽수"@ko ;
+        sh:minCount 0 ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[^:]+:.+$" ;
+        sh:description "[근거]"@ko ] ,
+      [ sh:path rico:isOrWasIncludedIn ;
+        sh:name "컬렉션 소속"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:class rico:RecordSet ;
+        sh:description "[화면]"@ko ] .
+
+ric:ap-shape-scheme a sh:NodeShape ;
+    sh:targetClass skos:ConceptScheme ;
+    rdfs:label "개념체계"@ko ;
+    rdfs:comment "화면 계약용. AP에는 없지만 주제 화면이 개념체계를 요구한다."@ko ;
+    sh:property [ sh:path skos:prefLabel ;
+        sh:name "체계 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path rico:identifier ;
+        sh:name "식별자"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] ,
+      [ sh:path skos:scopeNote ;
+        sh:name "범위"@ko ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면]"@ko ] .
+
+ric:ap-shape-collection a sh:NodeShape ;
+    sh:targetClass rico:RecordSet ;
+    rdfs:label "컬렉션"@ko ;
+    rdfs:comment "화면 계약용. col- 접두 RecordSet 하나."@ko ;
+    sh:property [ sh:path rico:title ;
+        sh:name "컬렉션 이름"@ko ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:description "[화면] 지역명은 col- 로 시작"@ko ] .
+
+ric:ap-shape-object-sourced a sh:NodeShape ;
+    rdfs:label "생활 대상 — 근거 필수"@ko ;
+    sh:targetSubjectsOf dia:aspect ;
+    sh:property [ sh:path dcterms:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:description "[근거] dia:aspect 를 가진 개체(장면·생활 대상)는 근거 출처가 1개 이상"@ko ] .
+
+ric:ap-shape-collection-name a sh:NodeShape ;
+    rdfs:label "컬렉션 지역명"@ko ;
+    sh:targetClass rico:RecordSet ;
+    sh:pattern "^http://archives\\.nanet\\.go\\.kr/id/col-" ;
+    rdfs:comment "가이드 §2.8 — col- 접두가 없으면 거대 허브가 된다"@ko .
+
+
+# --- 위 규칙이 쓰는 커스텀 어휘(dia:) 정의 — LLM·검증기가 용어 뜻을 이 파일 안에서 찾는다 ---
+dia:Scene a rdfs:Class ;
+    rdfs:label "생활 장면"@ko ;
+    rdfs:comment "먹고, 부르고, 일하고, 배우는 생활문화의 한 장면. 사건이나 개념 어느 쪽에도 맞지 않는 서사 단위. 스타터킷 화면용으로는 rico:Activity 를 함께 단다."@ko .
+dia:aspect a rdf:Property ;
+    rdfs:label "생활문화의 측면"@ko ;
+    rdfs:comment "먹는 것 / 부르는 것 / 일하는 것 / 배우는 것 중 하나. 대표 측면 하나를 고르는 것은 큐레이터의 해석이다."@ko .
+dia:citation a rdf:Property ;
+    rdfs:label "근거 쪽수"@ko ;
+    rdfs:comment "\"출처ID:쪽\" 문자열. 쪽은 PDF 쪽이 아니라 인쇄된 쪽수. 웹 문헌은 절 이름."@ko .
+dia:variantForm a rdf:Property ;
+    rdfs:label "이표기"@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:comment "Kim Chee / 김치처럼 검색에 필요한 다른 표기. 시기·매체 맥락은 담지 못한다."@ko .
+dia:gloss a rdf:Property ;
+    rdfs:label "뜻"@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:comment "SKOS-XL 이름표는 원래 뜻을 갖지 않지만 문화권마다 다른 뜻을 담으려고 어휘에 둔다."@ko .
+dia:denotes a rdf:Property ;
+    rdfs:label "가리키는 생활 대상"@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "말과 대상을 분리하는 핵심 연결. 활동·호칭처럼 가리키는 사물이 없는 말은 비워 둔다."@ko .
+dia:sourceLanguage a rdf:Property ;
+    rdfs:label "기원 언어"@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:comment "ISO 639-3 코드(rus, jpn, eng, kor). dcterms:language(자원이 쓰인 언어)와 뜻이 다르다."@ko .
+dia:etymologyNote a rdf:Property ;
+    rdfs:label "어원 설명(연구자 해석)"@ko ;
+    rdfs:domain skosxl:Label ;
+    rdfs:comment "보고된 사실과 해석을 분리하려는 속성."@ko .

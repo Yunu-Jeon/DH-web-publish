@@ -1,0 +1,2594 @@
+# 한 뿌리, 다른 땅 — AP 그라운딩 가이드 계약에 맞춘 Turtle
+# 생성: export_ttl.py (원본 site-data/archive.js). 손으로 고치지 말고 원본 데이터를 고친 뒤 다시 만드세요.
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ric: <http://archives.nanet.go.kr/id/> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+
+ric:label-babimuri a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:babimuri> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "바비무리" ;
+    skosxl:literalForm "바비무리" ;
+    rico:generalDescription "밥을 물에 말아 먹는 것을 이르는 고려인 말." ;
+    rico:identifier "label:babimuri" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-rice-in-water,
+        ric:group-koryo ;
+    dia:citation "kwon2020:108" ;
+    dia:denotes ric:concept-rice-in-water ;
+    dia:gloss "밥을 물에 말아 먹는 것을 이르는 고려인 말." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-bijikkae a skosxl:Label,
+        rico:Concept ;
+    dcterms:source ric:ref-ency_koryomal ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:bijikkae> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "비지깨" ;
+    skosxl:literalForm "비지깨" ;
+    rico:generalDescription "성냥." ;
+    rico:identifier "label:bijikkae" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    dia:citation "ency_koryomal:내용" ;
+    dia:etymologyNote "성냥을 뜻하는 러시아어 спички(spichki)가 변형된 말이라고 백과사전은 설명한다." ;
+    dia:gloss "성냥." ;
+    dia:sourceLanguage "rus" .
+
+ric:label-bul-go-gi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "en" ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:bul-go-gi> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "Bul Go Gi" ;
+    skosxl:literalForm "Bul Go Gi" ;
+    rico:generalDescription "불고기. 메뉴판에서는 '숯불에 구운 살코기 소고기'로 풀이한다." ;
+    rico:identifier "label:bul-go-gi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-bulgogi,
+        ric:group-hawaii ;
+    dia:citation "nfm2003:155" ;
+    dia:denotes ric:concept-bulgogi ;
+    dia:gloss "불고기. 메뉴판에서는 '숯불에 구운 살코기 소고기'로 풀이한다." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-chosenzuke a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ja" ;
+    dcterms:source ric:ref-iwata2020 ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:chosenzuke> ;
+    skos:editorialNote "해석 — dcterms:spatial → group:zainichi: 문헌은 일본 사회 전반의 호칭으로 서술. 재일 문화권 어휘로 둔 것은 편집 판단" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "朝鮮漬" ;
+    skosxl:literalForm "朝鮮漬" ;
+    rico:generalDescription "1970년대 중반까지 일본에서 김치를 흔히 부르던 이름." ;
+    rico:identifier "label:chosenzuke" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-zainichi ;
+    dia:citation "iwata2020:67" ;
+    dia:denotes ric:concept-kimchi ;
+    dia:gloss "1970년대 중반까지 일본에서 김치를 흔히 부르던 이름." ;
+    dia:sourceLanguage "jpn" .
+
+ric:label-dwi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:dwi> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "드뷔" ;
+    skosxl:literalForm "드뷔" ;
+    rico:generalDescription "두부. 알마티 중앙시장에서 고려인 상인이 파는 품목이기도 하다." ;
+    rico:identifier "label:dwi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-tofu,
+        ric:group-koryo ;
+    dia:citation "kwon2020:115" ;
+    dia:denotes ric:concept-tofu ;
+    dia:gloss "두부. 알마티 중앙시장에서 고려인 상인이 파는 품목이기도 하다." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-gajuri a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020,
+        ric:ref-lee2012 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:gajuri> ;
+    skos:editorialNote "어떤 음식인지 문헌에 풀이가 없어 dia:denotes는 비움(확인 필요)." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "가주리" ;
+    skosxl:literalForm "가주리" ;
+    rico:generalDescription "고려인의 명절·잔치 의례 음식의 하나. 타슈켄트 시장에서 팔리기도 한다." ;
+    rico:identifier "label:gajuri" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    dia:citation "kwon2020:120",
+        "kwon2020:122",
+        "lee2012:221",
+        "lee2012:222" ;
+    dia:gloss "고려인의 명절·잔치 의례 음식의 하나. 타슈켄트 시장에서 팔리기도 한다." .
+
+ric:label-gamji a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:gamji> ;
+    skos:editorialNote "kwak2007에서는 원동(연해주) 지명 자료로 제시됨. 중앙아시아 고려인이 지금도 쓰는지는 이 문헌만으로 확인 안 됨." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "감지" ;
+    skosxl:literalForm "감지" ;
+    rico:generalDescription "감자. 원동 한인 거주지 이름(감지막골 등)에도 들어 있다." ;
+    rico:identifier "label:gamji" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-potato,
+        ric:group-koryo ;
+    dia:citation "kwak2007:246",
+        "kwak2007:247" ;
+    dia:denotes ric:concept-potato ;
+    dia:etymologyNote "'감'에 접미사 '-이'가 붙은 형태로 곽충구가 분석한다." ;
+    dia:gloss "감자. 원동 한인 거주지 이름(감지막골 등)에도 들어 있다." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-gireumgubi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:gireumgubi> ;
+    skos:altLabel "Блин",
+        "브릴늬",
+        "블린" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "기름굽이" ;
+    skosxl:literalForm "기름굽이" ;
+    rico:generalDescription "러시아식 팬케이크 블린을 고려인이 부르는 말. 고려인은 블린을 '브릴늬'라고 발음하기도 하며, 주로 아침에 차와 함께 먹는다." ;
+    rico:identifier "label:gireumgubi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-blin,
+        ric:group-koryo ;
+    dia:citation "kwon2020:110" ;
+    dia:denotes ric:concept-blin ;
+    dia:gloss "러시아식 팬케이크 블린을 고려인이 부르는 말. 고려인은 블린을 '브릴늬'라고 발음하기도 하며, 주로 아침에 차와 함께 먹는다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Блин",
+        "브릴늬",
+        "블린" .
+
+ric:label-gobonjil a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwak2007,
+        ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:gobonjil> ;
+    skos:editorialNote "AP에 따라 활동을 가리키는 말이라 dia:denotes는 비움." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "고본질" ;
+    skosxl:literalForm "고본질" ;
+    rico:generalDescription "고려인 가족들이 농사철에 집을 떠나 먼 곳의 땅을 빌려 농사짓고 파는 이동 임차 농업. 뜻이 넓어져 '집을 떠나 고생스럽게 돈벌이를 함', '보따리장사'도 가리킨다." ;
+    rico:identifier "label:gobonjil" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    dia:citation "kwak2007:262",
+        "kwon2020:108" ;
+    dia:etymologyNote "'고본(股本)'에 '어떤 동작이나 행위'를 뜻하는 접미사 '-질'이 붙은 합성어로 곽충구가 분석한다." ;
+    dia:gloss "고려인 가족들이 농사철에 집을 떠나 먼 곳의 땅을 빌려 농사짓고 파는 이동 임차 농업. 뜻이 넓어져 '집을 떠나 고생스럽게 돈벌이를 함', '보따리장사'도 가리킨다." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-guksi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:guksi> ;
+    skos:altLabel "Кукси" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "국시" ;
+    skosxl:literalForm "국시" ;
+    rico:generalDescription "고려인의 국수. 육수국시·물국시·여름 냉면국시 등이 있고 잔치 음식으로도 빠지지 않는다." ;
+    rico:identifier "label:guksi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-noodle,
+        ric:group-koryo ;
+    dia:citation "kwon2020:114",
+        "kwon2020:115",
+        "kwon2020:116" ;
+    dia:denotes ric:concept-noodle ;
+    dia:gloss "고려인의 국수. 육수국시·물국시·여름 냉면국시 등이 있고 잔치 음식으로도 빠지지 않는다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Кукси" .
+
+ric:label-horumon a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ja" ;
+    dcterms:source ric:ref-yeon ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:horumon> ;
+    skos:altLabel "ホルモン焼き",
+        "호르몬",
+        "호르몬구이",
+        "홀몬야끼" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "ホルモン" ;
+    skosxl:literalForm "ホルモン" ;
+    rico:generalDescription "야키니쿠 요리에서 내장류를 가리키는 말. 내장구이는 'ホルモン焼き(호르몬구이)'." ;
+    rico:identifier "label:horumon" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-offal,
+        ric:group-zainichi ;
+    dia:citation "yeon:23",
+        "yeon:27",
+        "yeon:28",
+        "yeon:29",
+        "yeon:32" ;
+    dia:denotes ric:concept-offal ;
+    dia:etymologyNote "어원은 다툼이 있다. 간사이 방언 '버리는 것(ほうるもん)'설, 독일어 Hormon설, 김시종의 '조선인의 말'설이 있고, 연윤희는 일본에서는 간사이설이 일반적이라고 소개한다." ;
+    dia:gloss "야키니쿠 요리에서 내장류를 가리키는 말. 내장구이는 'ホルモン焼き(호르몬구이)'." ;
+    dia:sourceLanguage "jpn" ;
+    dia:variantForm "ホルモン焼き",
+        "호르몬",
+        "호르몬구이",
+        "홀몬야끼" .
+
+ric:label-jimchi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:jimchi> ;
+    skos:altLabel "чимчхи" ;
+    skos:editorialNote "해석 — dia:denotes → concept:kimchi: 문헌은 '변형된 김치'라 부름. 김치와 같은 대상으로 묶은 것은 편집 판단" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "짐치" ;
+    skosxl:literalForm "짐치" ;
+    rico:generalDescription "고려인이 양배추로 담근 김치. 배추가 비싸고 양념을 구하기 어려워 전통 김치 대신 담갔다." ;
+    rico:identifier "label:jimchi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-koryo ;
+    dia:citation "kwon2020:114" ;
+    dia:denotes ric:concept-kimchi ;
+    dia:gloss "고려인이 양배추로 담근 김치. 배추가 비싸고 양념을 구하기 어려워 전통 김치 대신 담갔다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "чимчхи" .
+
+ric:label-jire a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:jire> ;
+    skos:altLabel "지렁" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "지레" ;
+    skosxl:literalForm "지레" ;
+    rico:generalDescription "간장. '지렁'은 주격형. 중국의 육진방언에서는 거의 쓰이지 않으나 고려말에서는 흔히 쓰인다." ;
+    rico:identifier "label:jire" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-soy-sauce,
+        ric:group-koryo ;
+    dia:citation "kwak2007:263",
+        "kwak2007:264" ;
+    dia:denotes ric:concept-soy-sauce ;
+    dia:etymologyNote "곽충구는 고려말이 중국 쪽 방언보다 옛 어휘를 더 잘 지킨 예로 든다." ;
+    dia:gloss "간장. '지렁'은 주격형. 중국의 육진방언에서는 거의 쓰이지 않으나 고려말에서는 흔히 쓰인다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "지렁" .
+
+ric:label-kal-bi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "en" ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:kal-bi> ;
+    skos:altLabel "Kal Bi" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "Kal bi" ;
+    skosxl:literalForm "Kal bi" ;
+    rico:generalDescription "갈비. 테이크아웃 한식당 메뉴판의 영문 표기." ;
+    rico:identifier "label:kal-bi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-galbi,
+        ric:group-hawaii ;
+    dia:citation "nfm2003:155" ;
+    dia:denotes ric:concept-galbi ;
+    dia:gloss "갈비. 테이크아웃 한식당 메뉴판의 영문 표기." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Kal Bi" .
+
+ric:label-khleb a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:khleb> ;
+    skos:altLabel "Хлеб",
+        "흘레브" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "흘례브" ;
+    skosxl:literalForm "흘례브" ;
+    rico:generalDescription "직사각형의 딱딱한 러시아 빵. 강제 이주 열차가 서는 역에서 사 먹은 것도 이 빵이었다." ;
+    rico:identifier "label:khleb" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-russian-bread,
+        ric:group-koryo ;
+    dia:citation "kwon2020:107",
+        "kwon2020:111" ;
+    dia:denotes ric:concept-russian-bread ;
+    dia:gloss "직사각형의 딱딱한 러시아 빵. 강제 이주 열차가 서는 역에서 사 먹은 것도 이 빵이었다." ;
+    dia:sourceLanguage "rus" ;
+    dia:variantForm "Хлеб",
+        "흘레브" .
+
+ric:label-kim-chee a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "en" ;
+    dcterms:source ric:ref-lee2014,
+        ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:kim-chee> ;
+    skos:altLabel "Kohala Kim Chee",
+        "김치" ;
+    skos:editorialNote "상표 표기로 확인되는 시기는 1949년(Kohala) 이후, 1950년대(Joe Kim Kim Chee, Keeau, Halm's). 이 시기·매체 맥락은 AP의 dia:variantForm에 담을 수 없어 note로 둠." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "Kim Chee" ;
+    skosxl:literalForm "Kim Chee" ;
+    rico:generalDescription "김치. 하와이 한인 2세들의 김치 상표 이름(Joe Kim Kim Chee, Kohala Kim Chee 등)에 쓰인 영문 표기." ;
+    rico:identifier "label:kim-chee" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-hawaii ;
+    dia:citation "lee2014:78",
+        "lee2014:79",
+        "nfm2003:149",
+        "nfm2003:150",
+        "nfm2003:156" ;
+    dia:denotes ric:concept-kimchi ;
+    dia:gloss "김치. 하와이 한인 2세들의 김치 상표 이름(Joe Kim Kim Chee, Kohala Kim Chee 등)에 쓰인 영문 표기." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Kohala Kim Chee",
+        "김치" .
+
+ric:label-kimuchi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ja" ;
+    dcterms:source ric:ref-iwata2020 ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:kimuchi> ;
+    skos:altLabel "김치" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "キムチ" ;
+    skosxl:literalForm "キムチ" ;
+    rico:generalDescription "김치. 가공식품 회사가 '김치의 素'를 내놓은 1975년 이후 이 한국어 이름이 일본에 널리 퍼졌다." ;
+    rico:identifier "label:kimuchi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-zainichi ;
+    dia:citation "iwata2020:61",
+        "iwata2020:67",
+        "iwata2020:68" ;
+    dia:denotes ric:concept-kimchi ;
+    dia:gloss "김치. 가공식품 회사가 '김치의 素'를 내놓은 1975년 이후 이 한국어 이름이 일본에 널리 퍼졌다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "김치" .
+
+ric:label-kvartira a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:kvartira> ;
+    skos:altLabel "квартира" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "과찌라" ;
+    skosxl:literalForm "과찌라" ;
+    rico:generalDescription "아파트. 러시아어를 그대로 빌려 쓴 말." ;
+    rico:identifier "label:kvartira" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    dia:citation "kwak2007:261",
+        "kwak2007:264" ;
+    dia:gloss "아파트. 러시아어를 그대로 빌려 쓴 말." ;
+    dia:sourceLanguage "rus" ;
+    dia:variantForm "квартира" .
+
+ric:label-man-doo a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "en" ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:man-doo> ;
+    skos:altLabel "Mandoo",
+        "man doo" ;
+    skos:editorialNote "해석 — dia:denotes → concept:dumpling: 베고자와 같은 '만두'로 묶은 것은 편집 판단" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "Man Doo" ;
+    skosxl:literalForm "Man Doo" ;
+    rico:generalDescription "만두. 테이크아웃 한식당 메뉴판의 영문 표기." ;
+    rico:identifier "label:man-doo" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-dumpling,
+        ric:group-hawaii ;
+    dia:citation "nfm2003:155",
+        "nfm2003:156" ;
+    dia:denotes ric:concept-dumpling ;
+    dia:gloss "만두. 테이크아웃 한식당 메뉴판의 영문 표기." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Mandoo",
+        "man doo" .
+
+ric:label-mauje-tteok a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:mauje-tteok> ;
+    skos:altLabel "떡",
+        "떽이" ;
+    skos:editorialNote "'떽이'는 백과사전 예문 '떽이 먹겠음둥?(빵을 드시겠습니까?)'에서 확인. 백과사전은 '떡→떽이'를 모음 변화와 명사 뒤 '-이'가 붙는 예로 든다." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "마우재떡" ;
+    skosxl:literalForm "마우재떡" ;
+    rico:generalDescription "러시아 빵." ;
+    rico:identifier "label:mauje-tteok" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-russian-bread,
+        ric:group-koryo ;
+    dia:citation "ency_koryomal:내용",
+        "kwak2007:262",
+        "kwak2007:264" ;
+    dia:denotes ric:concept-russian-bread ;
+    dia:etymologyNote "새 말을 만들기보다 비슷한 성질의 기존 낱말 '떡'에 새 개념을 담은 의미 변화의 예로 곽충구가 설명한다. 앞의 '마우재'는 러시아 사람을 이르는 말로, 백과사전은 '털이 많은 사람'이라는 뜻의 한자어 毛子에서 왔다고 설명한다." ;
+    dia:gloss "러시아 빵." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "떡",
+        "떽이" .
+
+ric:label-meat-jeon a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "en" ;
+    dcterms:source ric:ref-lee2014,
+        ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:meat-jeon> ;
+    skos:altLabel "Jun",
+        "jeon",
+        "juhn",
+        "고기전" ;
+    skos:editorialNote "lee2014는 'fish jeon'도 함께 든다. sources.json의 'meat jun'(han2022, 소설)과 같은 말인지는 han2022를 열람하지 않아 미확인." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "meat jeon" ;
+    skosxl:literalForm "meat jeon" ;
+    rico:generalDescription "고기전. 하와이에서는 '전'이 jeon으로 알려졌고, 하와이 음식으로 여겨지는 음식의 하나로 꼽힌다." ;
+    rico:identifier "label:meat-jeon" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-jeon,
+        ric:group-hawaii ;
+    dia:citation "lee2014:87",
+        "nfm2003:155",
+        "nfm2003:159" ;
+    dia:denotes ric:concept-jeon ;
+    dia:gloss "고기전. 하와이에서는 '전'이 jeon으로 알려졌고, 하와이 음식으로 여겨지는 음식의 하나로 꼽힌다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Jun",
+        "jeon",
+        "juhn",
+        "고기전" .
+
+ric:label-morkovcha a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:morkovcha> ;
+    skos:altLabel "Морковча",
+        "Морковь по-корейски",
+        "당근김치" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "마르코프차" ;
+    skosxl:literalForm "마르코프차" ;
+    rico:generalDescription "당근 김치를 러시아어로 부르는 이름. 'по-корейски'는 '고려식(한국식)'이라는 뜻." ;
+    rico:identifier "label:morkovcha" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-carrot-kimchi,
+        ric:group-koryo ;
+    dia:citation "kwon2020:114" ;
+    dia:denotes ric:concept-carrot-kimchi ;
+    dia:gloss "당근 김치를 러시아어로 부르는 이름. 'по-корейски'는 '고려식(한국식)'이라는 뜻." ;
+    dia:sourceLanguage "rus" ;
+    dia:variantForm "Морковча",
+        "Морковь по-корейски",
+        "당근김치" .
+
+ric:label-ogre a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-lee2012 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:ogre> ;
+    skos:editorialNote "어떤 음식인지 문헌에 풀이가 없어 dia:denotes는 비움(확인 필요)." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "오그레" ;
+    skosxl:literalForm "오그레" ;
+    rico:generalDescription "고려인이 절기에 먹는 음식(절식)의 하나로 조사된 음식." ;
+    rico:identifier "label:ogre" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    dia:citation "lee2012:218",
+        "lee2012:222" ;
+    dia:gloss "고려인이 절기에 먹는 음식(절식)의 하나로 조사된 음식." .
+
+ric:label-operatsi a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:operatsi> ;
+    skos:altLabel "операция" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "오뻬라찌" ;
+    skosxl:literalForm "오뻬라찌" ;
+    rico:generalDescription "수술. 고려말에 자리 잡은 러시아어 직접 차용어." ;
+    rico:identifier "label:operatsi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    dia:citation "kwak2007:261" ;
+    dia:gloss "수술. 고려말에 자리 잡은 러시아어 직접 차용어." ;
+    dia:sourceLanguage "rus" ;
+    dia:variantForm "операция" .
+
+ric:label-pegodya a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwon2020,
+        ric:ref-lee2012 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:pegodya> ;
+    skos:altLabel "Пегоджя",
+        "Пегодя" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "베고자" ;
+    skosxl:literalForm "베고자" ;
+    rico:generalDescription "고기와 양배추 소를 넣어 찐 고려인 만두." ;
+    rico:identifier "label:pegodya" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-dumpling,
+        ric:group-koryo ;
+    dia:citation "ency_koryomal:내용",
+        "kwon2020:114",
+        "kwon2020:115",
+        "kwon2020:116",
+        "lee2012:222" ;
+    dia:denotes ric:concept-dumpling ;
+    dia:gloss "고기와 양배추 소를 넣어 찐 고려인 만두." ;
+    dia:variantForm "Пегоджя",
+        "Пегодя" .
+
+ric:label-sirak-jangmul a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:sirak-jangmul> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "시락장물" ;
+    skosxl:literalForm "시락장물" ;
+    rico:generalDescription "시래기된장국." ;
+    rico:identifier "label:sirak-jangmul" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-siraegi-soup,
+        ric:group-koryo ;
+    dia:citation "ency_koryomal:내용",
+        "kwon2020:110" ;
+    dia:denotes ric:concept-siraegi-soup ;
+    dia:gloss "시래기된장국." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-tae-gu a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "en" ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:tae-gu> ;
+    skos:altLabel "Daegu",
+        "Taegu",
+        "Taegue" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "Tae Gu" ;
+    skosxl:literalForm "Tae Gu" ;
+    rico:generalDescription "대구무침. 하와이 슈퍼마켓 상품명과 식당 반찬 이름으로 쓰인다." ;
+    rico:identifier "label:tae-gu" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-cod-muchim,
+        ric:group-hawaii ;
+    dia:citation "nfm2003:147",
+        "nfm2003:148",
+        "nfm2003:156" ;
+    dia:denotes ric:concept-cod-muchim ;
+    dia:gloss "대구무침. 하와이 슈퍼마켓 상품명과 식당 반찬 이름으로 쓰인다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "Daegu",
+        "Taegu",
+        "Taegue" .
+
+ric:label-ttakkan a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-ency_koryomal ;
+    dcterms:spatial ric:group-koryo ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:ttakkan> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "따깐" ;
+    skosxl:literalForm "따깐" ;
+    rico:generalDescription "잔. 예: '찻물이 한 따깐 마이겠니?(차 한잔 마실래?)'" ;
+    rico:identifier "label:ttakkan" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-cup,
+        ric:group-koryo ;
+    dia:citation "ency_koryomal:내용" ;
+    dia:denotes ric:concept-cup ;
+    dia:etymologyNote "잔을 뜻하는 러시아어 стакан(stakan)이 변형된 말이라고 백과사전은 설명한다." ;
+    dia:gloss "잔. 예: '찻물이 한 따깐 마이겠니?(차 한잔 마실래?)'" ;
+    dia:sourceLanguage "rus" .
+
+ric:label-ttongchang a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-lee2017,
+        ric:ref-yeon ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:ttongchang> ;
+    skos:altLabel "トンチャン",
+        "댓창" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "똥창" ;
+    skosxl:literalForm "똥창" ;
+    rico:generalDescription "재일 조선인들이 소·돼지 내장을 부르던 말. '호르몬'이라는 이름이 퍼지기 전에 쓰였다는 회고가 있다." ;
+    rico:identifier "label:ttongchang" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-offal,
+        ric:group-zainichi ;
+    dia:citation "lee2017:135",
+        "yeon:27",
+        "yeon:28",
+        "yeon:29" ;
+    dia:denotes ric:concept-offal ;
+    dia:etymologyNote "'댓창'은 우리말 '대장'에서 왔다는 정대성의 주장이 인용된다." ;
+    dia:gloss "재일 조선인들이 소·돼지 내장을 부르던 말. '호르몬'이라는 이름이 퍼지기 전에 쓰였다는 회고가 있다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "トンチャン",
+        "댓창" .
+
+ric:label-yakiniku a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ja" ;
+    dcterms:source ric:ref-nfm2003,
+        ric:ref-yeon ;
+    dcterms:spatial ric:group-hawaii,
+        ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:yakiniku> ;
+    skos:altLabel "yakiniku",
+        "야끼니꾸" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "焼肉" ;
+    skosxl:literalForm "焼肉" ;
+    rico:generalDescription "고기를 불에 직접 구워 먹는 요리를 일본에서 부르는 말. 재일 조선인이 정착시킨 음식으로 소개되며, 호놀룰루의 한국 음식점들도 이 일본어를 상호와 간판에 쓴다." ;
+    rico:identifier "label:yakiniku" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-bulgogi,
+        ric:group-hawaii,
+        ric:group-zainichi ;
+    dia:citation "nfm2003:157",
+        "nfm2003:158",
+        "yeon:24" ;
+    dia:denotes ric:concept-bulgogi ;
+    dia:etymologyNote "nfm2003은 하와이 한국 음식점이 일본어를 쓰는 것을 일본인 관광객과 일본계 주민을 겨냥한 것으로 본다." ;
+    dia:gloss "고기를 불에 직접 구워 먹는 요리를 일본에서 부르는 말. 재일 조선인이 정착시킨 음식으로 소개되며, 호놀룰루의 한국 음식점들도 이 일본어를 상호와 간판에 쓴다." ;
+    dia:sourceLanguage "jpn" ;
+    dia:variantForm "yakiniku",
+        "야끼니꾸" .
+
+ric:label-zainichi-chosenjin a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-jung2012 ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:zainichi-chosenjin> ;
+    skos:altLabel "在日朝鮮人" ;
+    skos:editorialNote "호칭이라 가리키는 생활 대상이 없어 dia:denotes는 비움." ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "재일조선인" ;
+    skosxl:literalForm "재일조선인" ;
+    rico:generalDescription "해방 직후 일본에 남은 사람들이 스스로를 부른 이름. 1948년 뒤에는 주로 총련 쪽 이름이 되었다." ;
+    rico:identifier "label:zainichi-chosenjin" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    dia:citation "jung2012:259",
+        "jung2012:265",
+        "jung2012:266" ;
+    dia:gloss "해방 직후 일본에 남은 사람들이 스스로를 부른 이름. 1948년 뒤에는 주로 총련 쪽 이름이 되었다." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "在日朝鮮人" .
+
+ric:label-zainichi-dongpo a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-jung2012 ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:zainichi-dongpo> ;
+    skos:altLabel "재일교포" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "재일동포" ;
+    skosxl:literalForm "재일동포" ;
+    rico:generalDescription "남북한 사람들의 입장에서 같은 민족임에 근거해 부르는 이름." ;
+    rico:identifier "label:zainichi-dongpo" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    dia:citation "jung2012:259",
+        "jung2012:266" ;
+    dia:gloss "남북한 사람들의 입장에서 같은 민족임에 근거해 부르는 이름." ;
+    dia:sourceLanguage "kor" ;
+    dia:variantForm "재일교포" .
+
+ric:label-zainichi-kankokujin a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-jung2012 ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:zainichi-kankokujin> ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "재일한국인" ;
+    skosxl:literalForm "재일한국인" ;
+    rico:generalDescription "재일 사람들을 한국 국적의 측면에서 부르는 이름. 1948년 뒤 민단 쪽에서 쓰였다." ;
+    rico:identifier "label:zainichi-kankokujin" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    dia:citation "jung2012:259",
+        "jung2012:266" ;
+    dia:gloss "재일 사람들을 한국 국적의 측면에서 부르는 이름. 1948년 뒤 민단 쪽에서 쓰였다." ;
+    dia:sourceLanguage "kor" .
+
+ric:label-zainichi-korean a skosxl:Label,
+        rico:Concept ;
+    dcterms:language "ko" ;
+    dcterms:source ric:ref-jung2012,
+        ric:ref-yeon ;
+    dcterms:spatial ric:group-zainichi ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=label:zainichi-korean> ;
+    skos:altLabel "在日コリアン",
+        "재일" ;
+    skos:inScheme ric:scheme-words ;
+    skos:prefLabel "재일코리안" ;
+    skosxl:literalForm "재일코리안" ;
+    rico:generalDescription "주로 일본에서 쓰이는 이름으로, 국가와 민족보다 재일이라는 존재 자체에 주목한다." ;
+    rico:identifier "label:zainichi-korean" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    dia:citation "jung2012:259",
+        "yeon:23" ;
+    dia:gloss "주로 일본에서 쓰이는 이름으로, 국가와 민족보다 재일이라는 존재 자체에 주목한다." ;
+    dia:variantForm "在日コリアン",
+        "재일" .
+
+ric:scene-hawaii-camp-kimchi a rico:Activity,
+        dia:Scene ;
+    dcterms:description "사탕수수 농장은 민족별로 캠프를 나누었고, 첫 한인 이민단은 와이알루아 농장의 한인 캠프에 짐을 풀었다. 어른들은 말이 통하지 않았지만 아이들은 서로의 집을 드나들며 음식을 맛보았고, 여러 민족 아이들이 김치를 맛보게 되었다. 저자는 음식이 말 없이도 나눌 수 있어 가장 먼저 퍼지는 문화라고 본다." ;
+    dcterms:source ric:ref-lee2014 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-waialua ;
+    dcterms:subject ric:concept-kimchi ;
+    dcterms:temporal "1903년 이후" ;
+    dcterms:title "농장 캠프 아이들이 나눠 먹은 김치" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-camp-kimchi> ;
+    rico:generalDescription "사탕수수 농장은 민족별로 캠프를 나누었고, 첫 한인 이민단은 와이알루아 농장의 한인 캠프에 짐을 풀었다. 어른들은 말이 통하지 않았지만 아이들은 서로의 집을 드나들며 음식을 맛보았고, 여러 민족 아이들이 김치를 맛보게 되었다. 저자는 음식이 말 없이도 나눌 수 있어 가장 먼저 퍼지는 문화라고 본다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:hawaii-camp-kimchi" ;
+    rico:isAssociatedWithPlace ric:place-waialua ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-hawaii ;
+    rico:name "농장 캠프 아이들이 나눠 먹은 김치" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2014:78" .
+
+ric:scene-hawaii-chamber-split a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1978년 한인경제인연합회가 호놀룰루 한인 상업회의소에 들어갔지만, 영어로 회의하려는 2·3세와 한국어로 하려는 후기 이민자가 갈라져 두 단체가 되었다. 갈등은 '누가 한인인가'라는 논쟁으로 번졌고, 두 단체는 1988년 1월 30일 하와이 한인 상의회로 다시 합쳤다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-honolulu ;
+    dcterms:temporal "1978–1988년" ;
+    dcterms:title "말이 갈라 놓은 상공회의소" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-chamber-split> ;
+    rico:generalDescription "1978년 한인경제인연합회가 호놀룰루 한인 상업회의소에 들어갔지만, 영어로 회의하려는 2·3세와 한국어로 하려는 후기 이민자가 갈라져 두 단체가 되었다. 갈등은 '누가 한인인가'라는 논쟁으로 번졌고, 두 단체는 1988년 1월 30일 하와이 한인 상의회로 다시 합쳤다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:hawaii-chamber-split" ;
+    rico:isAssociatedWithPlace ric:place-honolulu ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-hawaii ;
+    rico:name "말이 갈라 놓은 상공회의소" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "nfm2003:224",
+        "nfm2003:225" .
+
+ric:scene-hawaii-code-mixing a rico:Activity,
+        dia:Scene ;
+    dcterms:description "초기 이민 2세들은 한국말을 거의 못 하고, 두 언어의 낱말을 섞어 쓰는 언어혼용이 뚜렷하다. 한 2세 할머니는 'you, homework 했어?', '이 떡 안에 daikong 있어'처럼 영어와 한국어, 일본어를 섞어 말했다. 1965년 이후 온 이민자들도 '벵크럽(bankruptcy) 났어요'처럼 섞어 쓰지만, 반말과 you 호칭은 드물다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    dcterms:temporal "2003년 조사" ;
+    dcterms:title "'you, homework 했어?' 섞어 쓰는 말" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-code-mixing> ;
+    rico:generalDescription "초기 이민 2세들은 한국말을 거의 못 하고, 두 언어의 낱말을 섞어 쓰는 언어혼용이 뚜렷하다. 한 2세 할머니는 'you, homework 했어?', '이 떡 안에 daikong 있어'처럼 영어와 한국어, 일본어를 섞어 말했다. 1965년 이후 온 이민자들도 '벵크럽(bankruptcy) 났어요'처럼 섞어 쓰지만, 반말과 you 호칭은 드물다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:hawaii-code-mixing" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-hawaii ;
+    rico:name "'you, homework 했어?' 섞어 쓰는 말" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "nfm2003:227",
+        "nfm2003:228" .
+
+ric:scene-hawaii-first-schools a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1904년 9월 하와이에 첫 한인 학생 학교가 세워졌고, 이 학교는 1913년 여학생을 받아 한인중앙학원이 되었다. 한인중앙학교에서는 정규 과정 외에 오후에 한국사와 한글을 가르쳤다. 1907년 힐로의 한인소학교를 시작으로 하와이 여러 섬에 한글학교 25개가 있었고, 국문을 모르는 어른도 밤에 배웠다." ;
+    dcterms:source ric:ref-lee2014,
+        ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-hilo,
+        ric:place-honolulu ;
+    dcterms:subject ric:concept-hangul-school ;
+    dcterms:temporal "1904년 ~ 1910년대" ;
+    dcterms:title "한인중앙학교와 섬마다 세운 한글학교" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-first-schools> ;
+    rico:generalDescription "1904년 9월 하와이에 첫 한인 학생 학교가 세워졌고, 이 학교는 1913년 여학생을 받아 한인중앙학원이 되었다. 한인중앙학교에서는 정규 과정 외에 오후에 한국사와 한글을 가르쳤다. 1907년 힐로의 한인소학교를 시작으로 하와이 여러 섬에 한글학교 25개가 있었고, 국문을 모르는 어른도 밤에 배웠다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:hawaii-first-schools" ;
+    rico:isAssociatedWithPlace ric:place-hilo,
+        ric:place-honolulu ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-hangul-school,
+        ric:group-hawaii ;
+    rico:name "한인중앙학교와 섬마다 세운 한글학교" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "lee2014:80",
+        "nfm2003:239" .
+
+ric:scene-hawaii-independence-fund a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1919년 3·1운동 소식이 전해지자 하와이 한인 여성들은 김치를 만들어 팔아 독립운동 기금을 모았다. 한인뿐 아니라 포르투갈인·일본인·필리핀인도 김치를 사 먹어 모금이 잘 되었고, 대구무침과 무말랭이무침도 잘 팔렸다." ;
+    dcterms:source ric:ref-lee2014 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-hawaii ;
+    dcterms:subject ric:concept-cod-muchim,
+        ric:concept-kimchi,
+        ric:concept-mumallaengi ;
+    dcterms:temporal "1919년 이후" ;
+    dcterms:title "김치를 팔아 모은 독립운동 기금" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-independence-fund> ;
+    rico:generalDescription "1919년 3·1운동 소식이 전해지자 하와이 한인 여성들은 김치를 만들어 팔아 독립운동 기금을 모았다. 한인뿐 아니라 포르투갈인·일본인·필리핀인도 김치를 사 먹어 모금이 잘 되었고, 대구무침과 무말랭이무침도 잘 팔렸다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:hawaii-independence-fund" ;
+    rico:isAssociatedWithPlace ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-cod-muchim,
+        ric:concept-kimchi,
+        ric:concept-mumallaengi,
+        ric:group-hawaii ;
+    rico:name "김치를 팔아 모은 독립운동 기금" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2014:78" .
+
+ric:scene-hawaii-kimchi-brands a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1930년대 한인 2세 조 김(Joe Kim)의 김치 공장이 '다이아몬드 케이 김치'라는 이름으로 팔기 시작해 미국 본토에도 공급했고, 1950년대에 '조김김치(Joe Kim Kim Chee)'로 이름을 바꾸었다. 1949년 코할라, 1952년 케에아우, 1950년대 초 호놀룰루에서도 각각 김치 상표가 나왔고, 케에아우 김치를 빼면 모두 한인 2세의 회사였다. 1950년대 빅아일랜드에서 만든 〈코할라 김치〉는 뉴욕 등 미국 본토까지 팔렸고, 한국 김치보다 덜 맵게 만들어졌다. 1950년대에는 김치 믹스 가루도 만들어 팔았다. 저자는 인구 2%에 불과한 한인의 김치 상표가 여럿 흥행한 것을 김치가 하와이 여러 민족의 일상 음식이 된 증거로 본다." ;
+    dcterms:source ric:ref-lee2014,
+        ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-honolulu,
+        ric:place-keaau,
+        ric:place-kohala ;
+    dcterms:subject ric:concept-kimchi ;
+    dcterms:temporal "1930~1950년대" ;
+    dcterms:title "한인 2세가 만든 김치 상표들" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-kimchi-brands> ;
+    rico:generalDescription "1930년대 한인 2세 조 김(Joe Kim)의 김치 공장이 '다이아몬드 케이 김치'라는 이름으로 팔기 시작해 미국 본토에도 공급했고, 1950년대에 '조김김치(Joe Kim Kim Chee)'로 이름을 바꾸었다. 1949년 코할라, 1952년 케에아우, 1950년대 초 호놀룰루에서도 각각 김치 상표가 나왔고, 케에아우 김치를 빼면 모두 한인 2세의 회사였다. 1950년대 빅아일랜드에서 만든 〈코할라 김치〉는 뉴욕 등 미국 본토까지 팔렸고, 한국 김치보다 덜 맵게 만들어졌다. 1950년대에는 김치 믹스 가루도 만들어 팔았다. 저자는 인구 2%에 불과한 한인의 김치 상표가 여럿 흥행한 것을 김치가 하와이 여러 민족의 일상 음식이 된 증거로 본다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:hawaii-kimchi-brands" ;
+    rico:isAssociatedWithPlace ric:place-honolulu,
+        ric:place-keaau,
+        ric:place-kohala ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-hawaii ;
+    rico:name "한인 2세가 만든 김치 상표들" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2014:78",
+        "lee2014:79",
+        "lee2014:87",
+        "nfm2003:150" .
+
+ric:scene-hawaii-kimchi-factory a rico:Activity,
+        dia:Scene ;
+    dcterms:description "제조업에 종사하는 한인은 적지만, 김치공장을 하는 한인도 있다. 하와이 최대 김치공장 '함즈 엔터프라이즈'는 하루 2–3톤의 김치를 만든다. 관광객이 많을수록 한인 식당의 김치 소비도 늘어, 관광객 수가 김치 소비에 영향을 미친다고 한다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    dcterms:subject ric:concept-kimchi ;
+    dcterms:temporal "2003년 조사" ;
+    dcterms:title "하루 2–3톤, 하와이 최대 김치공장" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-kimchi-factory> ;
+    rico:generalDescription "제조업에 종사하는 한인은 적지만, 김치공장을 하는 한인도 있다. 하와이 최대 김치공장 '함즈 엔터프라이즈'는 하루 2–3톤의 김치를 만든다. 관광객이 많을수록 한인 식당의 김치 소비도 늘어, 관광객 수가 김치 소비에 영향을 미친다고 한다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:hawaii-kimchi-factory" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-hawaii ;
+    rico:name "하루 2–3톤, 하와이 최대 김치공장" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "nfm2003:137" .
+
+ric:scene-hawaii-mother-tongue a rico:Activity,
+        dia:Scene ;
+    dcterms:description "마지막 사진신부의 딸 엘리스 김은 초기 이민 1세들이 자녀에게 우리말을 가르치려 애썼지만 결국 포기하곤 했다고 말했다. 그나마 어머니와 딸, 시어머니와 며느리 사이에서 한국어가 이어졌고, 음식과 전통에 관련된 말은 지금도 쓴다. 한국어 습득은 집에서 어머니와 지낸 딸들이 아들들보다 나았다는 연구가 소개된다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    dcterms:temporal "초기 이민 2세대" ;
+    dcterms:title "어머니에게서 딸에게 이어진 우리말" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-mother-tongue> ;
+    rico:generalDescription "마지막 사진신부의 딸 엘리스 김은 초기 이민 1세들이 자녀에게 우리말을 가르치려 애썼지만 결국 포기하곤 했다고 말했다. 그나마 어머니와 딸, 시어머니와 며느리 사이에서 한국어가 이어졌고, 음식과 전통에 관련된 말은 지금도 쓴다. 한국어 습득은 집에서 어머니와 지낸 딸들이 아들들보다 나았다는 연구가 소개된다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:hawaii-mother-tongue" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-hawaii ;
+    rico:name "어머니에게서 딸에게 이어진 우리말" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "nfm2003:224",
+        "nfm2003:227" .
+
+ric:scene-hawaii-plantation-camp a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1903년 1월 13일 102명의 한인 이민자가 호놀룰루항에 내렸고, 1905년 8월까지 약 7,400명이 사탕수수 농장 노동자로 왔다. 농장은 포르투갈인·일본인·한인 캠프처럼 민족별로 마을을 나누었고, 첫 이민단은 와이알루아 농장 한인 캠프에 짐을 풀었다. 한인들은 캠프에서 동장을 뽑아 동네 질서를 지켰다." ;
+    dcterms:source ric:ref-lee2014 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-waialua ;
+    dcterms:temporal "1903–1905년" ;
+    dcterms:title "사탕수수 농장의 민족별 캠프" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-plantation-camp> ;
+    rico:generalDescription "1903년 1월 13일 102명의 한인 이민자가 호놀룰루항에 내렸고, 1905년 8월까지 약 7,400명이 사탕수수 농장 노동자로 왔다. 농장은 포르투갈인·일본인·한인 캠프처럼 민족별로 마을을 나누었고, 첫 이민단은 와이알루아 농장 한인 캠프에 짐을 풀었다. 한인들은 캠프에서 동장을 뽑아 동네 질서를 지켰다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:hawaii-plantation-camp" ;
+    rico:isAssociatedWithPlace ric:place-waialua ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-hawaii ;
+    rico:name "사탕수수 농장의 민족별 캠프" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "lee2014:76",
+        "lee2014:78",
+        "lee2014:82" .
+
+ric:scene-hawaii-saturday-school a rico:Activity,
+        dia:Scene ;
+    dcterms:description "2003년 봄 학기에 하와이 한인학교협의회 소속 18개 학교에 741명이 등록했다. 한글학교는 대개 교회나 사찰 부설로, 매주 토요일 3–5시간씩 가르친다. 학생의 절반 이상이 한국어를 처음 배우는 기초·초급반이다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    dcterms:subject ric:concept-hangul-school ;
+    dcterms:temporal "2003년" ;
+    dcterms:title "토요일의 교회 한글학교" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-saturday-school> ;
+    rico:generalDescription "2003년 봄 학기에 하와이 한인학교협의회 소속 18개 학교에 741명이 등록했다. 한글학교는 대개 교회나 사찰 부설로, 매주 토요일 3–5시간씩 가르친다. 학생의 절반 이상이 한국어를 처음 배우는 기초·초급반이다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:hawaii-saturday-school" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-hangul-school,
+        ric:group-hawaii ;
+    rico:name "토요일의 교회 한글학교" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "nfm2003:242",
+        "nfm2003:243" .
+
+ric:scene-hawaii-taegu a rico:Activity,
+        dia:Scene ;
+    dcterms:description "초기 이민자들은 고추장과 된장을 직접 만들었고, 마른 대구를 불려 무친 대구무침은 이제 하와이의 토착 음식이 되었다. 하와이 슈퍼마켓은 대구무침을 'Tae Gu', 'Taegu'라는 이름으로 판다. 저자는 참치를 무친 '아히 포키'가 대표적인 하와이 음식이라 비슷한 대구무침이 하와이 토착 음식이자 한인의 민족 음식이 되었다고 본다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    dcterms:subject ric:concept-cod-muchim ;
+    dcterms:temporal "이민 초기 ~ 2003년" ;
+    dcterms:title "하와이 토착 음식이 된 대구무침" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-taegu> ;
+    rico:generalDescription "초기 이민자들은 고추장과 된장을 직접 만들었고, 마른 대구를 불려 무친 대구무침은 이제 하와이의 토착 음식이 되었다. 하와이 슈퍼마켓은 대구무침을 'Tae Gu', 'Taegu'라는 이름으로 판다. 저자는 참치를 무친 '아히 포키'가 대표적인 하와이 음식이라 비슷한 대구무침이 하와이 토착 음식이자 한인의 민족 음식이 되었다고 본다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:hawaii-taegu" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-cod-muchim,
+        ric:group-hawaii ;
+    rico:name "하와이 토착 음식이 된 대구무침" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "nfm2003:147",
+        "nfm2003:148" .
+
+ric:scene-hawaii-takeout a rico:Activity,
+        dia:Scene ;
+    dcterms:description "맞벌이나 가게 일로 바쁜 사람들은 테이크아웃 한식당에서 음식을 사 간다. 한 테이크아웃 한식당 메뉴판은 갈비를 'Kal bi', 불고기를 'Bul Go Gi', 만두를 'man doo', 전을 'Jun'으로 적었다. 반찬으로는 김치·콩나물과 함께 마카로니 샐러드, 대구무침(Daegu)이 매일 나온다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii ;
+    dcterms:subject ric:concept-bulgogi,
+        ric:concept-dumpling,
+        ric:concept-galbi,
+        ric:concept-jeon ;
+    dcterms:temporal "2003년 조사" ;
+    dcterms:title "테이크아웃 한식당의 메뉴판" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-takeout> ;
+    rico:generalDescription "맞벌이나 가게 일로 바쁜 사람들은 테이크아웃 한식당에서 음식을 사 간다. 한 테이크아웃 한식당 메뉴판은 갈비를 'Kal bi', 불고기를 'Bul Go Gi', 만두를 'man doo', 전을 'Jun'으로 적었다. 반찬으로는 김치·콩나물과 함께 마카로니 샐러드, 대구무침(Daegu)이 매일 나온다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:hawaii-takeout" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-bulgogi,
+        ric:concept-dumpling,
+        ric:concept-galbi,
+        ric:concept-jeon,
+        ric:group-hawaii ;
+    rico:name "테이크아웃 한식당의 메뉴판" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "nfm2003:155",
+        "nfm2003:156" .
+
+ric:scene-hawaii-taxi-cart a rico:Activity,
+        dia:Scene ;
+    dcterms:description "와이키키 인터내셔널 마켓의 카트 100개 정도 가운데 50개 정도를 한인이 운영했다. 1981년 한인 기사 30여 명이 돈을 모아 한인 최초의 택시회사 '로얄택시'를 세웠고, 택시업에는 7–800명 정도가 일한다. 손님 가운데 일본인 관광객이 많아 택시 기사에게 일본어가 필수라고 한다." ;
+    dcterms:source ric:ref-nfm2003 ;
+    dcterms:spatial ric:group-hawaii,
+        ric:place-waikiki ;
+    dcterms:temporal "1981년 ~ 2003년" ;
+    dcterms:title "카트와 택시, 하와이 한인의 생업" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:hawaii-taxi-cart> ;
+    rico:generalDescription "와이키키 인터내셔널 마켓의 카트 100개 정도 가운데 50개 정도를 한인이 운영했다. 1981년 한인 기사 30여 명이 돈을 모아 한인 최초의 택시회사 '로얄택시'를 세웠고, 택시업에는 7–800명 정도가 일한다. 손님 가운데 일본인 관광객이 많아 택시 기사에게 일본어가 필수라고 한다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:hawaii-taxi-cart" ;
+    rico:isAssociatedWithPlace ric:place-waikiki ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-hawaii ;
+    rico:name "카트와 택시, 하와이 한인의 생업" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "nfm2003:132",
+        "nfm2003:135" .
+
+ric:scene-koryo-1938 a rico:Activity,
+        dia:Scene ;
+    dcterms:description "구소련에서는 1938년 공식적으로 모든 한국어 교육을 폐지했고, 고려말은 모국어와 떨어진 채 변해 왔다. 강제 이주 때 크즐오르다로 옮겨진 고려사범대학은 폐쇄되거나 러시아어로 가르치는 학교로 바뀌었다. 이후 60여 년 러시아어로 교육받으면서 고려말을 다음 세대에 물려주기가 현실적으로 어려워졌다." ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kyzylorda ;
+    dcterms:temporal "1938년 이후" ;
+    dcterms:title "1938년, 끊긴 한국어 교육" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-1938> ;
+    rico:generalDescription "구소련에서는 1938년 공식적으로 모든 한국어 교육을 폐지했고, 고려말은 모국어와 떨어진 채 변해 왔다. 강제 이주 때 크즐오르다로 옮겨진 고려사범대학은 폐쇄되거나 러시아어로 가르치는 학교로 바뀌었다. 이후 60여 년 러시아어로 교육받으면서 고려말을 다음 세대에 물려주기가 현실적으로 어려워졌다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:koryo-1938" ;
+    rico:isAssociatedWithPlace ric:place-kyzylorda ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    rico:name "1938년, 끊긴 한국어 교육" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "ency_koryomal:연원 및 변천",
+        "kwak2007:261" .
+
+ric:scene-koryo-babimuri a rico:Activity,
+        dia:Scene ;
+    dcterms:description "일은 많고 먹을 것이 모자랄 때 고려인들은 밥을 물에 말아 서둘러 끼니를 해결했고, 이를 고려인 말로 따로 불렀다. 강제 이주 뒤 생계를 위해 멀리 땅을 빌려 짓는 농사(고본질)가 생기면서 더 자주 먹게 되었고, 지금도 밥상에 자주 오른다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-rice,
+        ric:concept-rice-in-water ;
+    dcterms:temporal "1937년 강제 이주 이후 ~ 현재" ;
+    dcterms:title "물에 만 밥으로 끼니를 때우던 날들" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-babimuri> ;
+    rico:generalDescription "일은 많고 먹을 것이 모자랄 때 고려인들은 밥을 물에 말아 서둘러 끼니를 해결했고, 이를 고려인 말로 따로 불렀다. 강제 이주 뒤 생계를 위해 멀리 땅을 빌려 짓는 농사(고본질)가 생기면서 더 자주 먹게 되었고, 지금도 밥상에 자주 오른다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-babimuri" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-rice,
+        ric:concept-rice-in-water,
+        ric:group-koryo ;
+    rico:name "물에 만 밥으로 끼니를 때우던 날들" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:108" .
+
+ric:scene-koryo-borrowed-words a rico:Activity,
+        dia:Scene ;
+    dcterms:description "새로운 개념어는 고려말로 바꿔 보급할 기관이 없어 러시아어를 그대로 빌려 쓴다. 수술은 '오뻬라찌', 아파트는 '과찌라'라고 한다. 친족 호칭은 오래 남았지만 부모만큼은 러시아어식으로 '마마', '빠빠'라고 부른다. 러시아어 영향으로 '오이'의 첫소리를 [v]로 발음하는 등 소리도 바뀌었다. 잔을 '따깐', 성냥을 '비지깨'라고 하는 것처럼 러시아어를 변형한 낱말도 많다." ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    dcterms:title "러시아어가 스며든 고려말" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-borrowed-words> ;
+    rico:generalDescription "새로운 개념어는 고려말로 바꿔 보급할 기관이 없어 러시아어를 그대로 빌려 쓴다. 수술은 '오뻬라찌', 아파트는 '과찌라'라고 한다. 친족 호칭은 오래 남았지만 부모만큼은 러시아어식으로 '마마', '빠빠'라고 부른다. 러시아어 영향으로 '오이'의 첫소리를 [v]로 발음하는 등 소리도 바뀌었다. 잔을 '따깐', 성냥을 '비지깨'라고 하는 것처럼 러시아어를 변형한 낱말도 많다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:koryo-borrowed-words" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    rico:name "러시아어가 스며든 고려말" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "ency_koryomal:내용",
+        "kwak2007:260",
+        "kwak2007:261" .
+
+ric:scene-koryo-cabbage-kimchi a rico:Activity,
+        dia:Scene ;
+    dcterms:description "콜호즈의 고려인들은 해마다 가을 김장을 해서 장독째 땅굴에 보관했다는 회상이 있다. 식탁을 차릴 때 김치를 가장 먼저 놓는다고 한다. 양념·젓갈을 구하기 어렵고 배추가 비싸서, 양배추를 소금물에 불린 뒤 고추·마늘·소금으로 버무린 김치를 대신 담갔다. 고춧가루를 줄여 현지인 입맛에도 맞게 바뀌었다고 한다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-kimchi ;
+    dcterms:title "땅굴 속 장독, 양배추로 담근 김치" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-cabbage-kimchi> ;
+    rico:generalDescription "콜호즈의 고려인들은 해마다 가을 김장을 해서 장독째 땅굴에 보관했다는 회상이 있다. 식탁을 차릴 때 김치를 가장 먼저 놓는다고 한다. 양념·젓갈을 구하기 어렵고 배추가 비싸서, 양배추를 소금물에 불린 뒤 고추·마늘·소금으로 버무린 김치를 대신 담갔다. 고춧가루를 줄여 현지인 입맛에도 맞게 바뀌었다고 한다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-cabbage-kimchi" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-koryo ;
+    rico:name "땅굴 속 장독, 양배추로 담근 김치" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:113",
+        "kwon2020:114" .
+
+ric:scene-koryo-carrot-kimchi a rico:Activity,
+        dia:Scene ;
+    dcterms:description "강제 이주 뒤 고려인들은 현지에서 쉽게 구하는 당근으로 김치 대용 샐러드를 만들었다. 러시아식·카자흐식 빵과도 잘 어울려 러시아인과 카자흐스탄 현지인에게도 인기를 얻었고, 러시아 남부 도시와 사할린에서도 많이 팔린다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-carrot-kimchi ;
+    dcterms:title "당근으로 만든 김치, 시장에 나가다" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-carrot-kimchi> ;
+    rico:generalDescription "강제 이주 뒤 고려인들은 현지에서 쉽게 구하는 당근으로 김치 대용 샐러드를 만들었다. 러시아식·카자흐식 빵과도 잘 어울려 러시아인과 카자흐스탄 현지인에게도 인기를 얻었고, 러시아 남부 도시와 사할린에서도 많이 팔린다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-carrot-kimchi" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-carrot-kimchi,
+        ric:group-koryo ;
+    rico:name "당근으로 만든 김치, 시장에 나가다" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:114",
+        "kwon2020:115" .
+
+ric:scene-koryo-daily-table a rico:Activity,
+        dia:Scene ;
+    dcterms:description "카자흐스탄 고려인의 일상 밥상에는 밥·국·두부 같은 한식, 이주 과정에서 바뀐 고려인 음식, 그리고 러시아·카자흐 음식이 함께 오른다. 젊은 세대는 밥 대신 빵을 주로 먹고 러시아·카자흐 음식을 많이 먹는다고 한다. 저자는 이 혼합을 연해주 시절 러시아 음식, 강제 이주 뒤 카자흐 음식과 교류한 결과로 보고 '창조적인 혼종'이라 부른다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-besbarmak,
+        ric:concept-dumpling,
+        ric:concept-kimchi,
+        ric:concept-noodle,
+        ric:concept-rice,
+        ric:concept-russian-bread,
+        ric:concept-tofu ;
+    dcterms:temporal "2020년 무렵(논문 집필 시점)" ;
+    dcterms:title "세 갈래 음식이 함께 오르는 고려인의 밥상" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-daily-table> ;
+    rico:generalDescription "카자흐스탄 고려인의 일상 밥상에는 밥·국·두부 같은 한식, 이주 과정에서 바뀐 고려인 음식, 그리고 러시아·카자흐 음식이 함께 오른다. 젊은 세대는 밥 대신 빵을 주로 먹고 러시아·카자흐 음식을 많이 먹는다고 한다. 저자는 이 혼합을 연해주 시절 러시아 음식, 강제 이주 뒤 카자흐 음식과 교류한 결과로 보고 '창조적인 혼종'이라 부른다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-daily-table" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-besbarmak,
+        ric:concept-dumpling,
+        ric:concept-kimchi,
+        ric:concept-noodle,
+        ric:concept-rice,
+        ric:concept-russian-bread,
+        ric:concept-tofu,
+        ric:group-koryo ;
+    rico:name "세 갈래 음식이 함께 오르는 고려인의 밥상" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:107",
+        "kwon2020:108" .
+
+ric:scene-koryo-doenjang a rico:Activity,
+        dia:Scene ;
+    dcterms:description "우즈베키스탄 시온고 콜호즈에서는 된장 만들기 전통이 거의 그대로 이어져, 메주콩을 삶고 으깨 둥글납작하게 빚어 그늘에 말리는 과정을 보여 주었다. 지금도 된장·고추장·간장을 직접 담가 먹는 고려인이 많고, 딸과 며느리에게 담그는 법을 알려 준다는 구술이 있다. 일상 음식으로 시락장물·국시·두부·비지장이, 저장 음식으로 김치·된장·고추장·간장이 이어지고 있다." ;
+    dcterms:source ric:ref-lee2012 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-tashkent ;
+    dcterms:subject ric:concept-doenjang ;
+    dcterms:temporal "2012년 조사" ;
+    dcterms:title "메주를 띄워 된장을 담그는 집" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-doenjang> ;
+    rico:generalDescription "우즈베키스탄 시온고 콜호즈에서는 된장 만들기 전통이 거의 그대로 이어져, 메주콩을 삶고 으깨 둥글납작하게 빚어 그늘에 말리는 과정을 보여 주었다. 지금도 된장·고추장·간장을 직접 담가 먹는 고려인이 많고, 딸과 며느리에게 담그는 법을 알려 준다는 구술이 있다. 일상 음식으로 시락장물·국시·두부·비지장이, 저장 음식으로 김치·된장·고추장·간장이 이어지고 있다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-doenjang" ;
+    rico:isAssociatedWithPlace ric:place-tashkent ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-doenjang,
+        ric:group-koryo ;
+    rico:name "메주를 띄워 된장을 담그는 집" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2012:221",
+        "lee2012:222" .
+
+ric:scene-koryo-gobonjil a rico:Activity,
+        dia:Scene ;
+    dcterms:description "고려인 가족들이 작은 공동체를 꾸려 농사철에 집을 떠나 먼 곳의 땅을 빌려 짓고 수확물을 파는 농업 방식을 '고본질'이라 부른다. 이 말은 뜻이 넓어져 '집을 떠나 고생스럽게 돈벌이를 함', '보따리장사'를 가리키게 되었다. 강제 이주 뒤 고본질이 생기면서 물에 만 밥을 더 자주 먹게 되었다고 한다." ;
+    dcterms:source ric:ref-kwak2007,
+        ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    dcterms:subject ric:concept-rice-in-water ;
+    dcterms:temporal "강제 이주 이후" ;
+    dcterms:title "땅을 빌려 떠나는 농사, 고본질" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-gobonjil> ;
+    rico:generalDescription "고려인 가족들이 작은 공동체를 꾸려 농사철에 집을 떠나 먼 곳의 땅을 빌려 짓고 수확물을 파는 농업 방식을 '고본질'이라 부른다. 이 말은 뜻이 넓어져 '집을 떠나 고생스럽게 돈벌이를 함', '보따리장사'를 가리키게 되었다. 강제 이주 뒤 고본질이 생기면서 물에 만 밥을 더 자주 먹게 되었다고 한다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:koryo-gobonjil" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-rice-in-water,
+        ric:group-koryo ;
+    rico:name "땅을 빌려 떠나는 농사, 고본질" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "kwak2007:262",
+        "kwon2020:108" .
+
+ric:scene-koryo-hwangap a rico:Activity,
+        dia:Scene ;
+    dcterms:description "예전 환갑은 지인을 집으로 불러 찰떡·증편·고사리 같은 한식 위주로 차렸다. 지금은 파티 전문 식당을 빌리며, 증편·찰떡·국수·나물 옆에 베스바르마크·샤슬릭·러시아식 샐러드가 함께 놓인다. 저자는 환갑 상차림이 바뀐 것을 주변 유라시아 민족의 영향으로 본다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-besbarmak,
+        ric:concept-chalttoek,
+        ric:concept-noodle ;
+    dcterms:title "집 안 잔칫상에서 식당 파티로, 환갑" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-hwangap> ;
+    rico:generalDescription "예전 환갑은 지인을 집으로 불러 찰떡·증편·고사리 같은 한식 위주로 차렸다. 지금은 파티 전문 식당을 빌리며, 증편·찰떡·국수·나물 옆에 베스바르마크·샤슬릭·러시아식 샐러드가 함께 놓인다. 저자는 환갑 상차림이 바뀐 것을 주변 유라시아 민족의 영향으로 본다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-hwangap" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-besbarmak,
+        ric:concept-chalttoek,
+        ric:concept-noodle,
+        ric:group-koryo ;
+    rico:name "집 안 잔칫상에서 식당 파티로, 환갑" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:121",
+        "kwon2020:122" .
+
+ric:scene-koryo-kazan-textbooks a rico:Activity,
+        dia:Scene ;
+    dcterms:description "20세기 초 러시아정교선교협회는 카잔사범학교의 한인 학생들의 도움으로 한인 자녀용 러시아어 교과서·철자 교과서·회화서·사전을 펴냈다(1901–1904). 한인 학생들의 말을 키릴문자로 정밀하게 받아 적어, 1세기 전 육진방언을 보여 주는 자료가 되었다. 곽충구는 이 교재들이 한인을 러시아 공민으로 만들고 정교를 전하려는 목적에서 만들어졌다고 설명한다." ;
+    dcterms:source ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-primorye ;
+    dcterms:temporal "1901–1904년" ;
+    dcterms:title "카잔에서 만든 한인 교과서" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-kazan-textbooks> ;
+    rico:generalDescription "20세기 초 러시아정교선교협회는 카잔사범학교의 한인 학생들의 도움으로 한인 자녀용 러시아어 교과서·철자 교과서·회화서·사전을 펴냈다(1901–1904). 한인 학생들의 말을 키릴문자로 정밀하게 받아 적어, 1세기 전 육진방언을 보여 주는 자료가 되었다. 곽충구는 이 교재들이 한인을 러시아 공민으로 만들고 정교를 전하려는 목적에서 만들어졌다고 설명한다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:koryo-kazan-textbooks" ;
+    rico:isAssociatedWithPlace ric:place-primorye ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    rico:name "카잔에서 만든 한인 교과서" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "kwak2007:236",
+        "kwak2007:237",
+        "kwak2007:238",
+        "kwak2007:240" .
+
+ric:scene-koryo-kolkhoz-rice a rico:Activity,
+        dia:Scene ;
+    dcterms:description "강제 이주 뒤 고려인들은 콜호즈(집단농장)에 배치되어 벼와 목화를 주로 길렀고, 소련 전체에서 손꼽히는 생산량을 올렸다. 카라탈 지역의 고려인 농장 20곳은 기록적인 수확을 거두었고 23명이 '사회주의 노동영웅' 칭호를 받았다. 저자는 높은 농업 생산성이 카자흐인과의 우호 관계와 정착에 도움이 되었다고 본다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-rice-farming ;
+    dcterms:temporal "1937년 강제 이주 이후" ;
+    dcterms:title "콜호즈 들판의 벼와 목화" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-kolkhoz-rice> ;
+    rico:generalDescription "강제 이주 뒤 고려인들은 콜호즈(집단농장)에 배치되어 벼와 목화를 주로 길렀고, 소련 전체에서 손꼽히는 생산량을 올렸다. 카라탈 지역의 고려인 농장 20곳은 기록적인 수확을 거두었고 23명이 '사회주의 노동영웅' 칭호를 받았다. 저자는 높은 농업 생산성이 카자흐인과의 우호 관계와 정착에 도움이 되었다고 본다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:koryo-kolkhoz-rice" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-rice-farming,
+        ric:group-koryo ;
+    rico:name "콜호즈 들판의 벼와 목화" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "kwon2020:104",
+        "kwon2020:105",
+        "kwon2020:106" .
+
+ric:scene-koryo-name-revival a rico:Activity,
+        dia:Scene ;
+    dcterms:description "초기 고려인 신문 『레닌기치』에서는 자기 말을 '고려말', '고려어'라 불렀으나, 북한 정부 수립 뒤 '조선'이라는 말로 바뀌었다. 1988년 서울올림픽을 계기로 한국에 관심이 커지면서, 소련 해체 전후로 '고려사람', '고려말'이라는 이름이 다시 쓰이게 되었다. '고려', '고려말', '고려사람'이라는 명칭은 1920년대에 이미 쓰였다고 한다." ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwak2007 ;
+    dcterms:spatial ric:group-koryo ;
+    dcterms:temporal "1920년대 ~ 1991년 무렵" ;
+    dcterms:title "'조선'에서 다시 '고려'로" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-name-revival> ;
+    rico:generalDescription "초기 고려인 신문 『레닌기치』에서는 자기 말을 '고려말', '고려어'라 불렀으나, 북한 정부 수립 뒤 '조선'이라는 말로 바뀌었다. 1988년 서울올림픽을 계기로 한국에 관심이 커지면서, 소련 해체 전후로 '고려사람', '고려말'이라는 이름이 다시 쓰이게 되었다. '고려', '고려말', '고려사람'이라는 명칭은 1920년대에 이미 쓰였다고 한다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:koryo-name-revival" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-koryo ;
+    rico:name "'조선'에서 다시 '고려'로" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "ency_koryomal:연원 및 변천",
+        "kwak2007:231" .
+
+ric:scene-koryo-seollal a rico:Activity,
+        dia:Scene ;
+    dcterms:description "강제 이주 뒤 고려인은 설날·한식과 함께 러시아의 새해 명절도 쇠었다. 음력 설에는 가족·친척이 모여 음식을 나누었으나, 차례와 세배 풍습은 지금은 찾아보기 어렵고 고려문화원 중심의 공연 행사로 바뀌었다. 설 상에는 찰떡·증편·김치·당근김치와 함께 러시아식 샐러드·소시지, 중앙아시아식 볶음밥 등이 함께 오른다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-almaty ;
+    dcterms:subject ric:concept-carrot-kimchi,
+        ric:concept-chalttoek,
+        ric:concept-kimchi ;
+    dcterms:temporal "1937년 이후 ~ 2020년" ;
+    dcterms:title "설날 상, 한식·러시아식·중앙아시아식이 한 상에" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-seollal> ;
+    rico:generalDescription "강제 이주 뒤 고려인은 설날·한식과 함께 러시아의 새해 명절도 쇠었다. 음력 설에는 가족·친척이 모여 음식을 나누었으나, 차례와 세배 풍습은 지금은 찾아보기 어렵고 고려문화원 중심의 공연 행사로 바뀌었다. 설 상에는 찰떡·증편·김치·당근김치와 함께 러시아식 샐러드·소시지, 중앙아시아식 볶음밥 등이 함께 오른다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-seollal" ;
+    rico:isAssociatedWithPlace ric:place-almaty ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-carrot-kimchi,
+        ric:concept-chalttoek,
+        ric:concept-kimchi,
+        ric:group-koryo ;
+    rico:name "설날 상, 한식·러시아식·중앙아시아식이 한 상에" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:119",
+        "kwon2020:120" .
+
+ric:scene-koryo-soup-order a rico:Activity,
+        dia:Scene ;
+    dcterms:description "원동 시절에는 밥을 국에 말아 먹었지만, 지금 카자흐스탄 고려인은 시래기된장국을 먹을 때 국을 먼저 먹고 밥은 따로 물에 적시거나 말아 먹는다. 저자는 이를 수프를 먼저 먹는 러시아 식사 문화의 영향으로 본다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-kazakhstan ;
+    dcterms:subject ric:concept-rice,
+        ric:concept-siraegi-soup ;
+    dcterms:title "국을 먼저, 밥은 나중에" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-soup-order> ;
+    rico:generalDescription "원동 시절에는 밥을 국에 말아 먹었지만, 지금 카자흐스탄 고려인은 시래기된장국을 먹을 때 국을 먼저 먹고 밥은 따로 물에 적시거나 말아 먹는다. 저자는 이를 수프를 먼저 먹는 러시아 식사 문화의 영향으로 본다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-soup-order" ;
+    rico:isAssociatedWithPlace ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-rice,
+        ric:concept-siraegi-soup,
+        ric:group-koryo ;
+    rico:name "국을 먼저, 밥은 나중에" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:109",
+        "kwon2020:110" .
+
+ric:scene-koryo-train-soup a rico:Activity,
+        dia:Scene ;
+    dcterms:description "강제 이주 열차에서 준비해 간 음식이 주로 마른 것이어서, 국물이 그리웠던 고려인들은 기차가 서면 내려 마른 나무를 모아 국을 끓였다. 먹을 것이 공급되지 않던 열차에서는 정차역 간이상점에 뛰어가 러시아 빵을 사기도 했다. 저자는 국을 고국을 놓지 않으려는 심리적 버팀목이었다고 해석한다." ;
+    dcterms:source ric:ref-kwon2020 ;
+    dcterms:spatial ric:group-koryo ;
+    dcterms:subject ric:concept-russian-bread,
+        ric:concept-siraegi-soup ;
+    dcterms:temporal "1937년" ;
+    dcterms:title "강제 이주 열차가 멈출 때 끓인 국" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-train-soup> ;
+    rico:generalDescription "강제 이주 열차에서 준비해 간 음식이 주로 마른 것이어서, 국물이 그리웠던 고려인들은 기차가 서면 내려 마른 나무를 모아 국을 끓였다. 먹을 것이 공급되지 않던 열차에서는 정차역 간이상점에 뛰어가 러시아 빵을 사기도 했다. 저자는 국을 고국을 놓지 않으려는 심리적 버팀목이었다고 해석한다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:koryo-train-soup" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-russian-bread,
+        ric:concept-siraegi-soup,
+        ric:group-koryo ;
+    rico:name "강제 이주 열차가 멈출 때 끓인 국" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:104",
+        "kwon2020:109",
+        "kwon2020:111" .
+
+ric:scene-koryo-ushtobe-rice a rico:Activity,
+        dia:Scene ;
+    dcterms:description "고려인의 벼농사는 강제 이주 전 극동 전역에서 이루어졌고, 이주 뒤에도 콜호즈마다 목화와 함께 가장 특색 있는 작물이었다. 고려인이 처음 정착한 우쉬토베에서는 1989–90년 무렵 지역 기후에 맞는 새 벼 품종 4가지가 개발되었다는 구술이 있다. 고려인의 쌀 수요는 줄고 있어, 지금은 현지인의 식탁(밥, 플로프)에 맞는 품종이 주로 재배된다고 한다." ;
+    dcterms:source ric:ref-lee2012 ;
+    dcterms:spatial ric:group-koryo,
+        ric:place-ushtobe ;
+    dcterms:subject ric:concept-rice-farming ;
+    dcterms:temporal "극동 시기 ~ 2012년" ;
+    dcterms:title "우쉬토베 들판에서 이어지는 벼농사" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:koryo-ushtobe-rice> ;
+    rico:generalDescription "고려인의 벼농사는 강제 이주 전 극동 전역에서 이루어졌고, 이주 뒤에도 콜호즈마다 목화와 함께 가장 특색 있는 작물이었다. 고려인이 처음 정착한 우쉬토베에서는 1989–90년 무렵 지역 기후에 맞는 새 벼 품종 4가지가 개발되었다는 구술이 있다. 고려인의 쌀 수요는 줄고 있어, 지금은 현지인의 식탁(밥, 플로프)에 맞는 품종이 주로 재배된다고 한다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:koryo-ushtobe-rice" ;
+    rico:isAssociatedWithPlace ric:place-ushtobe ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-rice-farming,
+        ric:group-koryo ;
+    rico:name "우쉬토베 들판에서 이어지는 벼농사" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "lee2012:209",
+        "lee2012:210",
+        "lee2012:211" .
+
+ric:scene-zainichi-black-market a rico:Activity,
+        dia:Scene ;
+    dcterms:description "패전 직후 일본에서 고기는 통제 품목이었지만 내장은 통제 밖이었고, 이를 구해 직접 구워 장사를 먼저 시작한 이들이 조선인이었다. 교토역 남쪽 조선인 암시장 주변에서는 근처 도살장의 소 내장을 사서 풍로에 구워 먹었다는 회고가 있다. 오사카 이쿠노구에는 1928년 무렵 조선시장이 생겨 생선과 돼지 내장이 팔렸다." ;
+    dcterms:source ric:ref-yeon ;
+    dcterms:spatial ric:group-zainichi,
+        ric:place-kyoto-station,
+        ric:place-osaka-ikuno ;
+    dcterms:subject ric:concept-offal,
+        ric:concept-offal-grill ;
+    dcterms:temporal "1945년 패전 직후" ;
+    dcterms:title "패전 직후 암시장, 버려진 내장을 굽다" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-black-market> ;
+    rico:generalDescription "패전 직후 일본에서 고기는 통제 품목이었지만 내장은 통제 밖이었고, 이를 구해 직접 구워 장사를 먼저 시작한 이들이 조선인이었다. 교토역 남쪽 조선인 암시장 주변에서는 근처 도살장의 소 내장을 사서 풍로에 구워 먹었다는 회고가 있다. 오사카 이쿠노구에는 1928년 무렵 조선시장이 생겨 생선과 돼지 내장이 팔렸다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:zainichi-black-market" ;
+    rico:isAssociatedWithPlace ric:place-kyoto-station,
+        ric:place-osaka-ikuno ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-offal,
+        ric:concept-offal-grill,
+        ric:group-zainichi ;
+    rico:name "패전 직후 암시장, 버려진 내장을 굽다" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "yeon:27",
+        "yeon:30" .
+
+ric:scene-zainichi-education-issue a rico:Activity,
+        dia:Scene ;
+    dcterms:description "『호르몬 문화』는 호마다 특집을 정했는데, 2호는 '일하는 재일조선인', 5호는 '재일조선인·민족교육의 미래'였다. 저자는 이 잡지가 직업·선거권·가족·교육 같은 오래된 주제를 3세대와 1990년대의 눈으로 다시 보려 했다고 평가한다." ;
+    dcterms:source ric:ref-lee2017 ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:subject ric:concept-ethnic-school ;
+    dcterms:temporal "1990년대" ;
+    dcterms:title "잡지가 물은 '민족교육의 미래'" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-education-issue> ;
+    rico:generalDescription "『호르몬 문화』는 호마다 특집을 정했는데, 2호는 '일하는 재일조선인', 5호는 '재일조선인·민족교육의 미래'였다. 저자는 이 잡지가 직업·선거권·가족·교육 같은 오래된 주제를 3세대와 1990년대의 눈으로 다시 보려 했다고 평가한다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:zainichi-education-issue" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-ethnic-school,
+        ric:group-zainichi ;
+    rico:name "잡지가 물은 '민족교육의 미래'" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "lee2017:138" .
+
+ric:scene-zainichi-horumon-bunka a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1990년 9월 재일조선인 잡지 『호르몬 문화』가 창간되어 2000년 9월까지 나왔다. 발행인은 조선반도를 가리키던 기존 잡지 이름들과 다른, '재일'의 독자성을 드러낼 이름을 찾았다고 밝혔다. 창간호의 한 필자는 어릴 때는 내장을 다른 이름으로 불렀으니 '호르몬 문화' 이전에 다른 문화가 있었던 것 아니냐고 물었다. 저자는 '호르몬'이라는 이름이 재일 문화의 혼종성과 변용을 상징한다고 해석한다." ;
+    dcterms:source ric:ref-lee2017 ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:subject ric:concept-offal-grill ;
+    dcterms:temporal "1990~2000년" ;
+    dcterms:title "잡지 이름이 된 음식, 『호르몬 문화』" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-horumon-bunka> ;
+    rico:generalDescription "1990년 9월 재일조선인 잡지 『호르몬 문화』가 창간되어 2000년 9월까지 나왔다. 발행인은 조선반도를 가리키던 기존 잡지 이름들과 다른, '재일'의 독자성을 드러낼 이름을 찾았다고 밝혔다. 창간호의 한 필자는 어릴 때는 내장을 다른 이름으로 불렀으니 '호르몬 문화' 이전에 다른 문화가 있었던 것 아니냐고 물었다. 저자는 '호르몬'이라는 이름이 재일 문화의 혼종성과 변용을 상징한다고 해석한다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:zainichi-horumon-bunka" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-offal-grill,
+        ric:group-zainichi ;
+    rico:name "잡지 이름이 된 음식, 『호르몬 문화』" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "lee2017:124",
+        "lee2017:134",
+        "lee2017:135" .
+
+ric:scene-zainichi-horumon-shop a rico:Activity,
+        dia:Scene ;
+    dcterms:description "조선인이 운영한 내장구이점은 일본 경제 성장기에 내장과 등심·갈비를 함께 다루며 지금의 불고기·야키니쿠 가게로 커졌다. 1960년 이후에는 노동자뿐 아니라 회사원 등 일본인이 즐겨 찾는 외식이 되었다. 저자는 차별의 음식이 외식 문화로 자리 잡으며 그 의미가 뒤집혔다고 본다." ;
+    dcterms:source ric:ref-yeon ;
+    dcterms:spatial ric:group-zainichi,
+        ric:place-osaka-ikuno ;
+    dcterms:subject ric:concept-offal-grill ;
+    dcterms:temporal "1950~60년대 이후" ;
+    dcterms:title "판잣집 내장구이점에서 야키니쿠 가게로" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-horumon-shop> ;
+    rico:generalDescription "조선인이 운영한 내장구이점은 일본 경제 성장기에 내장과 등심·갈비를 함께 다루며 지금의 불고기·야키니쿠 가게로 커졌다. 1960년 이후에는 노동자뿐 아니라 회사원 등 일본인이 즐겨 찾는 외식이 되었다. 저자는 차별의 음식이 외식 문화로 자리 잡으며 그 의미가 뒤집혔다고 본다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:zainichi-horumon-shop" ;
+    rico:isAssociatedWithPlace ric:place-osaka-ikuno ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-offal-grill,
+        ric:group-zainichi ;
+    rico:name "판잣집 내장구이점에서 야키니쿠 가게로" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "yeon:31",
+        "yeon:33" .
+
+ric:scene-zainichi-japanese-magazines a rico:Activity,
+        dia:Scene ;
+    dcterms:description "일본어로 낸 첫 재일 종합문예지 『민주조선』(1946)은 왜곡된 조선의 역사와 문화에 대한 일본인의 인식을 바로잡겠다며 출발했다. 한 재일 작가는 모국어 교육을 전혀 받지 못했는데도 '국어로 쓰지 않은 것은 문학이 아니'라는 비판을 받았다고 회고했다." ;
+    dcterms:source ric:ref-lee2017 ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:temporal "1946년 이후" ;
+    dcterms:title "일본어로 쓰는 재일 잡지" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-japanese-magazines> ;
+    rico:generalDescription "일본어로 낸 첫 재일 종합문예지 『민주조선』(1946)은 왜곡된 조선의 역사와 문화에 대한 일본인의 인식을 바로잡겠다며 출발했다. 한 재일 작가는 모국어 교육을 전혀 받지 못했는데도 '국어로 쓰지 않은 것은 문학이 아니'라는 비판을 받았다고 회고했다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:zainichi-japanese-magazines" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    rico:name "일본어로 쓰는 재일 잡지" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "lee2017:126",
+        "lee2017:129" .
+
+ric:scene-zainichi-konbini-kimchi a rico:Activity,
+        dia:Scene ;
+    dcterms:description "재일 3세 시인 정장(丁章)의 시 「コンビニにキムチ」(2004년 시집 수록)는 냄새나고 맵다고 꺼려지던 김치가 편의점에서 샐러드 옆에 팔리는 데 대한 놀라움과 복잡한 감정을 쓴다. 일본에서 김치는 1999년 생산량 1위 절임 음식이 되었다. 저자는 김치 붐이 재일 코리안의 처지를 바꾸지는 못했다는 점을 시가 드러낸다고 해석한다." ;
+    dcterms:source ric:ref-iwata2020 ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:subject ric:concept-kimchi ;
+    dcterms:temporal "1990년대~2004년" ;
+    dcterms:title "편의점 진열대에 놓인 김치" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-konbini-kimchi> ;
+    skos:editorialNote "문학 속 재현" ;
+    rico:generalDescription "(문학 속 재현) 재일 3세 시인 정장(丁章)의 시 「コンビニにキムチ」(2004년 시집 수록)는 냄새나고 맵다고 꺼려지던 김치가 편의점에서 샐러드 옆에 팔리는 데 대한 놀라움과 복잡한 감정을 쓴다. 일본에서 김치는 1999년 생산량 1위 절임 음식이 되었다. 저자는 김치 붐이 재일 코리안의 처지를 바꾸지는 못했다는 점을 시가 드러낸다고 해석한다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:zainichi-konbini-kimchi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-zainichi ;
+    rico:name "편의점 진열대에 놓인 김치" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "iwata2020:65",
+        "iwata2020:66",
+        "iwata2020:67",
+        "iwata2020:68",
+        "iwata2020:69",
+        "iwata2020:70" .
+
+ric:scene-zainichi-lost-work a rico:Activity,
+        dia:Scene ;
+    dcterms:description "재일조선인이 일본 국적을 잃었다고 명시되면서, 세금은 내면서도 참정권과 직업 선택의 자유, 공무담임권, 공영주택·건강보험·연금 같은 권리를 잃었다. 한국전쟁 무렵 재일조선인 경제활동인구 가운데 무직자 비율이 가장 높았고, 취업자 중에서는 일용노무자가 가장 많았다." ;
+    dcterms:source ric:ref-kimgo2010 ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:title "국적을 잃고 일할 자리도 잃다" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-lost-work> ;
+    skos:editorialNote "확인 필요 — dcterms:description: 조치가 시행된 연도와 직업별 비율은 PDF 텍스트에서 숫자가 빠져 판독 불가",
+        "확인 필요 — dcterms:temporal: 연도 숫자 판독 불가" ;
+    rico:generalDescription "재일조선인이 일본 국적을 잃었다고 명시되면서, 세금은 내면서도 참정권과 직업 선택의 자유, 공무담임권, 공영주택·건강보험·연금 같은 권리를 잃었다. 한국전쟁 무렵 재일조선인 경제활동인구 가운데 무직자 비율이 가장 높았고, 취업자 중에서는 일용노무자가 가장 많았다." ;
+    rico:hasActivityType ric:aspect-work ;
+    rico:identifier "scene:zainichi-lost-work" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    rico:name "국적을 잃고 일할 자리도 잃다" ;
+    dia:aspect "일하는 것" ;
+    dia:citation "kimgo2010:67",
+        "kimgo2010:75" .
+
+ric:scene-zainichi-names a rico:Activity,
+        dia:Scene ;
+    dcterms:description "해방 직후 일본에 남은 사람들은 일제시기처럼 자신을 '재일조선인'이라 불렀다. 1948년 남북한 정부가 세워진 뒤 이름이 갈라져, 민단과 총련이 '재일한국인'과 '재일조선인'을 쓰면서 '재일동포'라는 말도 함께 썼다. 지금은 재일한인·재일동포·재일한국인·재일조선인·재일코리안·재일 등 여러 이름이 경합한다. 저자는 '재일동포'·'재일교포'가 같은 민족에 근거한 이름인 반면, '재일'·'재일코리안'은 국가와 민족보다 그 존재 자체에 주목하는 이름이라고 설명한다." ;
+    dcterms:source ric:ref-jung2012 ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:temporal "1945년 ~ 2012년" ;
+    dcterms:title "스스로를 부르는 이름이 갈라지다" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-names> ;
+    rico:generalDescription "해방 직후 일본에 남은 사람들은 일제시기처럼 자신을 '재일조선인'이라 불렀다. 1948년 남북한 정부가 세워진 뒤 이름이 갈라져, 민단과 총련이 '재일한국인'과 '재일조선인'을 쓰면서 '재일동포'라는 말도 함께 썼다. 지금은 재일한인·재일동포·재일한국인·재일조선인·재일코리안·재일 등 여러 이름이 경합한다. 저자는 '재일동포'·'재일교포'가 같은 민족에 근거한 이름인 반면, '재일'·'재일코리안'은 국가와 민족보다 그 존재 자체에 주목하는 이름이라고 설명한다." ;
+    rico:hasActivityType ric:aspect-call ;
+    rico:identifier "scene:zainichi-names" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:group-zainichi ;
+    rico:name "스스로를 부르는 이름이 갈라지다" ;
+    dia:aspect "부르는 것" ;
+    dia:citation "jung2012:259",
+        "jung2012:265",
+        "jung2012:266" .
+
+ric:scene-zainichi-poem-kimchi a rico:Activity,
+        dia:Scene ;
+    dcterms:description "제주 출신 부모를 둔 재일 시인 종추월(宗秋月)의 시 「キムチ」(1971년 첫 발표)는 아침 식탁을 차리며 항아리에서 김치를 꺼내 써는 어머니를 그린다. 저자는 이 시가 김치를 통해 여성이 문화를 이어 가는 역할을 그렸다고 보면서, 그것이 어머니 역할을 신화화하는 위험도 있다고 지적한다." ;
+    dcterms:source ric:ref-iwata2020 ;
+    dcterms:spatial ric:group-zainichi,
+        ric:place-osaka-ikuno ;
+    dcterms:subject ric:concept-kimchi ;
+    dcterms:temporal "1971년(시 첫 발표)" ;
+    dcterms:title "아침마다 김치를 써는 어머니, 시 「キムチ」" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-poem-kimchi> ;
+    skos:editorialNote "문학 속 재현" ;
+    rico:generalDescription "(문학 속 재현) 제주 출신 부모를 둔 재일 시인 종추월(宗秋月)의 시 「キムチ」(1971년 첫 발표)는 아침 식탁을 차리며 항아리에서 김치를 꺼내 써는 어머니를 그린다. 저자는 이 시가 김치를 통해 여성이 문화를 이어 가는 역할을 그렸다고 보면서, 그것이 어머니 역할을 신화화하는 위험도 있다고 지적한다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:zainichi-poem-kimchi" ;
+    rico:isAssociatedWithPlace ric:place-osaka-ikuno ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-kimchi,
+        ric:group-zainichi ;
+    rico:name "아침마다 김치를 써는 어머니, 시 「キムチ」" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "iwata2020:61",
+        "iwata2020:63",
+        "iwata2020:65" .
+
+ric:scene-zainichi-school-closure a rico:Activity,
+        dia:Scene ;
+    dcterms:description "연합군최고사령부는 조선인 교육을 일본 법 안에서 하라고 지시한 뒤 민족학교 폐교 명령을 내려, 재일조선인 아이들을 일본인 학교에 다니게 했다. 학교폐쇄령이 나오자 한신 지역(오사카·고베)의 학부모와 동포들이 민족교육을 지키려는 투쟁을 벌였다. 저자는 이 반대운동을 거치며 재일조선인들이 민족 정체성을 확인했고, 이것이 조선학교 건립운동으로 이어졌다고 본다." ;
+    dcterms:source ric:ref-kimgo2010 ;
+    dcterms:spatial ric:group-zainichi,
+        ric:place-hanshin ;
+    dcterms:subject ric:concept-ethnic-school ;
+    dcterms:title "민족학교 폐쇄령과 한신교육투쟁" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-school-closure> ;
+    skos:editorialNote "확인 필요 — dcterms:description: 폐쇄령·투쟁의 연도와 학교 수는 PDF 텍스트에서 숫자가 빠져 판독 불가",
+        "확인 필요 — dcterms:temporal: 연도 숫자 판독 불가" ;
+    rico:generalDescription "연합군최고사령부는 조선인 교육을 일본 법 안에서 하라고 지시한 뒤 민족학교 폐교 명령을 내려, 재일조선인 아이들을 일본인 학교에 다니게 했다. 학교폐쇄령이 나오자 한신 지역(오사카·고베)의 학부모와 동포들이 민족교육을 지키려는 투쟁을 벌였다. 저자는 이 반대운동을 거치며 재일조선인들이 민족 정체성을 확인했고, 이것이 조선학교 건립운동으로 이어졌다고 본다." ;
+    rico:hasActivityType ric:aspect-learn ;
+    rico:identifier "scene:zainichi-school-closure" ;
+    rico:isAssociatedWithPlace ric:place-hanshin ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-ethnic-school,
+        ric:group-zainichi ;
+    rico:name "민족학교 폐쇄령과 한신교육투쟁" ;
+    dia:aspect "배우는 것" ;
+    dia:citation "kimgo2010:67",
+        "kimgo2010:68" .
+
+ric:scene-zainichi-worker-offal a rico:Activity,
+        dia:Scene ;
+    dcterms:description "1920~30년대 일본으로 건너간 조선인 노동자들은 쌀·소금·채소로만 겨우 끼니를 이었다. 내장구이는 귀한 동물성 단백질이었지만 자주 먹지는 못했고, 한 공사장 합숙소에서는 한 달에 두 번 월급날에 구워 먹었다고 한다. 마늘로 양념한 음식은 일본인 이웃에게 냄새로 비난받았고, 이는 차별의 언어가 되었다." ;
+    dcterms:source ric:ref-yeon ;
+    dcterms:spatial ric:group-zainichi ;
+    dcterms:subject ric:concept-offal,
+        ric:concept-offal-grill ;
+    dcterms:temporal "1920~30년대" ;
+    dcterms:title "노동자 합숙소의 월급날 내장구이" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=scene:zainichi-worker-offal> ;
+    rico:generalDescription "1920~30년대 일본으로 건너간 조선인 노동자들은 쌀·소금·채소로만 겨우 끼니를 이었다. 내장구이는 귀한 동물성 단백질이었지만 자주 먹지는 못했고, 한 공사장 합숙소에서는 한 달에 두 번 월급날에 구워 먹었다고 한다. 마늘로 양념한 음식은 일본인 이웃에게 냄새로 비난받았고, 이는 차별의 언어가 되었다." ;
+    rico:hasActivityType ric:aspect-eat ;
+    rico:identifier "scene:zainichi-worker-offal" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:isRelatedTo ric:concept-offal,
+        ric:concept-offal-grill,
+        ric:group-zainichi ;
+    rico:name "노동자 합숙소의 월급날 내장구이" ;
+    dia:aspect "먹는 것" ;
+    dia:citation "yeon:23",
+        "yeon:29",
+        "yeon:30" .
+
+ric:ref-imin2010 a bibo:Document,
+        rico:Record ;
+    dcterms:accessRights "웹 공개(공공누리 제4유형)" ;
+    dcterms:creator "한국이민사박물관" ;
+    dcterms:date "2010" ;
+    dcterms:title "2010 특별전 「또 다른 삶의 울림」 해설" ;
+    bibo:uri "https://www.incheon.go.kr/museum/MU040212/3505" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=imin2010> ;
+    skos:editorialNote "2026-10-10 열람. 게시물 제목은 '또 다른 삶의 울림-낯선 땅, 낯선 생활'(2010-06-10 작성). 페이지에 공공누리 제4유형(출처표시·상업용금지·변경금지) 표시." ;
+    rico:identifier "imin2010" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "2010 특별전 「또 다른 삶의 울림」 해설" .
+
+ric:ref-nara2017 a bibo:Document,
+        rico:Record ;
+    dcterms:accessRights "웹 공개" ;
+    dcterms:creator "국가기록원" ;
+    dcterms:date "2017" ;
+    dcterms:title "고려인 강제 이주 80주년 '눈물과 영광의 기록' 공개 (국가기록원 NEWSLETTER 제69호)" ;
+    bibo:uri "https://theme.archives.go.kr/next/pages/new_newsletter/2017/html/vol_69/sub03_2.html" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=nara2017> ;
+    skos:editorialNote "2026-10-10 열람. 웹 문헌이라 cite는 '본문'. 이용 조건 표시는 페이지에서 확인되지 않음." ;
+    rico:identifier "nara2017" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "고려인 강제 이주 80주년 '눈물과 영광의 기록' 공개 (국가기록원 NEWSLETTER 제69호)" .
+
+ric:concept-blin a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:blin> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "메밀가루와 밀가루로 부친 러시아식 팬케이크." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "블린(러시아식 팬케이크)" ;
+    rico:identifier "concept:blin" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:110" .
+
+ric:concept-cup a skos:Concept ;
+    dcterms:source ric:ref-ency_koryomal ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:cup> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "잔" ;
+    rico:identifier "concept:cup" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "ency_koryomal:내용" .
+
+ric:concept-doenjang a skos:Concept ;
+    dcterms:source ric:ref-lee2012,
+        ric:ref-nfm2003 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:doenjang> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "된장" ;
+    rico:identifier "concept:doenjang" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2012:222",
+        "nfm2003:151" .
+
+ric:concept-mumallaengi a skos:Concept ;
+    dcterms:source ric:ref-lee2014 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:mumallaengi> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "무말랭이무침" ;
+    rico:identifier "concept:mumallaengi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2014:78" .
+
+ric:concept-potato a skos:Concept ;
+    dcterms:source ric:ref-kwak2007,
+        ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:potato> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "감자" ;
+    rico:identifier "concept:potato" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwak2007:247",
+        "kwon2020:111" .
+
+ric:concept-soy-sauce a skos:Concept ;
+    dcterms:source ric:ref-kwak2007 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:soy-sauce> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "간장" ;
+    rico:identifier "concept:soy-sauce" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwak2007:264" .
+
+ric:place-tizinhe a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-primorye ;
+    dcterms:title "찌진헤 (Tizinhe, 地新墟) — 포시에트 인근" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:tizinhe> ;
+    geo:lat "42.6500" ;
+    geo:long "130.8000" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 포시에트 부근 근사값. 정확한 위치 확인 필요" ;
+    rico:identifier "place:tizinhe" ;
+    rico:isOrWasContainedBy ric:place-primorye ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "찌진헤 (Tizinhe, 地新墟) — 포시에트 인근" ;
+    dia:citation "kwak2007:233" .
+
+ric:place-wahiawa a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-hawaii ;
+    dcterms:title "오아후 섬 와히아와" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:wahiawa> ;
+    geo:lat "21.5000" ;
+    geo:long "-158.0200" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:wahiawa" ;
+    rico:isOrWasContainedBy ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "오아후 섬 와히아와" ;
+    dia:citation "nfm2003:159",
+        "nfm2003:160" .
+
+ric:concept-besbarmak a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:besbarmak> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "삶은 고기와 얇게 썬 밀가루 반죽을 국물에 끓여 내는 카자흐 전통 음식. 고려인은 소고기로 만든다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "베스바르마크" ;
+    rico:identifier "concept:besbarmak" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:117" .
+
+ric:concept-chalttoek a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:chalttoek> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "찰떡" ;
+    rico:identifier "concept:chalttoek" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:120",
+        "kwon2020:122" .
+
+ric:concept-ethnic-school a skos:Concept ;
+    dcterms:source ric:ref-kimgo2010 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:ethnic-school> ;
+    skos:broader ric:aspect-learn ;
+    skos:definition "재일조선인이 세운 민족교육 기관." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "민족학교(조선학교)" ;
+    rico:identifier "concept:ethnic-school" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "배우는 것" ;
+    dia:citation "kimgo2010:68" .
+
+ric:concept-galbi a skos:Concept ;
+    dcterms:source ric:ref-nfm2003 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:galbi> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "갈비" ;
+    rico:identifier "concept:galbi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "nfm2003:155" .
+
+ric:concept-hangul-school a skos:Concept ;
+    dcterms:source ric:ref-nfm2003 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:hangul-school> ;
+    skos:broader ric:aspect-learn ;
+    skos:definition "정규 학교와 별도로 교회 등에서 한글과 한국어를 가르치는 학교." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "한글학교" ;
+    rico:identifier "concept:hangul-school" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "배우는 것" ;
+    dia:citation "nfm2003:239",
+        "nfm2003:242",
+        "nfm2003:243" .
+
+ric:concept-jeon a skos:Concept ;
+    dcterms:source ric:ref-lee2014 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:jeon> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "전(고기전·생선전)" ;
+    rico:identifier "concept:jeon" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2014:87" .
+
+ric:concept-rice-farming a skos:Concept ;
+    dcterms:source ric:ref-kwon2020,
+        ric:ref-lee2012 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:rice-farming> ;
+    skos:broader ric:aspect-work ;
+    skos:definition "논에 벼를 심어 쌀을 거두는 농사." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "벼농사" ;
+    rico:identifier "concept:rice-farming" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "일하는 것" ;
+    dia:citation "kwon2020:105",
+        "lee2012:209",
+        "lee2012:210" .
+
+ric:concept-tofu a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:tofu> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "콩으로 만든 음식. 고려인은 연해주 시절부터 직접 만들어 국에 넣거나 구워 먹었다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "두부" ;
+    rico:identifier "concept:tofu" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:115" .
+
+ric:place-almaty a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-kazakhstan ;
+    dcterms:title "알마티" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:almaty> ;
+    geo:lat "43.2400" ;
+    geo:long "76.8900" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:almaty" ;
+    rico:isOrWasContainedBy ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "알마티" ;
+    dia:citation "kwon2020:105" .
+
+ric:place-hanshin a dcterms:Location,
+        rico:Place ;
+    dcterms:title "한신 지역 (오사카·고베)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:hanshin> ;
+    geo:lat "34.6900" ;
+    geo:long "135.2000" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:hanshin" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "한신 지역 (오사카·고베)" ;
+    dia:citation "kimgo2010:68" .
+
+ric:place-hilo a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-hawaii ;
+    dcterms:title "하와이 섬 힐로" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:hilo> ;
+    geo:lat "19.7200" ;
+    geo:long "-155.0800" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:hilo" ;
+    rico:isOrWasContainedBy ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "하와이 섬 힐로" ;
+    dia:citation "nfm2003:239" .
+
+ric:place-keaau a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-hawaii ;
+    dcterms:title "하와이 섬 케에아우 (힐로 인근)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:keaau> ;
+    geo:lat "19.6200" ;
+    geo:long "-155.0400" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:keaau" ;
+    rico:isOrWasContainedBy ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "하와이 섬 케에아우 (힐로 인근)" ;
+    dia:citation "lee2014:78" .
+
+ric:place-kohala a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-hawaii ;
+    dcterms:title "하와이 섬 코할라" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:kohala> ;
+    geo:lat "20.2300" ;
+    geo:long "-155.8000" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:kohala" ;
+    rico:isOrWasContainedBy ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "하와이 섬 코할라" ;
+    dia:citation "lee2014:78" .
+
+ric:place-kyoto-station a dcterms:Location,
+        rico:Place ;
+    dcterms:title "교토역 남쪽 (패전 직후 조선인 암시장)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:kyoto-station> ;
+    geo:lat "34.9850" ;
+    geo:long "135.7580" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:kyoto-station" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "교토역 남쪽 (패전 직후 조선인 암시장)" ;
+    dia:citation "yeon:27",
+        "yeon:30" .
+
+ric:place-kyzylorda a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-kazakhstan ;
+    dcterms:title "키질오르다" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:kyzylorda> ;
+    geo:lat "44.8500" ;
+    geo:long "65.5100" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:kyzylorda" ;
+    rico:isOrWasContainedBy ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "키질오르다" ;
+    dia:citation "kwon2020:105" .
+
+ric:place-tashkent a dcterms:Location,
+        rico:Place ;
+    dcterms:title "타슈켄트주 (시온고 콜호즈 등)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:tashkent> ;
+    geo:lat "41.3000" ;
+    geo:long "69.2400" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:tashkent" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "타슈켄트주 (시온고 콜호즈 등)" ;
+    dia:citation "lee2012:222" .
+
+ric:place-ushtobe a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-kazakhstan ;
+    dcterms:title "우슈토베 (Уштобе)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:ushtobe> ;
+    geo:lat "45.2500" ;
+    geo:long "77.9800" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 문헌에는 '알마티 북쪽 약 330km'로만 나옴(kwon2020:104). 좌표 검수 필요" ;
+    rico:identifier "place:ushtobe" ;
+    rico:isOrWasContainedBy ric:place-kazakhstan ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "우슈토베 (Уштобе)" ;
+    dia:citation "kwon2020:104" .
+
+ric:place-waikiki a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-honolulu ;
+    dcterms:title "호놀룰루 와이키키" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:waikiki> ;
+    geo:lat "21.2800" ;
+    geo:long "-157.8300" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:waikiki" ;
+    rico:isOrWasContainedBy ric:place-honolulu ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "호놀룰루 와이키키" ;
+    dia:citation "nfm2003:132" .
+
+ric:ref-kimgo2010 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "DBpia(개인 연구용)" ;
+    dcterms:creator "김귀옥" ;
+    dcterms:date "2010" ;
+    dcterms:isPartOf "『역사비평』 91" ;
+    dcterms:title "분단과 전쟁의 디아스포라: 재일조선인 문제를 중심으로" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=kimgo2010> ;
+    skos:editorialNote "PDF 텍스트에서 아라비아 숫자(연도·인원)가 대부분 빠져 추출됨. 숫자가 들어간 값은 '확인 필요'." ;
+    rico:identifier "kimgo2010" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "분단과 전쟁의 디아스포라: 재일조선인 문제를 중심으로" .
+
+ric:ref-iwata2020 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "오픈 액세스" ;
+    dcterms:creator "岩田゠ワイケナント・クリスティーナ (Iwata-Weickgennant, K.)" ;
+    dcterms:date "2020" ;
+    dcterms:isPartOf "『JunCture』 11" ;
+    dcterms:title "詩に刻むキムチ──「在日」詩人の描く食・ジェンダー・差別" ;
+    bibo:uri "https://nagoya.repo.nii.ac.jp/records/29475" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=iwata2020> ;
+    skos:editorialNote "PDF에는 저자 1명(岩田゠ワイケナント)과 번역자 2명(大﨑晴美・岩田晋典)으로 나온다. sources.json label은 세 사람을 공저자로 적었다. 게재지명·연도는 PDF 본문에 없어 sources.json 값을 따름(확인 필요).",
+        "확인 필요 — dcterms:isPartOf:" ;
+    rico:identifier "iwata2020" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "詩に刻むキムチ──「在日」詩人の描く食・ジェンダー・差別" .
+
+ric:ref-jung2012 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "earticle(학교 계정)" ;
+    dcterms:creator "정진성" ;
+    dcterms:date "2012" ;
+    dcterms:isPartOf "『일본비평』 7" ;
+    dcterms:title "'재일동포' 호칭의 역사성과 현재성" ;
+    bibo:uri "https://www.earticle.net/Article/A306089" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=jung2012> ;
+    rico:identifier "jung2012" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "'재일동포' 호칭의 역사성과 현재성" .
+
+ric:ref-lee2017 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "earticle(학교 계정)" ;
+    dcterms:creator "이승진" ;
+    dcterms:date "2017" ;
+    dcterms:isPartOf "『일본학보』 113" ;
+    dcterms:title "재일조선인잡지 『호르몬 문화』(ほるもん文化) 연구 ― 재일조선인잡지사에서 차지하는 위상과 의미를 중심으로" ;
+    bibo:uri "https://www.earticle.net/Article/A318031" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=lee2017> ;
+    rico:identifier "lee2017" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "재일조선인잡지 『호르몬 문화』(ほるもん文化) 연구 ― 재일조선인잡지사에서 차지하는 위상과 의미를 중심으로" .
+
+ric:concept-bulgogi a skos:Concept ;
+    dcterms:source ric:ref-nfm2003,
+        ric:ref-yeon ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:bulgogi> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "고기를 불에 직접 구워 먹는 음식." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "불고기(고기구이)" ;
+    rico:identifier "concept:bulgogi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "nfm2003:155",
+        "nfm2003:158",
+        "yeon:24" .
+
+ric:concept-carrot-kimchi a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:carrot-kimchi> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "중앙아시아에서 구하기 쉬운 당근으로 김치 대신 만든 샐러드류 반찬." ;
+    skos:editorialNote "확인 필요 — skos:exactMatch: Wikidata ID 미확인" ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "당근 김치(당근채)" ;
+    rico:identifier "concept:carrot-kimchi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:114" .
+
+ric:concept-cod-muchim a skos:Concept ;
+    dcterms:source ric:ref-lee2014 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:cod-muchim> ;
+    skos:broader ric:aspect-eat ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "대구무침" ;
+    rico:identifier "concept:cod-muchim" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2014:78",
+        "lee2014:79" .
+
+ric:concept-noodle a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:noodle> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "메밀 등으로 뽑은 면을 찬 육수나 국물에 말아 먹는 음식. 고려인 사이에서는 잔치 음식으로도 쓰인다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "국수" ;
+    rico:identifier "concept:noodle" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:115",
+        "kwon2020:116" .
+
+ric:concept-rice a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:rice> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "쌀(기념일에는 찹쌀)로 지은 주식." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "밥" ;
+    rico:identifier "concept:rice" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:108" .
+
+ric:concept-rice-in-water a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:rice-in-water> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "밥을 물에 말아 빠르게 먹는 끼니." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "물에 만 밥" ;
+    rico:identifier "concept:rice-in-water" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:108" .
+
+ric:concept-siraegi-soup a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:siraegi-soup> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "시래기를 넣고 된장으로 끓인 국. 원동 시절부터 즐겨 먹었다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "시래기된장국" ;
+    rico:identifier "concept:siraegi-soup" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:109",
+        "kwon2020:110" .
+
+ric:place-primorye a dcterms:Location,
+        rico:Place ;
+    dcterms:title "연해주 (러시아 원동)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:primorye> ;
+    geo:lat "44.0000" ;
+    geo:long "134.0000" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 지역 중심 근사값. 검수 필요" ;
+    rico:identifier "place:primorye" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "연해주 (러시아 원동)" ;
+    dia:citation "kwak2007:233" .
+
+ric:place-waialua a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-hawaii ;
+    dcterms:title "오아후 섬 와이알루아 농장 모쿨레이아 '한인 캠프'" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:waialua> ;
+    geo:lat "21.5800" ;
+    geo:long "-158.1900" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:waialua" ;
+    rico:isOrWasContainedBy ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "오아후 섬 와이알루아 농장 모쿨레이아 '한인 캠프'" ;
+    dia:citation "lee2014:78" .
+
+ric:scheme-cultures a skos:ConceptScheme ;
+    skos:prefLabel "문화권" ;
+    skos:scopeNote "고려인·재일조선인·하와이 한인. 사람들의 범주(RiC-O DemographicGroup)로 둔다." ;
+    rico:identifier "scheme-cultures" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:aspect-call a skos:Concept,
+        rico:ActivityType ;
+    skos:altLabel "호(呼)" ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "부르는 것" ;
+    skos:topConceptOf ric:scheme-life-objects ;
+    rico:identifier "dia:aspect=부르는 것" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:ref-lee2012 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "원문 PDF 보유(재외한인학회)" ;
+    dcterms:creator "이병조" ;
+    dcterms:date "2012" ;
+    dcterms:isPartOf "『재외한인연구』 28" ;
+    dcterms:title "독립국가연합(CIS) 고려인의 전통문화유산에 대한 인식과 전승실태: 중앙아시아·러시아의 고려인 무형문화유산을 중심으로" ;
+    bibo:uri "https://m.earticle.net/Article/A187618" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=lee2012> ;
+    skos:editorialNote "PDF 메타데이터의 글자는 깨져 있으나 본문 텍스트는 정상 추출됨. 사할린 한인 내용은 쓰지 않음." ;
+    rico:identifier "lee2012" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "독립국가연합(CIS) 고려인의 전통문화유산에 대한 인식과 전승실태: 중앙아시아·러시아의 고려인 무형문화유산을 중심으로" .
+
+ric:concept-dumpling a skos:Concept ;
+    dcterms:source ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:dumpling> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "밀가루 반죽에 고기와 잘게 썬 양배추를 넣어 찐 만두." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "고기·양배추 소 찐만두" ;
+    rico:identifier "concept:dumpling" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwon2020:116" .
+
+ric:concept-offal a skos:Concept ;
+    dcterms:source ric:ref-yeon ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:offal> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "일본에서 오래 먹지 않고 버리던 부위. 패전 직후 통제 품목 밖이어서 재일 조선인이 구해 구워 팔았다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "소·돼지 내장" ;
+    rico:identifier "concept:offal" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "yeon:27",
+        "yeon:28",
+        "yeon:30" .
+
+ric:concept-offal-grill a skos:Concept ;
+    dcterms:source ric:ref-lee2017,
+        ric:ref-yeon ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:offal-grill> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "소·돼지 내장을 불에 구운 음식. 일본에서는 '호르몬구이'라는 이름으로 외식 업종이 되었다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "내장구이" ;
+    rico:identifier "concept:offal-grill" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "lee2017:135",
+        "yeon:28",
+        "yeon:29" .
+
+ric:concept-russian-bread a skos:Concept ;
+    dcterms:source ric:ref-kwak2007,
+        ric:ref-kwon2020 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:russian-bread> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "러시아식으로 구운 빵. 고려인은 러시아인과 함께 살면서 빵을 많이 먹게 되었다." ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "러시아 빵" ;
+    rico:identifier "concept:russian-bread" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "kwak2007:264",
+        "kwon2020:110",
+        "kwon2020:111" .
+
+ric:place-osaka-ikuno a dcterms:Location,
+        rico:Place ;
+    dcterms:title "오사카 이쿠노구 (이카이노)" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:osaka-ikuno> ;
+    geo:lat "34.6600" ;
+    geo:long "135.5300" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:osaka-ikuno" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "오사카 이쿠노구 (이카이노)" ;
+    dia:citation "yeon:30",
+        "yeon:33" .
+
+ric:aspect-learn a skos:Concept,
+        rico:ActivityType ;
+    skos:altLabel "학(學)" ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "배우는 것" ;
+    skos:topConceptOf ric:scheme-life-objects ;
+    rico:identifier "dia:aspect=배우는 것" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:aspect-work a skos:Concept,
+        rico:ActivityType ;
+    skos:altLabel "사(事)" ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "일하는 것" ;
+    skos:topConceptOf ric:scheme-life-objects ;
+    rico:identifier "dia:aspect=일하는 것" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:place-honolulu a dcterms:Location,
+        rico:Place ;
+    dcterms:isPartOf ric:place-hawaii ;
+    dcterms:title "호놀룰루" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:honolulu> ;
+    geo:lat "21.3100" ;
+    geo:long "-157.8600" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 검수 필요" ;
+    rico:identifier "place:honolulu" ;
+    rico:isOrWasContainedBy ric:place-hawaii ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "호놀룰루" ;
+    dia:citation "lee2014:78" .
+
+ric:ref-ency_koryomal a bibo:Document,
+        rico:Record ;
+    dcterms:accessRights "웹 공개" ;
+    dcterms:creator "김상철" ;
+    dcterms:date "1995(집필), 2023-07-17(최종수정)" ;
+    dcterms:title "한국민족문화대백과사전 「고려말」" ;
+    bibo:uri "https://encykorea.aks.ac.kr/Article/E0072192" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=ency_koryomal> ;
+    skos:editorialNote "2026-10-10 열람. 웹 문헌이라 쪽수 대신 항목의 절 이름(개설, 내용 등)을 cite에 적음. 공공누리 표시. 인용 시 '[출처 : 고려말 - 한국민족문화대백과사전]' 표기 요구." ;
+    rico:identifier "ency_koryomal" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "한국민족문화대백과사전 「고려말」" .
+
+ric:ref-yeon a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "earticle(학교 계정)" ;
+    dcterms:creator "연윤희" ;
+    dcterms:date "2014" ;
+    dcterms:isPartOf "『동북아 문화연구』 39" ;
+    dcterms:title "호르몬구이(ホルモン焼き), 재일한국인․조선인의 변용과 갱생의 표상" ;
+    bibo:uri "https://m.earticle.net/Article/A223849" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=yeon> ;
+    skos:editorialNote "sources.json label의 '게재지·연도 확인 필요'는 PDF 표지(earticle 인용 정보)와 본문 첫 쪽으로 확인됨: 『동북아 문화연구』 39집(2014), 23–39쪽." ;
+    rico:identifier "yeon" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "호르몬구이(ホルモン焼き), 재일한국인․조선인의 변용과 갱생의 표상" .
+
+ric:ref-lee2014 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "공개 PDF" ;
+    dcterms:creator "이덕희" ;
+    dcterms:date "2014" ;
+    dcterms:isPartOf "『아시아리뷰』 4(1)" ;
+    dcterms:title "하와이 다문화에 한인 이민자들도 기여했을까?: 하와이 한인 이민사의 경험과 교훈, 1903~1959" ;
+    bibo:uri "https://asiareview.snu.ac.kr/wp-content/uploads/2022/11/04_기획논문_이덕희_교정_OK.pdf" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=lee2014> ;
+    rico:identifier "lee2014" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "하와이 다문화에 한인 이민자들도 기여했을까?: 하와이 한인 이민사의 경험과 교훈, 1903~1959" .
+
+ric:place-hawaii a dcterms:Location,
+        rico:Place ;
+    dcterms:title "하와이" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:hawaii> ;
+    geo:lat "20.8000" ;
+    geo:long "-157.5000" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 제도 중심 근사값. 검수 필요" ;
+    rico:identifier "place:hawaii" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "하와이" ;
+    dia:citation "lee2014:78" .
+
+ric:ref-kwak2007 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "공개 PDF" ;
+    dcterms:creator "곽충구" ;
+    dcterms:date "2007" ;
+    dcterms:isPartOf "『인문논총』 58" ;
+    dcterms:title "중앙아시아 고려말의 자료와 연구" ;
+    bibo:uri "https://ih.snu.ac.kr/wp-content/uploads/mangboard/journal/2469366113_qwtVMhcN_58-EAB3BDECB6A9EAB5AC.pdf" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=kwak2007> ;
+    rico:identifier "kwak2007" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "중앙아시아 고려말의 자료와 연구" .
+
+ric:place-kazakhstan a dcterms:Location,
+        rico:Place ;
+    dcterms:title "카자흐스탄" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=place:kazakhstan> ;
+    geo:lat "48.0000" ;
+    geo:long "67.0000" ;
+    skos:editorialNote "좌표는 문헌 외 값 — 나라 중심 근사값. 검수 필요" ;
+    rico:identifier "place:kazakhstan" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    rico:name "카자흐스탄" ;
+    dia:citation "kwon2020:104" .
+
+ric:ref-nfm2003 a bibo:Document,
+        rico:Record ;
+    dcterms:accessRights "국립민속박물관 발간 보고서(PDF 보유). 이미지·사진은 저작권 확인 전 사이트 게재 금지" ;
+    dcterms:creator "한국문화인류학회 편" ;
+    dcterms:date "2003" ;
+    dcterms:isPartOf "국립민속박물관 학술총서 34" ;
+    dcterms:title "미국 하와이지역 한인동포의 생활문화" ;
+    bibo:uri "https://ci.nii.ac.jp/ncid/BA6718294X" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=nfm2003> ;
+    skos:editorialNote "스캔본이라 쪽 이미지를 직접 보고 읽음(텍스트 추출 결과는 쓰지 않음). 읽은 범위: 5장 119–143쪽, 6장 1절 식생활·2절 일부 147–164쪽, 9장 222–229·238–243쪽. 쪽은 인쇄 쪽 기준. 업로드 파일 이름은 americankorean.pdf였고 새 저장소에서는 nfm2003.pdf로 복사함. 실제 대응은 PDF 쪽(1부터) = 인쇄 쪽 − 9(5장), − 10(6장), − 15(9장)로, sources.json의 '− 7'과 다름(장 사이에 쪽 번호 없는 간지·화보가 있는 것으로 보임)." ;
+    rico:identifier "nfm2003" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "미국 하와이지역 한인동포의 생활문화" .
+
+ric:concept-kimchi a skos:Concept ;
+    dcterms:source ric:ref-iwata2020,
+        ric:ref-kwon2020,
+        ric:ref-lee2014 ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=concept:kimchi> ;
+    skos:broader ric:aspect-eat ;
+    skos:definition "채소를 소금에 절여 고추·마늘 등으로 양념한 절임 음식. 문헌에 따라 배추 대신 양배추로 담근 것도 김치의 변형으로 다룬다." ;
+    skos:editorialNote "확인 필요 — skos:exactMatch: Wikidata ID 미확인" ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "김치" ;
+    rico:identifier "concept:kimchi" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:aspect "먹는 것" ;
+    dia:citation "iwata2020:61",
+        "kwon2020:113",
+        "kwon2020:114",
+        "lee2014:78" .
+
+ric:scheme-life-objects a skos:ConceptScheme ;
+    skos:prefLabel "생활 대상" ;
+    skos:scopeNote "음식·생활 사물·일·교육 제도 등 말이 가리키는 대상. 네 측면을 최상위 개념으로 둔다." ;
+    rico:identifier "scheme-life-objects" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:scheme-words a skos:ConceptScheme ;
+    skos:prefLabel "디아스포라 어휘" ;
+    skos:scopeNote "문화권마다 대상을 부르던 말(이름표). 말과 대상을 분리한다는 AP 설계에 따라 생활 대상과 다른 체계에 둔다." ;
+    rico:identifier "scheme-words" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:ref-kwon2020 a bibo:AcademicArticle,
+        rico:Record ;
+    dcterms:accessRights "학교 DB 경유" ;
+    dcterms:creator "권기배" ;
+    dcterms:date "2020" ;
+    dcterms:isPartOf "『러시아어문학연구논집』 69" ;
+    dcterms:title "카자흐스탄 고려인 문화 연구: 음식과 명절을 중심으로" ;
+    bibo:uri "https://scholarworks.bwise.kr/cau/handle/2019.sw.cau/44381" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=kwon2020> ;
+    rico:identifier "kwon2020" ;
+    rico:isOrWasIncludedIn ric:col-한-뿌리-다른-땅 ;
+    rico:title "카자흐스탄 고려인 문화 연구: 음식과 명절을 중심으로" .
+
+ric:group-hawaii a foaf:Group,
+        rico:Concept,
+        rico:DemographicGroup ;
+    dcterms:description "구한말 국내의 생활고와 하와이 사탕수수 농업의 노동력 수요가 맞물려, 1902년부터 1905년까지 약 7,400명이 하와이로 이민을 떠났다. 1903년 1월 13일 102명의 첫 한인 이민단이 호놀룰루항에 내려 사탕수수 농장 노동자가 되었다. 농장 감독의 감시와 뜨거운 햇볕 아래 농장 생활은 예상보다 훨씬 고달팠다." ;
+    dcterms:source ric:ref-imin2010,
+        ric:ref-lee2014 ;
+    dcterms:spatial ric:place-hilo,
+        ric:place-honolulu,
+        ric:place-keaau,
+        ric:place-kohala,
+        ric:place-wahiawa,
+        ric:place-waialua,
+        ric:place-waikiki ;
+    dcterms:title "하와이 한인" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=group:hawaii> ;
+    skos:editorialNote "imin2010은 이민 시작을 1902년, lee2014는 첫 도착을 1903년 1월 13일로 적음(출발과 도착의 차이로 보이나 확인 필요)." ;
+    skos:inScheme ric:scheme-cultures ;
+    skos:prefLabel "하와이 한인" ;
+    skos:topConceptOf ric:scheme-cultures ;
+    rico:generalDescription "구한말 국내의 생활고와 하와이 사탕수수 농업의 노동력 수요가 맞물려, 1902년부터 1905년까지 약 7,400명이 하와이로 이민을 떠났다. 1903년 1월 13일 102명의 첫 한인 이민단이 호놀룰루항에 내려 사탕수수 농장 노동자가 되었다. 농장 감독의 감시와 뜨거운 햇볕 아래 농장 생활은 예상보다 훨씬 고달팠다." ;
+    rico:identifier "group:hawaii" ;
+    rico:isAssociatedWithPlace ric:place-hilo,
+        ric:place-honolulu,
+        ric:place-keaau,
+        ric:place-kohala,
+        ric:place-wahiawa,
+        ric:place-waialua,
+        ric:place-waikiki ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:citation "imin2010:1부",
+        "lee2014:73",
+        "lee2014:76",
+        "lee2014:78",
+        "nfm2003:132",
+        "nfm2003:160",
+        "nfm2003:239" .
+
+ric:group-zainichi a foaf:Group,
+        rico:Concept,
+        rico:DemographicGroup ;
+    dcterms:description "식민지 시기에 일본으로 건너간 조선인 가운데 상당수가 해방 뒤에도 돌아가지 못하고 남았다. 냉전기에는 한반도의 남북 분단이 재일 사회 안에도 그대로 옮겨져, 남과 북 어느 한쪽과만 교류할 수 있었다. 저자는 재일조선인을 분단과 전쟁이 낳은 '구 디아스포라'로 본다." ;
+    dcterms:source ric:ref-kimgo2010 ;
+    dcterms:spatial ric:place-hanshin,
+        ric:place-kyoto-station,
+        ric:place-osaka-ikuno ;
+    dcterms:title "재일조선인" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=group:zainichi> ;
+    skos:editorialNote "호칭 문제(재일조선인/재일한국인·조선인/재일동포/자이니치)는 jung2012의 몫이나 AP에 담을 자리가 없어 보류. 이름은 sources.json·요청문의 표기 '재일조선인'을 따름.",
+        "확인 필요 — dcterms:description: 해방 당시 일본 잔류 인원 등 수치는 PDF 텍스트에서 숫자가 빠져 판독 불가" ;
+    skos:inScheme ric:scheme-cultures ;
+    skos:prefLabel "재일조선인" ;
+    skos:topConceptOf ric:scheme-cultures ;
+    rico:generalDescription "식민지 시기에 일본으로 건너간 조선인 가운데 상당수가 해방 뒤에도 돌아가지 못하고 남았다. 냉전기에는 한반도의 남북 분단이 재일 사회 안에도 그대로 옮겨져, 남과 북 어느 한쪽과만 교류할 수 있었다. 저자는 재일조선인을 분단과 전쟁이 낳은 '구 디아스포라'로 본다." ;
+    rico:identifier "group:zainichi" ;
+    rico:isAssociatedWithPlace ric:place-hanshin,
+        ric:place-kyoto-station,
+        ric:place-osaka-ikuno ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:citation "kimgo2010:53",
+        "kimgo2010:56",
+        "kimgo2010:57",
+        "kimgo2010:58",
+        "kimgo2010:59",
+        "kimgo2010:68",
+        "yeon:30",
+        "yeon:33" .
+
+ric:aspect-eat a skos:Concept,
+        rico:ActivityType ;
+    skos:altLabel "식(食)" ;
+    skos:inScheme ric:scheme-life-objects ;
+    skos:prefLabel "먹는 것" ;
+    skos:topConceptOf ric:scheme-life-objects ;
+    rico:identifier "dia:aspect=먹는 것" ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 .
+
+ric:group-koryo a foaf:Group,
+        rico:Concept,
+        rico:DemographicGroup ;
+    dcterms:description "19세기 중엽(1863년 무렵) 함북 출신 한인들이 러시아 원동 연해주로 옮겨 가 마을을 이루었다. 1937년 중앙아시아로 강제 이주되었다. 1937년 8월 약 17만 명이 연해주 등지에서 우즈베키스탄·카자흐스탄 등 중앙아시아로 집단 이주되었다. 이들의 말(고려말)은 모국어와 떨어진 언어섬으로 따로 변해 왔고, 러시아어의 영향을 받았다고 연구자는 본다. '고려', '고려말', '고려사람' 같은 명칭은 1920년대에 이미 쓰였다고 한다. 고려말은 함경도 방언에 바탕을 둔 한국어로, 지금은 주로 소수의 노년층이 쓴다. 러시아어 차용어가 매우 많다." ;
+    dcterms:source ric:ref-ency_koryomal,
+        ric:ref-kwak2007,
+        ric:ref-nara2017 ;
+    dcterms:spatial ric:place-almaty,
+        ric:place-kyzylorda,
+        ric:place-primorye,
+        ric:place-tashkent,
+        ric:place-tizinhe,
+        ric:place-ushtobe ;
+    dcterms:title "고려인" ;
+    rdfs:seeAlso <https://yunu-jeon.github.io/DH-Korean-Diaspora/item.html?id=group:koryo> ;
+    skos:editorialNote "kwon2020의 이주 인원 수치는 use(생활 장면) 밖이라 넣지 않음." ;
+    skos:inScheme ric:scheme-cultures ;
+    skos:prefLabel "고려인" ;
+    skos:topConceptOf ric:scheme-cultures ;
+    rico:generalDescription "19세기 중엽(1863년 무렵) 함북 출신 한인들이 러시아 원동 연해주로 옮겨 가 마을을 이루었다. 1937년 중앙아시아로 강제 이주되었다. 1937년 8월 약 17만 명이 연해주 등지에서 우즈베키스탄·카자흐스탄 등 중앙아시아로 집단 이주되었다. 이들의 말(고려말)은 모국어와 떨어진 언어섬으로 따로 변해 왔고, 러시아어의 영향을 받았다고 연구자는 본다. '고려', '고려말', '고려사람' 같은 명칭은 1920년대에 이미 쓰였다고 한다. 고려말은 함경도 방언에 바탕을 둔 한국어로, 지금은 주로 소수의 노년층이 쓴다. 러시아어 차용어가 매우 많다." ;
+    rico:identifier "group:koryo" ;
+    rico:isAssociatedWithPlace ric:place-almaty,
+        ric:place-kyzylorda,
+        ric:place-primorye,
+        ric:place-tashkent,
+        ric:place-tizinhe,
+        ric:place-ushtobe ;
+    rico:isOrWasSubjectOf ric:col-한-뿌리-다른-땅 ;
+    dia:citation "ency_koryomal:개설",
+        "ency_koryomal:연원 및 변천",
+        "kwak2007:231",
+        "kwak2007:232",
+        "kwak2007:233",
+        "kwak2007:260",
+        "kwon2020:104",
+        "kwon2020:105",
+        "lee2012:222",
+        "nara2017:본문" .
+
+ric:col-한-뿌리-다른-땅 a rico:RecordSet ;
+    rico:scopeAndContent "한인 디아스포라 생활문화·어휘 아카이브(One Root, Other Soils). 고려인·재일조선인·하와이 한인의 생활 장면, 생활 대상, 그것을 부르던 말." ;
+    rico:title "한 뿌리, 다른 땅" .
+
