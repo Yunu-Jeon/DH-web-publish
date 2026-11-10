@@ -35,7 +35,9 @@ def intro_html():
         "<h1>그라운딩 결과 검색</h1>",
         '<p class="lead">10주차 기술규칙(AP)으로 만든 그라운딩 결과 <code>한뿌리다른땅.ttl</code>(트리플 2,439개)을 SPARQL 로 검색합니다. '
         "예제 카드의 ‘실행’을 누르면 질의가 아래 검색 칸에 채워지고 결과 표가 나옵니다. 질의를 고쳐 다시 검색할 수 있습니다.</p>",
-        f'<p class="hint">데이터는 그래프 <code>{html.escape(Q["graph"])}</code> 에 있으니 질의에 <code>FROM &lt;…&gt;</code> 을 붙입니다.</p>',
+        f'<p class="hint">그라운딩 결과는 그래프 <code>{html.escape(Q["graph"])}</code> 에 있으니 질의에 <code>FROM &lt;…&gt;</code> 을 붙입니다. '
+        f'값마다 붙은 근거(값 종류·근거 쪽수·근거 출처)는 Omeka 값 주석에서 내보낸 그래프 <code>{html.escape(Q["evidence_graph"])}</code> 에 '
+        '<code>rdf:Statement</code> 로 들어 있습니다(질의 11·12).</p>',
         '<p class="notice"><strong>쓸 때 주의</strong> — 이 저장소(ARC2)는 필수 패턴이 5개 이상이면 오류가 나므로 4개까지만 쓰고 '
         '나머지는 <code>OPTIONAL</code> 로 감쌉니다. <code>REGEX</code> 에는 늘 <code>"i"</code> 옵션을 붙입니다.</p>',
         "<h2>예제 질의</h2>",

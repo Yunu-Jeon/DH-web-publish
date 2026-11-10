@@ -1,7 +1,7 @@
 {
   "graph": "https://yunu-jeon.github.io/DH-Korean-Diaspora/graph/grounding",
   "note": "Omeka Sparql 모듈의 ARC2 저장소는 MySQL 8 에서 (1) 필수 패턴이 5개 이상인 조인, (2) \"i\" 옵션 없는 REGEX 가 실패한다. 그래서 필수 패턴은 4개까지, 나머지는 OPTIONAL 로 두고 REGEX 에는 늘 \"i\" 를 준다.",
-  "prefixes": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>\n",
+  "prefixes": "PREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX dia: <https://yunu-jeon.github.io/DH-Korean-Diaspora/ns#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nPREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n",
   "queries": [
     {
       "id": "word-search",
@@ -62,6 +62,19 @@
       "title": "검수할 것 — ‘확인 필요’ 메모",
       "scenario": "비어 있는 필수값이나 확인이 필요한 값을 숨기지 않고 모아 본다.",
       "query": "SELECT ?id ?note\nFROM <GRAPH>\nWHERE {\n  ?s skos:editorialNote ?note ;\n     rico:identifier ?id .\n  FILTER(REGEX(?note, \"^확인 필요\", \"i\"))\n}\nORDER BY ?id"
+    },
+    {
+      "id": "basis-interpretation",
+      "title": "값 단위 근거 — ‘해석’으로 표시된 값",
+      "scenario": "Omeka 값 주석에서 온 근거 그래프로, 문헌이 보고한 사실이 아니라 연구자·큐레이터의 해석인 값만 모아 근거 쪽수와 함께 본다. 따옴표 안을 ‘보고’나 ‘문헌 외’로 바꿀 수 있다.",
+      "query": "SELECT ?resource ?value ?page\nWHERE {\n  ?st dia:basis \"해석\" ;\n      rdf:subject ?item ;\n      rdf:object ?value .\n  ?item rdfs:label ?resource .\n  OPTIONAL { ?st prov:atLocation ?page }\n}\nORDER BY ?resource ?page"
+    },
+    {
+      "id": "sentence-evidence",
+      "title": "설명 문장마다 근거 보기",
+      "scenario": "한 장면의 설명을 문장 단위로 나눠, 문장마다 값 종류(보고·해석)와 근거 쪽수를 본다. 따옴표 안의 장면 제목 일부를 바꿀 수 있다.",
+      "query": "SELECT ?sentence ?basis ?page\nWHERE {\n  ?st rdf:predicate dcterms:description ;\n      rdf:subject ?item ;\n      rdf:object ?sentence .\n  ?item rdfs:label ?resource .\n  OPTIONAL { ?st dia:basis ?basis }\n  OPTIONAL { ?st prov:atLocation ?page }\n  FILTER(REGEX(?resource, \"고려인의 밥상\", \"i\"))\n}\nORDER BY ?page"
     }
-  ]
+  ],
+  "evidence_graph": "https://yunu-jeon.github.io/DH-Korean-Diaspora/graph/evidence"
 }

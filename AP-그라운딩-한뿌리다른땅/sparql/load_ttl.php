@@ -5,11 +5,12 @@
  *
  * 주의: Sparql 모듈에서 다시 인덱싱(Index)하면 저장소 전체가 비워지므로, 그 뒤에 이 스크립트를 다시 실행한다.
  *
- * 사용(컨테이너 안에서): php load_ttl.php /tmp/한뿌리다른땅.ttl
+ * 사용(컨테이너 안에서): php load_ttl.php /tmp/한뿌리다른땅.ttl [그래프 IRI]
+ *   그래프를 주지 않으면 그라운딩 그래프. 값 주석 근거는 …/graph/evidence 로 올린다(export_evidence.py 참고).
  */
 require '/var/www/html/modules/Sparql/vendor/autoload.php';
 
-const GRAPH = 'https://yunu-jeon.github.io/DH-Korean-Diaspora/graph/grounding';
+define('GRAPH', $argv[2] ?? 'https://yunu-jeon.github.io/DH-Korean-Diaspora/graph/grounding');
 
 $ttl = $argv[1] ?? '';
 if (!is_file($ttl)) {

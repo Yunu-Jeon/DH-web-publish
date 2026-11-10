@@ -20,6 +20,8 @@ Omeka S 로 옮기기·검색(2026-11):
                            py omeka\omeka_import.py ..\..\DH-Korean-Diaspora\site-data\archive.js <키.json>  (다시 실행해도 중복 없이 갱신)
   sparql/load_ttl.php    — 한뿌리다른땅.ttl 을 Sparql 모듈 저장소의 그래프 하나로 올림(컨테이너 안에서 실행).
                            Sparql 설정에서 Index 를 다시 누르면 저장소가 비워지므로 그 뒤에 다시 실행
-  sparql/queries.json    — 검색 예제 질의 10개(ARC2 제약: 필수 패턴 4개까지, REGEX 에는 "i")
+  sparql/export_evidence.py — Omeka 값 주석(값 종류·근거 쪽수·근거 출처)을 rdf:Statement 노드로 내보냄 → load_ttl.php 로
+                           그래프 https://yunu-jeon.github.io/DH-Korean-Diaspora/graph/evidence 에 올림(Sparql 모듈은 값 주석을 인덱싱하지 않음)
+  sparql/queries.json    — 검색 예제 질의 12개(ARC2 제약: 필수 패턴 4개까지, REGEX 에는 "i")
   sparql/build_site.py   — Omeka 사이트 /s/hanppuri 의 'SPARQL 검색' 페이지를 만들거나 고침(테마: ..\..\omeka-themes\hanppuri)
   <키.json> 은 {"key_identity": "…", "key_credential": "…"} 형식의 Omeka API 키. 저장소에 넣지 않는다.
