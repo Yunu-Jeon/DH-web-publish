@@ -14,6 +14,8 @@ $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka
 $this->headLink()->prependStylesheet('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap');
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
+// 자료에게 묻기: <div class="ask-app"> 가 있는 페이지에서만 동작(다른 페이지에서는 바로 끝남)
+$this->headScript()->appendFile($this->assetUrl('js/ask.js'), 'text/javascript', ['defer' => 'defer']);
 $this->jsTranslate();
 $this->trigger('view.layout');
 $userBar = $this->userBar();

@@ -1,0 +1,48 @@
+<?php
+// 아이템 보기: 정적 사이트의 개별 자원 화면처럼 작은 머리말(종류) · 큰 제목 · 설명 → 값 목록(근거 칩 포함)
+$escape = $this->plugin('escapeHtml');
+$this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
+$this->htmlElement('body')->appendAttribute('class', 'item resource show');
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$valueLang = $filterLocale ? [$this->lang(), ''] : null;
+$template = $item->resourceTemplate();
+$title = $item->displayTitle(null, $valueLang);
+$this->headTitle($title);
+// IIIF 뷰어: 이미지는 Mirador, PDF 는 Universal Viewer(둘 다 IIIF Server 의 매니페스트를 읽음).
+// 비공개 미디어(원문 PDF)는 로그인한 사람에게만 보이므로 media() 에도 그때만 들어 있다.
+$hasImage = $hasPdf = false;
+foreach ($item->media() as $media) {
+    $type = (string) $media->mediaType();
+    $hasImage = $hasImage || str_starts_with($type, 'image/');
+    $hasPdf = $hasPdf || $type === 'application/pdf';
+}
+?>
+<nav class="crumbs" aria-label="위치">
+    <a href="<?php echo $escape($this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], true)); ?>">자료 둘러보기</a>
+    <?php if ($template): ?><span aria-hidden="true">›</span>
+    <a href="<?php echo $escape($this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], ['query' => ['resource_template_id' => [$template->id()]]], true)); ?>"><?php echo $escape($template->label()); ?></a><?php endif; ?>
+</nav>
+<header class="resource-head">
+    <p class="eyebrow"><?php echo $escape($template ? $template->label() : '자료'); ?></p>
+    <h1><?php echo $escape($title); ?></h1>
+</header>
+<p class="legend hint">값 옆의 표시는 근거입니다 — <span class="basis basis-report">보고</span> 문헌이 보고한 사실 ·
+    <span class="basis basis-interp">해석</span> 연구자·큐레이터의 해석 · <span class="basis basis-extra">문헌 외</span> 문헌에 없어 보탠 값 ·
+    <span class="cite-chip">출처:쪽</span> 근거 쪽수(누르면 출처)</p>
+<?php $this->trigger('view.show.before'); ?>
+<?php if ($hasImage): ?>
+<section class="viewer viewer-mirador" aria-label="이미지 뷰어(Mirador)">
+    <?php echo $this->mirador($item); ?>
+    <p class="viewer-note hint">IIIF 이미지 뷰어 Mirador · <a href="<?php echo $escape($this->basePath('/iiif/3/' . $item->id() . '/manifest')); ?>">IIIF 매니페스트</a></p>
+</section>
+<?php endif; ?>
+<?php if ($hasPdf): ?>
+<section class="viewer viewer-uv" aria-label="원문 뷰어(Universal Viewer)">
+    <?php echo $this->universalViewer($item); ?>
+    <p class="viewer-note hint">원문 PDF · Universal Viewer · 저작권 때문에 로그인한 사람에게만 보입니다.</p>
+</section>
+<?php endif; ?>
+<div class="resource-body panel">
+    <?php echo $this->resourcePageBlocks($item)->getBlocks(); ?>
+</div>
+<?php $this->trigger('view.show.after'); ?>

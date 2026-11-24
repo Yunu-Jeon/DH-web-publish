@@ -25,3 +25,11 @@ Omeka S 로 옮기기·검색(2026-11):
   sparql/queries.json    — 검색 예제 질의 12개(ARC2 제약: 필수 패턴 4개까지, REGEX 에는 "i")
   sparql/build_site.py   — Omeka 사이트 /s/hanppuri 의 'SPARQL 검색' 페이지를 만들거나 고침(테마: ..\..\omeka-themes\hanppuri)
   <키.json> 은 {"key_identity": "…", "key_credential": "…"} 형식의 Omeka API 키. 저장소에 넣지 않는다.
+
+IIIF 뷰어(2026-11-24): 모듈 IIIF Server 3.6.36 · Image Server 3.6.28 · Mirador 3.4.18 · Universal Viewer 3.6.17 (Common 3.4.96)
+  omeka/add_media.py     — Commons 사진 2장 → '자료' 아이템(공개, Mirador) / uploads/*.pdf → 같은 ID 출처 아이템에 비공개 미디어(UV)
+                           py omeka\add_media.py ..\..\DH-Korean-Diaspora <키.json>  (이미 있으면 건너뜀)
+  설정: IIIF Server 의 iiifserver_url_version_add = true (주소를 /iiif/3/{id}/manifest 로. 아이템 ID 2 가 버전 2 로 읽히는 문제)
+  컨테이너에서 손댄 것(컨테이너를 새로 만들면 다시 해야 함):
+    - PHP exif 확장 설치: docker exec dh-web-publish-omekas-1 docker-php-ext-install exif  → 컨테이너 재시작
+    - /var/www/html/.htaccess 에서 Image Server 의 "fast IIIF tile server" 규칙 제거(vips 가 없고 modules 가 심볼릭 링크라 500)

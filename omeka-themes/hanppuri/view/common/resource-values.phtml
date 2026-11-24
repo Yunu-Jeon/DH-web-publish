@@ -1,0 +1,103 @@
+<?php
+/**
+ * Omeka 의 값 목록(common/resource-values)을 테마에서 덮어쓴 것.
+ * 값 주석(근거(provenance) 템플릿)을 말풍선 대신 값 바로 옆에 보인다:
+ * 값 종류(보고·해석·문헌 외) 배지, 근거 쪽수(출처 아이템으로 이어짐), 값 메모.
+ */
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$escapeAttr = $this->plugin('escapeHtmlAttr');
+
+$showLocale = (bool) $this->fallbackSetting('show_locale_label', ['site'], true);
+$filterLocale = (bool) $this->fallbackSetting('filter_locale_values', ['site'], false);
+$showValueAnnotations = (bool) $this->fallbackSetting('show_value_annotations', ['site'], true);
+$lang = $this->lang();
+$basisClass = ['보고' => 'basis-report', '해석' => 'basis-interp', '문헌 외' => 'basis-extra'];
+
+// 값 주석 하나 → 근거 칩 HTML. 근거 쪽수("kwon2020:107")의 앞부분이 출처 아이템의 식별자와 같으면 그 아이템으로 잇는다.
+$evidence = function ($annotation) use ($escape, $escapeAttr, $basisClass): string {
+    $out = [];
+    $basis = $annotation->value('dia:basis');
+    if ($basis) {
+        $b = (string) $basis;
+        $out[] = sprintf('<span class="basis %s" title="값 종류">%s</span>', $basisClass[$b] ?? '', $escape($b));
+    }
+    $sources = [];
+    foreach ($annotation->value('prov:wasDerivedFrom', ['all' => true]) as $src) {
+        $res = $src->valueResource();
+        if ($res) {
+            $id = (string) $res->value('dcterms:identifier');
+            $sources[$id] = $res;
+        }
+    }
+    $used = [];
+    foreach ($annotation->value('prov:atLocation', ['all' => true]) as $loc) {
+        $page = (string) $loc;
+        $sid = explode(':', $page, 2)[0];
+        if (isset($sources[$sid])) {
+            $used[$sid] = true;
+            $out[] = sprintf('<a class="cite-chip" href="%s" title="%s">%s</a>', $escapeAttr($sources[$sid]->url()), $escapeAttr($sources[$sid]->displayTitle()), $escape($page));
+        } else {
+            $out[] = sprintf('<span class="cite-chip">%s</span>', $escape($page));
+        }
+    }
+    foreach ($sources as $sid => $res) {
+        if (!isset($used[$sid])) {
+            $out[] = sprintf('<a class="cite-chip" href="%s" title="%s">%s</a>', $escapeAttr($res->url()), $escapeAttr($res->displayTitle()), $escape($sid ?: $res->displayTitle()));
+        }
+    }
+    $html = $out ? '<span class="evidence">' . implode('', $out) . '</span>' : '';
+    foreach ($annotation->value('skos:editorialNote', ['all' => true]) as $note) {
+        $html .= '<span class="value-note">' . $escape((string) $note) . '</span>';
+    }
+    return $html;
+};
+
+$filterLocaleCallback = function ($value) use ($lang) {
+    $valueLang = $value->lang();
+    return $valueLang == '' || strcasecmp($valueLang, $lang) === 0;
+};
+?>
+<?php if (count($values) > 0): ?>
+<dl class="values-list">
+<?php
+foreach ($values as $term => $propertyData):
+    $propertyValues = $propertyData['values'];
+    if ($filterLocale) {
+        $propertyValues = array_filter($propertyValues, $filterLocaleCallback);
+    }
+    if (!$propertyValues) {
+        continue;
+    }
+    $property = $propertyData['property'];
+    $propertyLabel = $propertyData['alternate_label'] ?: $translate($property->label());
+?>
+    <div class="property">
+        <dt><?php echo $escape($propertyLabel); ?> <small class="field-term"><?php echo $escape($property->term()); ?></small></dt>
+        <dd class="values">
+        <?php foreach ($propertyValues as $value):
+            $valueType = $value->type();
+            $valueLang = $value->lang();
+            $valueAnnotation = $value->valueAnnotation();
+            $class = ['value'];
+            if (strpos($valueType, 'resource') !== false) {
+                $class[] = 'resource';
+            } elseif ('uri' == $valueType) {
+                $class[] = 'uri';
+            } else {
+                $class[] = $escape(str_replace(['_', ':'], '-', $valueType));
+            }
+        ?>
+            <div class="<?php echo implode(' ', $class); ?>" lang="<?php echo $escape($valueLang); ?>">
+                <span class="value-content"><?php echo $filterLocale ? $value->asHtml($lang) : $value->asHtml(); ?></span>
+                <?php if ($showLocale && $valueLang): ?><span class="language"><?php echo $escape($valueLang); ?></span><?php endif; ?>
+                <?php if (!$value->isPublic()): ?><span class="badge">비공개</span><?php endif; ?>
+                <?php if ($valueAnnotation && $showValueAnnotations): ?><?php echo $evidence($valueAnnotation); ?><?php endif; ?>
+                <?php $this->trigger('view.show.value', ['value' => $value]); ?>
+            </div>
+        <?php endforeach; ?>
+        </dd>
+    </div>
+<?php endforeach; ?>
+</dl>
+<?php endif; ?>

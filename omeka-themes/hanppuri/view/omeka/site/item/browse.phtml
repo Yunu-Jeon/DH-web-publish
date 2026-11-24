@@ -1,0 +1,60 @@
+<?php
+// 자료 둘러보기: 종류(리소스 템플릿)별 알약 필터 + 정적 사이트의 장면 카드 모양 목록
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$this->htmlElement('body')->appendAttribute('class', 'item resource browse');
+$this->headTitle('자료 둘러보기');
+
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$valueLang = $filterLocale ? [$this->lang(), ''] : null;
+$query = $this->params()->fromQuery();
+$itemSetShow = isset($itemSet);
+if ($itemSetShow) {
+    $query['item_set_id'] = $itemSet->id();
+}
+$browseUrl = fn (array $q) => $this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], ['query' => $q], true);
+$currentTemplate = (array) ($query['resource_template_id'] ?? []);
+$templates = $this->api()->search('resource_templates', ['sort_by' => 'id'])->getContent();
+$total = $this->api()->search('items', ['site_id' => $this->currentSite()->id(), 'limit' => 0] + array_diff_key($query, ['page' => 1, 'per_page' => 1, 'sort_by' => 1, 'sort_order' => 1]))->getTotalResults();
+$fulltext = $query['fulltext_search'] ?? '';
+?>
+<header class="browse-head">
+    <p class="eyebrow">자료 둘러보기</p>
+    <h1><?php echo $fulltext !== '' ? '‘' . $escape($fulltext) . '’ 검색 결과' : ($itemSetShow ? $escape($itemSet->displayTitle()) : '모든 자료'); ?></h1>
+    <p class="browse-count"><?php echo sprintf('%d건', $total); ?></p>
+</header>
+
+<nav class="pill-row type-filter" aria-label="종류">
+    <?php $base = array_diff_key($query, ['resource_template_id' => 1, 'page' => 1]); ?>
+    <a class="pill" href="<?php echo $escape($browseUrl($base)); ?>"<?php echo $currentTemplate ? '' : ' aria-current="true"'; ?>>전체</a>
+    <?php foreach ($templates as $t):
+        if ($t->itemCount() < 1) continue; // 아이템이 없는 템플릿(근거 주석, 자료)은 뺀다 ?>
+    <a class="pill" href="<?php echo $escape($browseUrl($base + ['resource_template_id' => [$t->id()]])); ?>"<?php echo in_array((string) $t->id(), array_map('strval', $currentTemplate)) ? ' aria-current="true"' : ''; ?>><?php echo $escape($t->label()); ?> <span class="count"><?php echo $t->itemCount(); ?></span></a>
+    <?php endforeach; ?>
+</nav>
+
+<div class="browse-controls">
+    <?php echo $this->browse()->renderSortSelector('items'); ?>
+    <?php echo $this->pagination(); ?>
+</div>
+
+<?php $this->trigger('view.browse.before'); ?>
+<?php if (!$items): ?>
+<p class="empty">찾은 자료가 없습니다. 다른 낱말이나 이표기(예: Kim Chee, 짐치)로 찾아보세요.</p>
+<?php else: ?>
+<ul class="card-grid resource-cards">
+<?php foreach ($items as $item):
+    $t = $item->resourceTemplate();
+    $heading = $item->displayTitle(null, $valueLang);
+    $body = $item->displayDescription(null, $valueLang);
+?>
+    <li class="scene-card">
+        <p class="card-meta"><?php echo $escape($t ? $t->label() : '자료'); ?></p>
+        <h2 class="card-title"><?php echo $item->link($heading); ?></h2>
+        <?php if ($body): ?><p class="card-text clamp"><?php echo $escape($body); ?></p><?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+<?php $this->trigger('view.browse.after'); ?>
+<?php echo $this->pagination(); ?>

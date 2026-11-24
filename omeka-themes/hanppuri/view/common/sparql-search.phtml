@@ -1,0 +1,154 @@
+<?php
+/**
+ * Sparql 모듈의 검색 화면(common/sparql-search)을 테마에서 덮어쓴 것.
+ * 바뀐 점: 한국어 문구, 네임스페이스·접두어·형식은 '고급 설정'으로 접음, 결과 건수,
+ * Omeka 아이템 주소는 사이트 아이템 화면 링크(제목 표시), 평문 값에는 자료형 표시를 달지 않음,
+ * 모바일에서 열 이름이 보이도록 칸마다 data-label.
+ *
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Sparql\Form\SparqlForm $form
+ * @var array $result
+ * @var string $query
+ * @var string $format "text" or "html"
+ * @var array $namespaces
+ * @var string $errorMessage
+ */
+
+use \EasyRdf\RdfNamespace;
+
+$plugins = $this->getHelperPluginManager();
+$escape = $plugins->get('escapeHtml');
+$escapeAttr = $plugins->get('escapeHtmlAttr');
+$assetUrl = $plugins->get('assetUrl');
+$site = $this->currentSite();
+
+// 값에서 온 주소가 javascript: 같은 것이면 링크로 만들지 않는다(원 템플릿과 같은 방어)
+$hrefUri = fn ($uri): ?string => preg_match('~^(https?|mailto|ftp|urn):~i', (string) $uri) ? (string) $uri : null;
+
+// Omeka 아이템 주소(…/api/items/62)는 이 사이트의 아이템 화면으로 잇고 제목을 보인다
+$titles = [];
+$itemLink = function (string $uri) use ($site, &$titles): ?array {
+    if (!$site || !preg_match('~/api/items/(\d+)$~', $uri, $m)) {
+        return null;
+    }
+    $id = (int) $m[1];
+    if (!array_key_exists($id, $titles)) {
+        try {
+            $titles[$id] = $this->api()->read('items', $id)->getContent()->displayTitle();
+        } catch (\Exception $e) {
+            $titles[$id] = null;
+        }
+    }
+    return $titles[$id] === null ? null : [$this->url('site/resource-id', ['site-slug' => $site->slug(), 'controller' => 'item', 'id' => $id]), $titles[$id]];
+};
+
+$this->headLink()->appendStylesheet($assetUrl('css/sparql.css', 'Sparql'));
+$this->htmlElement('body')->appendAttribute('class', 'sparql');
+
+$submit = $form->get('submit');
+$submit->setLabel('검색')->setValue('검색');
+$form->remove('submit');
+if ($form->has('query')) {
+    $form->get('query')->setLabel('SPARQL 질의')->setAttribute('spellcheck', 'false')
+        ->setAttribute('placeholder', "아래 예제 질의를 누르면 여기에 채워집니다.\n직접 쓸 때는 SELECT … WHERE { … } 를 입력하세요.");
+}
+if ($form->has('prepend_prefixes')) {
+    $form->get('prepend_prefixes')->setLabel('아래 접두어(PREFIX)를 질의 앞에 자동으로 붙이기');
+}
+if ($form->has('format')) {
+    $form->get('format')->setLabel('결과 형식')->setValueOptions(['html' => '표', 'text' => '텍스트']);
+}
+$rows = $result['result']['rows'] ?? [];
+$vars = $result['result']['variables'] ?? [];
+?>
+
+<div class="sparql-panel">
+    <?php $form->prepare(); echo $this->form()->openTag($form); ?>
+        <?php echo $this->formRow($form->get('query')); ?>
+        <details class="sparql-advanced">
+            <summary>고급 설정 — 접두어·결과 형식</summary>
+            <?php foreach ($form as $element): if ($element->getName() === 'query') continue; ?>
+            <?php echo $this->formRow($element); ?>
+            <?php endforeach; ?>
+            <div class="namespaces">
+                <p class="hint">질의에 바로 쓸 수 있는 접두어</p>
+                <dl>
+                    <?php foreach ($namespaces as $prefix => $iri): ?>
+                    <dt><?= $escape($prefix) ?></dt>
+                    <dd><?= $escape($iri) ?></dd>
+                    <?php endforeach; ?>
+                </dl>
+            </div>
+        </details>
+        <div id="page-actions">
+            <?= $this->formButton($submit) ?>
+        </div>
+    <?php echo $this->form()->closeTag(); ?>
+</div>
+
+<?php if ($errorMessage): ?>
+<div class="error-sparql" id="results" role="alert">
+    <h3>질의를 실행하지 못했습니다</h3>
+    <p><?= nl2br($escape($errorMessage)) ?></p>
+    <p class="hint">이 저장소는 필수 패턴이 5개 이상이면 실패합니다. 4개까지만 쓰고 나머지는 OPTIONAL 로 감싸 보세요. REGEX 에는 "i" 를 붙입니다.</p>
+</div>
+
+<?php elseif ($result && $format === 'text'): ?>
+<div class="result result-text" id="results">
+    <h3>결과 <span class="result-count"><?= count($rows) ?>건</span></h3>
+    <pre><?php foreach ($rows as $row) { $cells = []; foreach ($vars as $v) { $cells[] = $row[$v] ?? ''; } echo $escape(implode("\t", $cells)) . "\n"; } ?></pre>
+</div>
+
+<?php elseif ($result): ?>
+<div class="result result-html" id="results">
+    <h3>결과 <span class="result-count"><?= count($rows) ?>건</span></h3>
+    <?php if (!$rows): ?>
+    <p class="empty">찾은 것이 없습니다. 따옴표 안의 낱말이나 FROM 의 그래프 이름을 확인해 보세요.</p>
+    <?php else: ?>
+    <div class="table-wrap">
+    <table class="sparql-result">
+        <thead>
+            <tr>
+                <?php foreach ($vars as $variable): ?>
+                <th scope="col"><?= $escape($variable) ?></th>
+                <?php endforeach; ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($rows as $row): ?>
+            <tr>
+                <?php foreach ($vars as $key):
+                    $value = $row[$key] ?? null;
+                    $type = $row[$key . ' type'] ?? null;
+                    $dataType = $row[$key . ' datatype'] ?? null;
+                    $lang = $row[$key . ' lang'] ?? null;
+                    ?>
+                    <td data-label="<?= $escapeAttr($key) ?>">
+                        <?php if ($value === null): ?>
+                        <span class="value-empty">—</span>
+                        <?php elseif ($type === 'uri' && ($item = $itemLink($value))): ?>
+                        <a class="value-content value-item" href="<?= $escapeAttr($item[0]) ?>"><?= $escape($item[1]) ?></a>
+                        <?php elseif ($type === 'uri'): ?>
+                        <?php $short = RdfNamespace::shorten($value) ?? $value; ?>
+                        <?php if (str_starts_with($value, 'http://archives.nanet.go.kr/id/')): ?>
+                        <code class="value-content value-id"><?= $escape($short) ?></code>
+                        <?php elseif (($href = $hrefUri($value)) !== null): ?>
+                        <a class="value-content" href="<?= $escapeAttr($href) ?>"><code><?= $escape($short) ?></code></a>
+                        <?php else: ?>
+                        <code class="value-content"><?= $escape($short) ?></code>
+                        <?php endif; ?>
+                        <?php else: ?>
+                        <span class="value-content"<?= $lang ? ' lang="' . $escapeAttr($lang) . '"' : '' ?>><?= $escape($value) ?></span>
+                        <?php if ($lang): ?><span class="language"><?= $escape($lang) ?></span><?php endif; ?>
+                        <?php if ($dataType && !preg_match('~#string$~', $dataType)): ?><span class="data-type"><?= $escape(RdfNamespace::shorten($dataType) ?? $dataType) ?></span><?php endif; ?>
+                        <?php endif; ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
