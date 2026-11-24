@@ -1,0 +1,81 @@
+<?php
+/**
+ * 아이템 보기의 'IIIF' 탭: 매니페스트 ID(3.0·2.1), 아이템 ID, 캔버스별 미디어 ID·이미지 서비스.
+ * 관리자 화면의 기존 모양(.property / .values)을 그대로 쓴다.
+ *
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\ItemRepresentation $item
+ */
+$escape = $this->plugin('escapeHtml');
+$iiif = fn (string $path): string => $this->serverUrl($this->basePath('/iiif/' . $path));
+$manifest3 = $iiif('3/' . $item->id() . '/manifest');
+$manifest2 = $iiif('2/' . $item->id() . '/manifest');
+$link = fn (string $url, string $label): string => sprintf('<a href="%s" target="_blank" rel="noopener">%s</a>', $escape($url), $escape($label));
+$copy = fn (string $url): string => sprintf('<button type="button" class="iiif-copy" data-copy="%s">복사</button>', $escape($url));
+$ident = $item->value('dcterms:identifier');
+?>
+<div id="iiif-info" class="section iiif-info-admin">
+    <p class="iiif-info-lead">이 주소를 IIIF 뷰어(Mirador, Universal Viewer 등)에 넣으면 같은 자료를 열 수 있습니다. 사이트 화면의 'IIIF 정보'와 같은 내용입니다.</p>
+
+    <div class="property">
+        <h4>매니페스트 ID <span class="iiif-api">Presentation API 3.0</span></h4>
+        <div class="values"><div class="value"><code><?php echo $escape($manifest3); ?></code> <?php echo $link($manifest3, 'JSON 열기'); ?> <?php echo $copy($manifest3); ?></div></div>
+    </div>
+    <div class="property">
+        <h4>매니페스트 <span class="iiif-api">Presentation API 2.1</span></h4>
+        <div class="values"><div class="value"><code><?php echo $escape($manifest2); ?></code> <?php echo $link($manifest2, 'JSON 열기'); ?> <?php echo $copy($manifest2); ?></div></div>
+    </div>
+    <div class="property">
+        <h4>Omeka 아이템</h4>
+        <div class="values"><div class="value">ID <code><?php echo $item->id(); ?></code><?php if ($ident): ?> · 식별자 <code><?php echo $escape((string) $ident); ?></code><?php endif; ?></div></div>
+    </div>
+
+    <?php $mediaList = $item->media(); ?>
+    <?php if (!$mediaList): ?>
+    <div class="property">
+        <h4>캔버스</h4>
+        <div class="values"><div class="value">이 아이템에는 이미지나 PDF 가 없어 매니페스트에 메타데이터만 있습니다.</div></div>
+    </div>
+    <?php endif; ?>
+    <?php foreach ($mediaList as $n => $media):
+        $type = (string) $media->mediaType();
+        $isImage = str_starts_with($type, 'image/');
+        $service = $iiif('3/' . $media->id()); ?>
+    <div class="property">
+        <h4>캔버스 <?php echo $n + 1; ?> <span class="iiif-api"><?php echo $escape($isImage ? '이미지' : ($type === 'application/pdf' ? 'PDF' : $type)); ?><?php echo $media->isPublic() ? '' : ' · 비공개'; ?></span></h4>
+        <div class="values">
+            <div class="value">미디어 ID <code><?php echo $media->id(); ?></code> · <?php echo $media->link($media->displayTitle()); ?></div>
+            <?php if ($isImage): ?>
+            <div class="value">이미지 서비스(Image API 3.0) <code><?php echo $escape($service); ?></code> <?php echo $copy($service); ?></div>
+            <div class="value"><?php echo $link($service . '/info.json', 'info.json'); ?> · <?php echo $link($service . '/full/max/0/default.jpg', '전체 이미지'); ?></div>
+            <?php else: ?>
+            <div class="value">IIIF 이미지 서비스 없음 — 캔버스에 원본 파일이 그대로 실립니다(Universal Viewer 가 표시).</div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+<style>
+.iiif-info-admin code { font-size: 0.85em; word-break: break-all; }
+.iiif-info-admin .iiif-api { font-weight: normal; font-size: 0.8em; color: #676767; margin-left: 6px; }
+.iiif-info-admin .iiif-info-lead { color: #676767; margin: 0 0 12px; }
+.iiif-copy { padding: 1px 8px; font-size: 0.8em; }
+</style>
+<script>
+// 주소 복사(클립보드 API 가 막히면 예전 방식으로 한 번 더)
+document.querySelectorAll('.iiif-copy').forEach(function (b) {
+    function done(ok) { b.textContent = ok ? '복사됨' : '복사 실패'; setTimeout(function () { b.textContent = '복사'; }, 1500); }
+    function fallback() {
+        var t = document.createElement('textarea');
+        t.value = b.dataset.copy; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t); done(ok);
+    }
+    b.addEventListener('click', function () {
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, fallback);
+        } else { fallback(); }
+    });
+});
+</script>

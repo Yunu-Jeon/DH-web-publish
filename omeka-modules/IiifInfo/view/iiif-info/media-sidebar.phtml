@@ -1,0 +1,22 @@
+<?php
+/**
+ * 미디어 보기 오른쪽 정보 칸: 이미지 서비스(이미지일 때)와 이 미디어가 든 아이템의 매니페스트.
+ *
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\MediaRepresentation $media
+ */
+$escape = $this->plugin('escapeHtml');
+$iiif = fn (string $path): string => $this->serverUrl($this->basePath('/iiif/' . $path));
+$item = $media->item();
+$manifest = $iiif('3/' . $item->id() . '/manifest');
+$isImage = str_starts_with((string) $media->mediaType(), 'image/');
+?>
+<div class="meta-group">
+    <h4>IIIF</h4>
+    <?php if ($isImage): $service = $iiif('3/' . $media->id()); ?>
+    <div class="value">이미지 서비스: <a href="<?php echo $escape($service . '/info.json'); ?>" target="_blank" rel="noopener"><?php echo $escape('/iiif/3/' . $media->id()); ?></a></div>
+    <?php else: ?>
+    <div class="value">이미지 서비스 없음(<?php echo $escape((string) $media->mediaType()); ?>)</div>
+    <?php endif; ?>
+    <div class="value">매니페스트: <a href="<?php echo $escape($manifest); ?>" target="_blank" rel="noopener"><?php echo $escape('/iiif/3/' . $item->id() . '/manifest'); ?></a></div>
+</div>

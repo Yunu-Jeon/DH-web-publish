@@ -16,6 +16,11 @@ foreach ($item->media() as $media) {
     $hasImage = $hasImage || str_starts_with($type, 'image/');
     $hasPdf = $hasPdf || $type === 'application/pdf';
 }
+// IIIF 정보 패널: 매니페스트(Presentation API)와 미디어별 이미지 서비스(Image API) 주소
+$iiif = fn (string $path): string => $this->serverUrl($this->basePath('/iiif/' . $path));
+$manifest3 = $iiif('3/' . $item->id() . '/manifest');
+$manifest2 = $iiif('2/' . $item->id() . '/manifest');
+$copy = fn (string $url): string => sprintf('<button type="button" class="copy-btn" data-copy="%s" aria-label="주소 복사">복사</button>', $escape($url));
 ?>
 <nav class="crumbs" aria-label="위치">
     <a href="<?php echo $escape($this->url('site/resource', ['controller' => 'item', 'action' => 'browse'], true)); ?>">자료 둘러보기</a>
@@ -33,7 +38,7 @@ foreach ($item->media() as $media) {
 <?php if ($hasImage): ?>
 <section class="viewer viewer-mirador" aria-label="이미지 뷰어(Mirador)">
     <?php echo $this->mirador($item); ?>
-    <p class="viewer-note hint">IIIF 이미지 뷰어 Mirador · <a href="<?php echo $escape($this->basePath('/iiif/3/' . $item->id() . '/manifest')); ?>">IIIF 매니페스트</a></p>
+    <p class="viewer-note hint">IIIF 이미지 뷰어 Mirador · <a href="#iiif-info-title">IIIF 정보</a></p>
 </section>
 <?php endif; ?>
 <?php if ($hasPdf): ?>
@@ -45,4 +50,77 @@ foreach ($item->media() as $media) {
 <div class="resource-body panel">
     <?php echo $this->resourcePageBlocks($item)->getBlocks(); ?>
 </div>
+
+<section class="iiif-info panel" aria-labelledby="iiif-info-title">
+    <h2 id="iiif-info-title"><span class="iiif-mark">IIIF</span> 정보</h2>
+    <p class="hint">이 주소를 IIIF 뷰어(Mirador, Universal Viewer 등)에 넣으면 같은 자료를 열 수 있습니다.</p>
+    <dl class="iiif-list">
+        <div>
+            <dt>매니페스트 ID <small>Presentation API 3.0</small></dt>
+            <dd><code class="iiif-url"><?php echo $escape($manifest3); ?></code>
+                <a class="pill" href="<?php echo $escape($manifest3); ?>" target="_blank" rel="noopener">JSON 열기</a><?php echo $copy($manifest3); ?></dd>
+        </div>
+        <div>
+            <dt>매니페스트 <small>Presentation API 2.1</small></dt>
+            <dd><code class="iiif-url"><?php echo $escape($manifest2); ?></code>
+                <a class="pill" href="<?php echo $escape($manifest2); ?>" target="_blank" rel="noopener">JSON 열기</a><?php echo $copy($manifest2); ?></dd>
+        </div>
+        <div>
+            <dt>Omeka 아이템</dt>
+            <dd>ID <code><?php echo $item->id(); ?></code>
+                <?php if ($ident = $item->value('dcterms:identifier')): ?> · 식별자 <code><?php echo $escape((string) $ident); ?></code><?php endif; ?></dd>
+        </div>
+        <?php $mediaList = $item->media(); ?>
+        <?php if (!$mediaList): ?>
+        <div>
+            <dt>캔버스</dt>
+            <dd class="hint">이 자료에는 이미지나 PDF 가 없어 매니페스트에 메타데이터만 있습니다.</dd>
+        </div>
+        <?php endif; ?>
+        <?php foreach ($mediaList as $n => $media):
+            $type = (string) $media->mediaType();
+            $isImage = str_starts_with($type, 'image/'); ?>
+        <div>
+            <dt>캔버스 <?php echo $n + 1; ?> <small><?php echo $escape($isImage ? '이미지' : ($type === 'application/pdf' ? 'PDF' : $type)); ?><?php echo $media->isPublic() ? '' : ' · 비공개'; ?></small></dt>
+            <dd>
+                <span>미디어 ID <code><?php echo $media->id(); ?></code> · <?php echo $escape($media->displayTitle()); ?></span>
+                <?php if ($isImage): $service = $iiif('3/' . $media->id()); ?>
+                <span class="iiif-row">이미지 서비스 <small>Image API 3.0</small> <code class="iiif-url"><?php echo $escape($service); ?></code><?php echo $copy($service); ?></span>
+                <span class="iiif-row">
+                    <a class="pill" href="<?php echo $escape($service . '/info.json'); ?>" target="_blank" rel="noopener">info.json</a>
+                    <a class="pill" href="<?php echo $escape($service . '/full/max/0/default.jpg'); ?>" target="_blank" rel="noopener">전체 이미지</a>
+                </span>
+                <?php else: ?>
+                <span class="hint">IIIF 이미지 서비스 없음 — 캔버스에 원본 파일이 그대로 실립니다(Universal Viewer 가 PDF 로 표시).</span>
+                <?php endif; ?>
+            </dd>
+        </div>
+        <?php endforeach; ?>
+    </dl>
+</section>
+<script>
+// IIIF 주소 복사 버튼(클립보드 API 가 막히면 예전 방식으로 한 번 더 시도)
+document.querySelectorAll('.copy-btn').forEach(function (b) {
+    function done(ok) {
+        b.textContent = ok ? '복사됨' : '복사 실패';
+        setTimeout(function () { b.textContent = '복사'; }, 1500);
+    }
+    function fallback() {
+        var t = document.createElement('textarea');
+        t.value = b.dataset.copy; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t);
+        done(ok);
+    }
+    b.addEventListener('click', function () {
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, fallback);
+        } else {
+            fallback();
+        }
+    });
+});
+</script>
 <?php $this->trigger('view.show.after'); ?>

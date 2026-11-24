@@ -1,0 +1,15 @@
+<?php
+/**
+ * 아이템 보기 오른쪽 정보 칸: 매니페스트 링크와 캔버스 수(자세한 것은 'IIIF' 탭).
+ *
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\ItemRepresentation $item
+ */
+$escape = $this->plugin('escapeHtml');
+$manifest = $this->serverUrl($this->basePath('/iiif/3/' . $item->id() . '/manifest'));
+?>
+<div class="meta-group">
+    <h4>IIIF 매니페스트</h4>
+    <div class="value"><a href="<?php echo $escape($manifest); ?>" target="_blank" rel="noopener"><?php echo $escape('/iiif/3/' . $item->id() . '/manifest'); ?></a></div>
+    <div class="value">캔버스 <?php echo count($item->media()); ?>개 · <a href="#iiif-info">자세히</a></div>
+</div>

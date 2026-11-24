@@ -30,6 +30,15 @@ IIIF 뷰어(2026-11-24): 모듈 IIIF Server 3.6.36 · Image Server 3.6.28 · Mir
   omeka/add_media.py     — Commons 사진 2장 → '자료' 아이템(공개, Mirador) / uploads/*.pdf → 같은 ID 출처 아이템에 비공개 미디어(UV)
                            py omeka\add_media.py ..\..\DH-Korean-Diaspora <키.json>  (이미 있으면 건너뜀)
   설정: IIIF Server 의 iiifserver_url_version_add = true (주소를 /iiif/3/{id}/manifest 로. 아이템 ID 2 가 버전 2 로 읽히는 문제)
+  omeka/iiif_fields.py   — IIIF 정보를 템플릿으로 관리: '자료'·'출처' 템플릿에 IIIF 묶음, 미디어용 'IIIF 미디어' 템플릿 + 값 채우기
+                           IIIF 이용 허락 dcterms:license(CC·RightsStatements URI 를 텍스트로) → 매니페스트 rights
+                           IIIF 저작자 표시 dcterms:rightsHolder → requiredStatement · 외부 IIIF 매니페스트 dcterms:hasFormat
+                           캔버스 이름 = 미디어의 dcterms:title(없으면 파일 이름)
+  IIIF Server 설정(관리자 → Modules → IIIF Server 에서도 바꿀 수 있음):
+    iiifserver_manifest_rights_property = ["dcterms:license"]   (URI 값은 문자열로 바꾸면 이름표가 나와서 텍스트로 받음)
+    iiifserver_manifest_attribution_property = "dcterms:rightsHolder"
+    iiifserver_manifest_canvas_label = "property_or_source", iiifserver_manifest_canvas_label_property = "dcterms:title"
+    값을 고쳤는데 매니페스트에 안 보이면 캐시(files/iiif/3/{id}.allowed.manifest.json)를 지운다
   컨테이너에서 손댄 것(컨테이너를 새로 만들면 다시 해야 함):
     - PHP exif 확장 설치: docker exec dh-web-publish-omekas-1 docker-php-ext-install exif  → 컨테이너 재시작
     - /var/www/html/.htaccess 에서 Image Server 의 "fast IIIF tile server" 규칙 제거(vips 가 없고 modules 가 심볼릭 링크라 500)
